@@ -1,0 +1,345 @@
+:global {
+  body {
+    //user-select: none; // 防止文字被选中
+  }
+
+  .ant-tabs-dropdown-menu {
+    background: #001529;
+
+    li {
+      color: rgba(190, 211, 231, 1);
+    }
+
+    :hover {
+      background: rgba(29, 48, 71, 1);
+    }
+  }
+
+  .ant-menu-vertical.ant-menu-sub {
+    width: 550px;
+    max-height: calc(100vh - 200px);
+  }
+
+  .spin {
+    background: rgba(0, 0, 0, 1);
+
+    .ant-spin-container::after {
+      background: none !important;
+      opacity: 0 !important;
+    }
+  }
+
+  .tooltip-text {
+    color: rgb(245, 241, 6);
+
+    &:hover {
+      color: rgb(245, 241, 6);
+    }
+  }
+
+  .workspace {
+    color: white;
+    user-select: none;
+
+    .ant-modal-body {
+      max-height: 700px;
+
+      .title {
+        color: rgba(190, 211, 231, 1);
+      }
+    }
+
+    // span,p,:not(button span,p){
+    //   color:rgba(190,211,231,1);
+    // }
+    .ant-input,
+    .ant-input-affix-wrapper,
+    .ant-input-number,
+    .ant-input-number-handler,
+    .ant-input-number-focused,
+    .ant-input-number-handler-wrap,
+    .ant-input-number-handler-up-inner,
+    .ant-input-number-handler-down-inner,
+    .ant-input-number-handler-up,
+    .ant-input-number-handler-down,
+    .ant-input-number-handler-up:active,
+    .ant-input-number-handler-down:active,
+    .ant-select,
+    .ant-select-single:not(.ant-select-customize-input) .ant-select-selector,
+    .ant-select-item,
+    .ant-select-multiple .ant-select-selector,
+    .ant-select-tree,
+    .ant-table,
+    .ant-table-thead>tr>th,
+    .ant-input-group-addon {
+      background: rgba(29, 48, 71, 1);
+      color: rgba(190, 211, 231, 1);
+      border-radius: 4px;
+      border: 1px solid rgba(74, 88, 101, 1);
+    }
+
+    .ant-table-tbody>tr.ant-table-row:hover>td {
+      background: rgba(29, 48, 71, 1);
+      color: rgba(190, 211, 231, 1);
+    }
+
+    .ant-input-number,
+    .ant-input-number:hover,
+    .ant-input-number-focused,
+    .ant-input-number-handler,
+    .ant-input-number-focused,
+    .ant-input-number-handler-wrap,
+    .ant-input-number-handler-up-inner,
+    .ant-input-number-handler-down-inner,
+    .ant-input-number-handler-up,
+    .ant-input-number-handler-down,
+    .ant-select,
+    .ant-select-selector,
+    .ant-select-focused.ant-select-single:not(.ant-select-customize-input) .ant-select-selector,
+    .ant-select-tree,
+    .ant-table,
+      {
+      border: none !important;
+      box-shadow: none
+    }
+
+    .ant-input[disabled] {
+      color: rgba(190, 211, 231, 1);
+    }
+
+    .ant-select-selector,
+    .ant-select-item {
+      border-radius: 0px;
+      border: none;
+    }
+
+    .ant-select-multiple .ant-select-selection-item {
+      background: transparent;
+      border: none;
+
+      >.ant-select-selection-item-remove {
+        color: rgba(190, 211, 231, 1);
+      }
+    }
+
+    .ant-tabs-tab-prev,
+    .ant-tabs-tab-next,
+    .ant-tabs>.ant-tabs-nav .ant-tabs-nav-more {
+      color: rgba(190, 211, 231, 1) !important;
+
+      * {
+        font-size: 16px;
+      }
+    }
+
+    .ant-tabs {
+      overflow: inherit;
+      width: 100%;
+    }
+
+    .ant-tabs-bar {
+      border-bottom: 1px solid rgba(39, 63, 85, 1);
+    }
+
+    .ant-tabs-extra-content .ant-tabs-new-tab svg,
+    .ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab .ant-tabs-close-x,
+    .ant-checkbox+span {
+      color: rgba(190, 211, 231, 1);
+    }
+
+    .ant-tabs-card .ant-tabs-tab,
+    .ant-tabs>.ant-tabs-nav .ant-tabs-nav-add {
+      background: transparent !important;
+      border: none !important;
+      color: rgba(194, 215, 235, 1) !important;
+      margin-bottom: 10px !important;
+      margin-right: 20px !important;
+    }
+
+    .ant-tabs-nav .ant-tabs-tab,
+    .ant-select-arrow,
+    .ant-tabs-tab-remove {
+      color: rgba(194, 215, 235, 1);
+    }
+
+    .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+      color: #fff !important;
+    }
+
+    .ant-tabs-card .ant-tabs-tab-active {
+      background: rgba(23, 144, 255, 1) !important;
+      border-radius: 4px !important;
+      color: #fff !important;
+    }
+
+    .ant-slider-rail {
+      background: rgba(74, 88, 101, 1);
+    }
+
+    .ant-slider-handle,
+    .ant-slider-track {
+      background: rgba(23, 144, 255, 1);
+    }
+
+
+    .data-key {
+
+      p,
+      span {
+        color: rgba(194, 215, 235, 1);
+      }
+
+      button {
+        span {
+          color: #fff
+        }
+      }
+    }
+
+    .cm-s-ayu-dark span.cm-string,
+    .ant-modal-confirm-body .ant-modal-confirm-title {
+      color: rgba(194, 215, 235, 1);
+    }
+
+    .ant-modal-header,
+    .ant-modal-body,
+    .ant-modal-footer {
+      background-color: rgba(29, 48, 71, 1);
+      border: 1px solid rgba(39, 63, 85, 1);
+      overflow: auto;
+
+      .ant-modal-title {
+        color: rgba(194, 215, 235, 1);
+      }
+    }
+
+    .ant-switch-checked {
+      background-color: #0f75bd;
+    }
+
+    .ant-input-number {
+      width: 100%;
+    }
+
+    .ant-menu-dark .ant-menu-inline.ant-menu-sub {
+      background: #001529
+    }
+
+    .switch-div {
+      background-color: #1d3047;
+      color: #c2d7eb !important;
+      border-radius: 5px;
+      line-height: 250%;
+      padding-left: 11px;
+      display: flex;
+      align-items: center;
+
+      span {
+        margin-right: 4px;
+      }
+    }
+
+    .prefix {
+      display: flex;
+      align-items: center;
+      background: rgba(29, 48, 71, 1);
+      color: rgba(190, 211, 231, 1);
+      border-radius: 4px;
+      border: 1px solid rgba(74, 88, 101, 1);
+      padding-left: 11px;
+    }
+
+    .upload-img {
+      width: 100%;
+    }
+
+    .background-list {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 100%;
+
+      img {
+        cursor: pointer;
+        width: 45%;
+        height: auto;
+        margin: 0% 5% 5% 0;
+      }
+    }
+
+    .ant-layout {
+      height: calc(100vh - 64px);
+    }
+
+    .menu-list>div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 10px !important;
+      cursor: pointer;
+
+      img {
+        width: 60px;
+        height: 30px;
+        background: rgba(29, 48, 71, 1);
+        border-radius: 4px;
+        padding: 3px 18px;
+        margin-top: 10px;
+      }
+
+      span {
+        color: rgba(194, 215, 235, 1);
+        font-size: 12px;
+        line-height: 30px;
+        margin-left: 0;
+      }
+    }
+
+    .workspace-main {
+
+      .workspace-layer {
+        max-width: 200px !important;
+        min-width: 200px !important;
+        margin-bottom: 70px;
+
+        .ant-layout-sider-children {
+          overflow: auto;
+        }
+      }
+
+      .workspace-content {
+        position: relative;
+        width: 100%;
+        height: calc(100% - 112px);
+        overflow: auto !important;
+        background-color: #0b2136;
+        background-image: linear-gradient(#0b2136 13px, transparent 0), linear-gradient(90deg, rgba(146, 134, 134, .423) 2px, transparent 0);
+        background-size: 15px 15px, 15px 15px;
+        cursor: move;
+
+        .workspace-iframe {
+          width: 1270px;
+          height: 714.375px;
+          position: absolute;
+          overflow: hidden;
+          box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.5);
+        }
+      }
+
+      .workspace-property {
+        padding: 5px;
+        overflow-y: auto;
+        // padding-right: 15px;
+        min-width: 360px !important;
+        max-width: 360px !important;
+
+        .ant-form-item-label>label {
+          color: white;
+        }
+      }
+    }
+
+  }
+
+
+}

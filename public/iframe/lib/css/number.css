@@ -1,0 +1,25 @@
+.x_number{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.x_number li{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(18, 119, 196, 1);
+  width:54px;
+  height:60px;
+  border-radius:6px;
+  margin-right: 8px;
+}
+.x_number li.active{
+  background: rgba(0,120,255,0.3) !important;
+}
+.x_number li span {
+  font-family:Arial;
+  font-weight:bold;
+  color: #fff;
+}

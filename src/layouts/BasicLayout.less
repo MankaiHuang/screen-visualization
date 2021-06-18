@@ -1,0 +1,168 @@
+:global {
+  // 首页顶部菜单栏
+  .Index-Menu {
+    .ant-layout-header {
+      position: relative;
+      background-color: transparent;
+      margin-top: calc(140px - 64px);
+      .ant-pro-top-nav-header {
+        position: absolute;
+        bottom: 0;
+        height: 50px;
+        background: linear-gradient(to right, #3a34433d 70%, #c883534d);
+        .ant-pro-top-nav-header-main {
+          height: 100%;
+          display: flex;
+          align-items: center;
+          .ant-menu-dark {
+            background-color: transparent;
+            height: 100%;
+            line-height: 300%;
+            .ant-menu-item-selected,
+            .ant-menu-item-active {
+              background-color: transparent !important;
+            }
+          }
+        }
+        .ant-menu-dark .ant-menu-item > a,
+        .ant-menu-item .anticon {
+          color: #c2d7eb;
+          font-size: 18px;
+        }
+        .ant-menu-dark .ant-menu-item-selected .anticon {
+          color: #ffffff;
+        }
+      }
+    }
+    .antd-pro-components-global-header-index-dark
+      .antd-pro-components-global-header-index-action:hover {
+      background: transparent;
+    }
+    > section > section > div {
+      box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.6);
+      border: 1px solid #1d262e;
+      padding-bottom: 20px;
+    }
+    .ant-pro-grid-content {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .index-header {
+    width: 100%;
+    height: 140px;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    z-index: 1;
+    --percentage: 1;
+    box-shadow: 0px 0px 20px rgb(82 80 110);
+    .snow-container {
+      position: absolute;
+      height: 140px;
+      width: 100%;
+      max-width: 100%;
+      top: 0;
+      overflow: hidden;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .snow :local {
+      height: 100%;
+      display: block;
+      position: absolute;
+      z-index: 2;
+      top: 140px;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      pointer-events: none;
+      -webkit-transform: translate3d(0, -100%, 0);
+      transform: translate3d(0, -100%, 0);
+      -webkit-animation: snow linear infinite;
+      animation: snow linear infinite;
+    }
+    .snow.middleground {
+      background-image: url(https://dl6rt3mwcjzxg.cloudfront.net/assets/snow/snow-medium-0b8a5e0732315b68e1f54185be7a1ad9.png);
+      animation-duration: 20s;
+    }
+    .snow.middleground.layered {
+      animation-delay: 0s;
+    }
+    .snow.background {
+      background-image: url(https://dl6rt3mwcjzxg.cloudfront.net/assets/snow/snow-small-1ecd03b1fce08c24e064ff8c0a72c519.png);
+      animation-duration: 30s;
+    }
+    .snow.background.layered {
+      animation-delay: 0s;
+    }
+
+    @keyframes snow {
+      0% {
+        transform: translate3d(0, -140px, 0);
+      }
+      100% {
+        transform: translate3d(15%, 0px, 0);
+      }
+    }
+  }
+  .index-header .view,
+  .index-header .tree {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .index-header img,
+  .index-header video {
+    position: absolute;
+    display: block;
+    width: 120%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .index-header .morning {
+    z-index: 20;
+    opacity: calc(1 - (var(--percentage) - 0.25) / 0.25);
+  }
+
+  .index-header .afternoon {
+    z-index: 10;
+    opacity: calc(1 - (var(--percentage) - 0.5) / 0.5);
+  }
+
+  .index-header .view {
+    transform: translatex(calc(var(--percentage) * 100px));
+  }
+
+  .index-header .tree {
+    transform: translatex(calc(var(--percentage) * 50px));
+    filter: blur(3px);
+  }
+
+  .index-header .view,
+  .index-header .tree,
+  .index-header .morning,
+  .index-header .afternoon {
+    transition: 0.2s all ease-in;
+  }
+
+  .index-header.moving .view,
+  .index-header.moving .tree,
+  .index-header.moving .morning,
+  .index-header.moving .afternoon {
+    transition: none;
+  }
+
+  .index-header .window-cover {
+    opacity: calc((var(--percentage) - 0.9) / 0.1);
+  }
+}

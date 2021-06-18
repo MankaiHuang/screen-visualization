@@ -1,0 +1,68 @@
+.listAndImg {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.listAndImgUl {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  transition: 1s;
+}
+
+.listAndImgUl li {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin-bottom: 2%;
+  padding: 1% 4%;
+  background: url(../../../iframe/image/listAndImg/bg.png) center no-repeat;
+  background-size: 95% 100%;
+  transition: 1s;
+}
+.listAndImgUl li .style1 {
+  border-radius: 50%;
+}
+
+.listAndImgUl li div:nth-of-type(1) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  margin-top: 10px;
+  margin-right: 10px;
+  background: url(../../../iframe/image/listAndImg/indexBg.png) no-repeat;
+  background-size: 100%;
+}
+
+.listAndImgUl li div:nth-of-type(2) {
+  width: 100%;
+}
+
+.listAndImgUl li div:nth-of-type(2) > p:nth-of-type(1) {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.listAndImgUl li.active {
+  padding: 1% 1%;
+  background: url(../../../iframe/image/listAndImg/activeBg.png) no-repeat;
+  background-size: 100% 100%;
+}
+.listAndImgUl li.active div:nth-of-type(1) {
+  background: url(../../../iframe/image/listAndImg//activeIndexBg.png) no-repeat;
+  background-size: 100%;
+}
+
+.listAndImg-from {
+  display: flex;
+  flex: flex-start;
+  line-height: 400%;
+}
+
+.listAndImg-from span:nth-of-type(2) {
+  margin-left: 10%;
+}

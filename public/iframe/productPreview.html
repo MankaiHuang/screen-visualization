@@ -1,0 +1,610 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.bootcss.com/element-ui/2.13.1/theme-chalk/index.css" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/animate.css/4.1.0/animate.min.css" rel="stylesheet">
+    <link href="../iframe/lib/css/video-js.min.css" rel="stylesheet">
+    <link href="../iframe/lib/Cesium/Widgets/widgets.css" rel="stylesheet">
+    <link href="../iframe/lib/css/common.css" rel="stylesheet">
+    <title>我是大屏预览的标题</title>
+    <style>
+        /*!!!!!!!不要删除下面这句话 作用为替换css文件*/
+        
+        .sobeyBaseCss {}
+        
+        html,
+        body,
+        p,
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+        
+        @font-face {
+            font-family: "FZHZGBJW";
+            src: url(../iframe/lib/font/FZHZGBJW.TTF);
+        }
+        
+        @font-face {
+            font-family: "DIGITALDREAMFAT";
+            src: url('../iframe/lib/font/DIGITALDREAMFAT.woff2') format('woff2'), url('../iframe/lib/font/DIGITALDREAMFAT.woff') format('woff'), url('../iframe/lib/font/DIGITALDREAMFAT.ttf') format('truetype');
+        }
+        
+        #body {
+            width: 100%;
+            height: 100%;
+            /* background-color: #0D1D31; */
+            background-size: 100% 100% !important;
+            user-select: none;
+            /* background-image: linear-gradient(rgb(41, 40, 50) 13px, transparent 0),
+        linear-gradient(90deg, rgba(146, 134, 134, 0.623) 2px, transparent 0);
+      background-size: 15px 15px, 15px 15px; */
+        }
+        
+         ::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+            background-color: aliceblue;
+        }
+        
+         ::-webkit-scrollbar-track {
+            background: rgba(50, 50, 50, 0.01);
+        }
+        
+         ::-webkit-scrollbar-thumb {
+            background-color: rgba(50, 50, 50, 0.6);
+        }
+        
+        .chart-item {
+            width: 600px;
+            height: 400px;
+            position: absolute;
+            /* top: 30px; */
+            /* left: 30px; */
+            background-repeat: no-repeat !important;
+            background-size: 100% 100% !important;
+        }
+        
+        .chart-item .chart-box {
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .main {
+            width: 100%;
+            height: 100%;
+        }
+        
+        #background {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            z-index: 0;
+        }
+        
+        li {
+            list-style: none;
+        }
+        
+        .full {
+            width: 100% !important;
+            height: 100% !important;
+        }
+        
+        .el-dialog {
+            z-index: 9999 !important;
+            background-color: rgba(0, 0, 0, .85);
+            border: 0;
+        }
+        
+        .el-dialog__headerbtn {
+            font-size: 40px;
+        }
+        
+        .willResizeClass {
+            width: 90%;
+            height: 90%;
+            position: absolute;
+            left: 50%;
+            top: 55%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .fade-enter-active,
+        .fade-leave-active {
+            transition: opacity .5s;
+        }
+        
+        .fade-enter,
+        .fade-leave-to {
+            opacity: 0;
+        }
+        
+        .amap-logo {
+            display: none;
+            opacity: 0 !important;
+        }
+        
+        .amap-copyright {
+            opacity: 0;
+        }
+        
+        .l7-right {
+            display: none;
+        }
+        
+        .cesium-viewer-bottom {
+            display: none;
+        }
+        
+        .background {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-size: 100% 100% !important;
+            top: 0;
+            z-index: -1;
+        }
+        
+        .x-spreadsheet-sheet {
+            pointer-events: none;
+        }
+        
+        .x-spreadsheet-toolbar {
+            display: none;
+        }
+        
+        .el-carousel__container {
+            height: 100% !important;
+        }
+        
+        [v-cloak] {
+            display: none !important;
+        }
+        
+        .l7-left {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="body" ref="body" @click="closeModal" v-loading="loading" element-loading-background="rgba(0, 0, 0, 0.8)" element-loading-text="拼命加载中">
+        <div class="echartsList" v-if="basicConfig.window">
+            <el-carousel :autoplay="false" @change="windowChange" trigger="click" ref="carousel" v-if="basicConfig.window.length>1">
+                <el-carousel-item v-for="(basicWindow,index) in basicConfig.window" :key="basicWindow">
+                    <ul>
+                        <li v-for="(item,index) in allTemplateList[index]" :key="item.property.elementId" :ref="item.property.elementId+'Template'" @dblclick="resizeTemplate(item)" class="chart-item background" :id="item.property.elementId+'chart-item'" :style="{background:'url('+item.property.background+') no-repeat'}">
+                            <div class="chart-box animate__animated" :ref="'chartBox'+item.property.elementId" v-show="!item.property.isHidden" :class="[item.property.selfAnimate&&item.property.selfAnimate.default]">
+                                <div :id="item.property.elementId" class='main animate__animated' :class="['animate__'+item.property.animate.default]" v-if="!loading">
+                                    <component :ref="item.property.elementId" :key="item.isLoading+item.property.isHidden" :is="'x-'+(item.property.componentsType=='private'?'private': item.property.type)" :link="item.property.multLink" :config="item.property.bluePrintConfig" :option="item.property.option"
+                                        :id="item.property.elementId" />
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </el-carousel-item>
+            </el-carousel>
+            <ul v-else v-for="(basicWindow,index) in basicConfig.window" :key="basicWindow">
+                <li v-for="(item,index) in allTemplateList[index]" :key="item.property.elementId" :ref="item.property.elementId+'Template'" @dblclick="resizeTemplate(item)" class="chart-item" :id="item.property.elementId+'chart-item'">
+                    <!-- <div class="title">{{item.property.title}}</div> -->
+                    <div :style="{background:'url('+item.property.background+') no-repeat'}" class="chart-box animate__animated background" :ref="'chartBox'+item.property.elementId" :class="[item.property.selfAnimate&&item.property.selfAnimate.default]" v-show="!item.property.isHidden">
+                        <div :id="item.property.elementId" class='main animate__animated' :class="['animate__'+item.property.animate.default]" v-if="!loading">
+                            <component :ref="item.property.elementId" :key="item.isLoading+item.property.isHidden" :is="'x-'+(item.property.componentsType=='private'?'private': item.property.type)" :link="item.property.multLink" :config="item.property.bluePrintConfig" :option="item.property.option"
+                                :id="item.property.elementId" />
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div ref="background" class="background" :style="{background:basicConfig.background?(basicConfig.background.substr(0,1)==='#' || basicConfig.background&&basicConfig.background.substr(0,1)==='r' )?basicConfig.background: 'url('+basicConfig.background+')':'#0D1D31' }">
+            </div>
+        </div>
+        <el-dialog fullscreen :lock-scroll="true" class="resize" :visible.sync="isShowResize" @before-close="isShowResize=false">
+            <div v-if="isShowResize" :ref="willResizeTemplate.property.elementId+'Template-resize'" @click.stop="" :id="willResizeTemplate.property.elementId+'chart-item-resize'" :style="{background:'url('+willResizeTemplate.property.background.url+')'}">
+                <div class="chart-box animate__animated">
+                    <div :id="willResizeTemplate.property.elementId+'resize'" class='main animate__animated' :class="['animate__'+willResizeTemplate.property.animate.default]">
+                        <component :key="willResizeTemplate.isLoading" :is="'x-'+(willResizeTemplate.property.componentsType=='private'?'private': willResizeTemplate.property.type)" :link="willResizeTemplate.property.multLink" :config="willResizeTemplate.property.bluePrintConfig"
+                            :option="willResizeTemplate.property.option" :id="willResizeTemplate.property.elementId+'resize'" />
+                    </div>
+                </div>
+            </div>
+        </el-dialog>
+    </div>
+</body>
+<script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/element-ui/2.13.1/index.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.19.2/axios.min.js"></script>
+<script src="../iframe/lib/js/commonFun.js"></script>
+<script src="../iframe/lib/js/mixinsComponents.js"></script>
+<script src="../iframe/lib/js/mixinsMap.js"></script>
+<script src="../iframe/lib/js/mixinsThree.js"></script>
+<script src="../iframe/lib/js/mixinsDecoration.js"></script>
+<script src="../iframe/lib/js/mixinsEarth.js"></script>
+<script src="../iframe/lib/js/mixinsCesiumEarth.js"></script>
+<script src="../iframe/lib/js/video.min.js" async></script>
+<script src="../iframe/lib/js/vue-count-to.min.js" async></script>
+
+
+<script>
+    var vm = new Vue({
+        el: "#body",
+        mixins: [mixinsComponents],
+        data() {
+            return {
+                allTemplateList: null,
+                background: null,
+                zoomWidth: 1,
+                zoomHeight: 1,
+                basicConfig: null,
+                loading: true,
+                debounceTimer: null, // 防抖定时器
+                isShowResize: false, // 放大图表的modal
+                willResizeTemplate: [], // 将要放大的组件
+                url: '../iframe/lib/', // 加载js的地址
+                EventSource: null, // 全局SSE source时间
+                nowWindowIndex: 0, // 多桌面模式, 现在处于的桌面序号
+                timer: null, // 定时器
+                // bakAllTemplateList: null, // 备份组件 防止改变了大小改变了原始数据
+                innerZoom: null, // 子元素缩放的倍数
+                isLoadJsList: [], // 已经加载了的js列表
+                cssMerge: '', // 通过id访问的css
+                staticUrl: './', // 静态资源地址
+            }
+        },
+        beforeDestroy() {
+            // 移除监听
+            clearTimeout(this.debounceTimer)
+            clearInterval(this.timer)
+        },
+        computed: {
+            templateList() {
+                return this.allTemplateList[this.nowWindowIndex]
+            }
+        },
+        async created() {
+            this.loading = true
+            let searchKey = this.urlArgs()
+            searchKey.id && await this.initId(searchKey.id)
+            if (!this.basicConfig.zoomMode) {
+                this.basicConfig.zoomMode = {
+                    default: 'YOY'
+                }
+            }
+            await this.initJs(this.templateList)
+            this.basicConfig.window && this.basicConfig.window.length > 1 && window.addEventListener('mousewheel', this.scrollFunc, {
+                passive: false
+            });
+            window.onresize = () => {
+                this.onResize()
+            }
+        },
+        methods: {
+            urlArgs() {
+                var args = {};
+                var query = location.search.substring(1);
+                var pairs = query.split("&");
+                for (var i = 0; i < pairs.length; i++) {
+                    var pos = pairs[i].indexOf("=");
+                    if (pos == -1) {
+                        continue;
+                    }
+                    var name = pairs[i].substring(0, pos);
+                    var value = pairs[i].substring(pos + 1);
+                    args[name] = value;
+                }
+                return args;
+            },
+            async onResize() {
+                // 根据当前屏幕尺寸进行缩放达到和编辑器显示的效果一致
+                for (let item of this.templateList) {
+                    if (this.basicConfig.zoomMode.default === 'YOY') {
+                        this.initElementZoom(item.property)
+                    }
+                    this.initSize(item.property)
+                    item.isLoading = this.guid()
+                    this.$forceUpdate()
+                    await this.initData(item)
+                }
+                this.loading = false
+                let zoomHeight = 1
+                if (this.basicConfig.zoomMode.default === 'YOY') {
+                    // if (document.documentElement.clientWidth > this.basicConfig.width) {
+                    // 实际宽比预设宽大 则按照页面实际高除去 预设放大的高 进行缩放
+                    zoomHeight = document.documentElement.clientHeight / (this.innerZoom * this.basicConfig.height)
+                    if (zoomHeight > 1) {
+                        zoomHeight = 1
+                    }
+                    // }
+                    this.$refs.body.style.zoom = zoomHeight
+                }
+            },
+            initElementZoom(item) {
+                // 刷新组件的缩放
+                let elementWidth = this.basicConfig.width / item.width
+                let element = this.$refs[item.elementId + 'Template']
+                this.innerZoom = ((elementWidth / this.basicConfig.width) * document.documentElement.clientWidth) / elementWidth
+                element && (element[0].style.zoom = this.innerZoom)
+            },
+            scrollFunc(e) {
+                if (e.wheelDelta > 0) {
+                    this.$refs.carousel.setActiveItem(this.nowWindowIndex + 1)
+                } else {
+                    this.$refs.carousel.setActiveItem(this.nowWindowIndex - 1)
+                }
+            },
+            windowChange(e) {
+                // 改变窗口
+                this.nowWindowIndex = e
+                this.$nextTick(() => {
+                    this.onResize()
+                })
+            },
+            async initId(id) {
+                this.loading = true;
+                this.templateList = []
+                let apiUrlOrigin = this.url.substr(0, this.url.length - 12)
+                if (apiUrlOrigin === '..') {
+                    apiUrlOrigin = 'https://moctest.sobeylingyun.com'
+                }
+                const apiUrl = `${apiUrlOrigin}/screen/api/v1/screen/${id}`
+                const res = await axios(apiUrl, {
+                    withCredentials: true // 带上cookie
+                })
+
+                const {
+                    name,
+                    background,
+                    componentList,
+                    extend
+                } = res.data.data
+                const templateList = {
+                    templateList: componentList,
+                    ...extend
+                }
+                const tempData = []
+                this.allTemplateList = []
+                templateList.templateList.map(item => {
+                    const upIndex = item.extend.upIndex || 0 // 获取保存时的upIndex 即所处的桌面序号
+                    if (!this.allTemplateList[upIndex]) {
+                        this.allTemplateList[upIndex] = []
+                    }
+                    this.allTemplateList[upIndex].push(item.extend)
+                })
+                this.nowWindowIndex = 0
+                delete templateList.templateList
+                this.basicConfig = {
+                    ...templateList
+                }
+                if (!this.basicConfig.window) {
+                    this.basicConfig.window = [0]
+                }
+                const cssList = []
+                this.cssMerge = '' // 每次都清空
+                this.allTemplateList = this.allTemplate2NotGroupAllTemplate(this.allTemplateList)
+                this.allTemplateList.map(item => {
+                    this.loadCss(item, cssList)
+                })
+                var style = document.createElement("style");
+                style.type = "text/css";
+                style.innerHTML = this.cssMerge.replaceAll('../../../', '../')
+                document.getElementsByTagName("head")[0].appendChild(style);
+            },
+            loadCss(templateList, cssList) {
+                //动态加载css使用到的css文件 并合并
+                const find = (node) => { // 匿名函数防止this指向错误
+                    node.map(item => {
+                        let {
+                            type,
+                            componentsType
+                        } = item.property
+                        if (type == 'group') {
+                            find(item.property.children)
+                        } else {
+                            if (!cssList.includes(item.type) && componentsType !== 'charts') {
+                                if (componentsType === 'private') {
+                                    // 页面组件 在进行细分
+                                    this.loadCss(item.property.option.templateList, cssList)
+                                } else {
+                                    // 防止重复加载
+                                    cssList.push(type)
+                                    if (type.slice(0, 3) === 'tab') {
+                                        type = 'tab' // tab1 tab2 用的都是tab.css文件
+                                    }
+                                    $.ajax({
+                                        async: false,
+                                        url: `./lib/css/${type}.css`,
+                                        success: data => {
+                                            this.cssMerge += data
+                                        }
+                                    })
+                                }
+                            }
+                        }
+                    })
+                }
+                find(templateList)
+            },
+            async initJs(templateList) {
+                // 动态加载js文件
+                if (!templateList) {
+                    this.loading = false;
+                    return;
+                }
+                for (let item of templateList) {
+                    const {
+                        type,
+                        componentsType,
+                        option,
+                        secondType
+                    } = item.property
+                    if (secondType === 'city' && !this.isLoadJsList.includes('L7')) {
+                        await this.loadJS(`${this.url}/js/L7-min.js`)
+                        await this.initMap()
+                        this.isLoadJsList.push('L7')
+                    } else if (['charts', 'pyramid', 'earth', 'cesiumEarth', 'L7'].includes(componentsType)) {
+                        // pyramid 用到了 echarts
+                        if (!this.isLoadJsList.includes('echarts')) {
+                            await this.loadJS('https://cdn.bootcdn.net/ajax/libs/echarts/5.0.1/echarts.min.js')
+                            this.isLoadJsList.push('echarts')
+                        }
+                        if ((['area', 'areaPoint'].includes(componentsType)) && !this.isLoadJsList.includes('china')) {
+                            await this.loadJS(`${this.url}/js/china.js`)
+                            this.isLoadJsList.push('china')
+                        } else if (secondType === 'earth' && !this.isLoadJsList.includes('echartsGl')) {
+                            await this.loadJS(`${this.url}/js/echarts-gl.min.js`)
+                            this.isLoadJsList.push('echartsGl')
+                            await this.initEarth()
+                        } else if (secondType === 'cesiumEarth' && !this.isLoadJsList.includes('cesiumEarth')) {
+                            await this.loadJS(`${this.url}/Cesium/Cesium.js`)
+                            this.isLoadJsList.push('cesiumEarth')
+                            await this.initCesiumEarth()
+                        } else if ((['textCloud1', 'textCloud'].includes(secondType)) && !this.isLoadJsList.includes('echarts-wordcloud')) {
+                            await this.loadJS(`${this.url}/js/echarts-wordcloud.min.js`)
+                            this.isLoadJsList.push('echarts-wordcloud')
+                        }
+                    } else if ((['border', 'decoration'].includes(componentsType)) && !this.isLoadJsList.includes('dataV')) {
+                        await this.loadJS(`${this.url}/js/dataV.js`)
+                        await this.initDecoration()
+                        this.isLoadJsList.push('dataV')
+
+                    } else if ((componentsType === 'L7' && type === 'queue' || type === 'spaceTime') && !this.isLoadJsList.includes('three')) {
+                        await this.loadJS(`${this.url}/js/three.min.js`)
+                        await this.loadJS('https://cdn.bootcdn.net/ajax/libs/tween.js/0.11.0/Tween.min.js')
+                        await this.loadJS(`${this.url}/js/TrackballControls.js`)
+                        await this.loadJS(`${this.url}/js/CSS3DRenderer.js`)
+                        await this.initThree() // 初始化three 组件
+                        this.isLoadJsList.push('three')
+                    } else if (type === 'smartCity' && !this.isLoadJsList.includes('smartCity')) {
+                        await this.loadJS('http://earthsdk.com/v/last/XbsjEarth/XbsjEarth.js')
+                    } else if (componentsType === 'private') {
+                        // 存在页面组件 则加载重新遍历
+                        await this.initJs(option.templateList)
+                        return;
+                    }
+                }
+
+                this.basicConfig.waterMask && this.addWaterMask('productPreview', this.basicConfig.waterMask, document.body)
+                await this.initTemplateList()
+            },
+            async loadJS(url) {
+                return new Promise(function(resolve, reject) {
+                    var script = document.createElement('script');
+                    script.type = "text/javascript";
+                    script.async = false;
+                    if (script.readyState) { //IE
+                        script.onreadystatechange = function() {
+                            if (script.readyState == "loaded" ||
+                                script.readyState == "complete") {
+                                script.onreadystatechange = null;
+                                resolve('success: ' + url);
+                            }
+                        };
+                    } else { //Others
+                        script.onload = function() {
+                            resolve('success: ' + url);
+                        };
+                    }
+                    script.onerror = function() {
+                        reject(Error(url + 'load error!'));
+                    };
+                    script.src = url
+                    document.body.appendChild(script);
+
+                });
+            },
+            closeModal() {
+                this.isShowResize = false
+            },
+            resizeTemplate(item) {
+                if (item.property.componentsType !== 'L7') {
+                    this.isShowResize = true
+                    this.willResizeTemplate = item
+                }
+            },
+            async initTemplateList() {
+                // 初始化获取templateList
+                await this.initComponent()
+                this.initPage()
+            },
+            async initData(template) {
+                const item = template.property
+                switch (item.dataBindType.default) {
+                    case 'api':
+                        {
+                            if (this.timer) {
+                                clearInterval(this.timer)
+                            }
+                            this.timer = setInterval(async() => {
+                                // 自动更新数据
+                                await this.initApi(template)
+                            }, (item.refresh || 10) * 1000 * 60);
+                            await this.initApi(template)
+                        };
+                        break;
+                  
+                    case 'SSE':
+                        {
+                            await this.SSEBind()
+                        };
+                        break;
+                }
+            },
+            initSize(item) {
+                //console.log(item)
+                Object.keys(item).map(key => {
+                    switch (key) {
+                        case 'rotate':
+                            {
+                                let elementRef = this.$refs['chartBox' + item.elementId] // 用ref代替
+                                elementRef[0].style.transform = `rotate(${item[key]}deg)`
+                            };
+                            break;
+                        case 'width':
+                        case 'height':
+                        case 'left':
+                        case 'top':
+                            {
+                                if (this.basicConfig.zoomMode.default === 'YOY') {
+                                    this.setValue(item, key, item[key])
+                                } else {
+                                    let basicConfigKey = key
+                                    if (key === 'left') basicConfigKey = 'width'
+                                    if (key === 'top') basicConfigKey = 'height'
+                                    this.setValue(item, key, `${item[key] / this.basicConfig[basicConfigKey] * 100}%`)
+                                }
+                            };
+                            break;
+                        case 'zIndex':
+                        case 'backgroundColor':
+                            {
+                                this.setValue(item, key, item[key])
+                            };
+                            break;
+
+                            break;
+                    }
+                })
+            },
+            async initPage() {
+                // 渲染数据
+                this.templateList.sort((a, b) => {
+                    return a.property.shareApiId ? 1 : -1 // 排序 shareApiId 往后排
+                })
+                this.onResize()
+                    // 初始化背景图片的属性
+                if (this.basicConfig.blur) {
+                    this.$refs.background.style.filter = `blur(${this.basicConfig.blur}px)`
+                }
+            },
+
+        }
+    })
+</script>
+
+</html>

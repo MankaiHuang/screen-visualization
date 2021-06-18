@@ -1,0 +1,78 @@
+.listAnimation p {
+  float: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: center;
+  text-overflow: ellipsis;
+  /* padding: 0 10px; */
+}
+
+.listAnimation-table-head {
+  display: flex;
+  align-items: center;
+  height: 10%;
+  border-radius: 5px;
+}
+
+.listAnimation-table-body {
+  height: 90%;
+  overflow: hidden;
+}
+.listAnimation-table-body li {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 25px;
+}
+.listAnimation-isHaveBg {
+  width: 90% !important;
+  padding: 0px 5%;
+  border-radius: 10px;
+}
+.listAnimation-table-body li .index {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10%;
+}
+.listAnimation-table-body li .index p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  line-height: 200%;
+  border-radius: 50%;
+}
+.listAnimation-table-body li .index p > img {
+  width: 30px;
+  margin-left: 5%;
+}
+.listAnimation-table-body li p {
+  line-height: 500%;
+}
+
+.listAnimation-table-body > .activeImage {
+  position: absolute;
+  top: 100px;
+  z-index: -1;
+  width: 100%;
+  height: 128px;
+  transition: 1s;
+}
+.listAnimationStyle2 .listAnimation-table-body li .index {
+  position: relative;
+  left: 1%;
+}
+.listAnimationStyle2 .listAnimation-table-body > .activeImage {
+  top: 70px;
+  left: -1.5%;
+  width: 103%;
+  height: auto;
+}
+
+.listAnimationStyle2 > ul > li {
+  background-image: url(../../../iframe/image/rwd-2.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}

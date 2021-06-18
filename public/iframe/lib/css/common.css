@@ -1,0 +1,124 @@
+/* 呼吸灯效果 */
+
+.selfAnimate_breathingLight {
+    animation: breathingLight 3s ease infinite;
+    -webkit-animation: breathingLight 3s ease infinite;
+    background-size: 100% 100% !important;
+}
+
+@keyframes breathingLight {
+    0% {
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+        -webkit-transform: scale(1.05);
+        -moz-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+        -o-transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+    }
+}
+
+.selfAnimate_breathingLight_strong {
+    animation: breathingLight_strong 2s ease infinite;
+    -webkit-animation: breathingLight_strong 2s ease infinite;
+    background-size: 100% 100% !important;
+}
+
+@keyframes breathingLight_strong {
+    0% {
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+        -webkit-transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        -o-transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+    }
+}
+
+
+/* 漂浮效果 */
+
+.selfAnimate_float {
+    animation: selfFloat 3s ease infinite;
+    -webkit-animation: selfFloat 3s ease infinite;
+    background-size: 100% 100% !important;
+}
+
+@keyframes selfFloat {
+    0% {
+        transform: translateX(0) translateY(0);
+        -webkit-transform: translateX(0) translateY(0);
+        -moz-transform: translateX(0) translateY(0);
+        -ms-transform: translateX(0) translateY(0);
+        -o-transform: translateX(0) translateY(0);
+    }
+    50% {
+        transform: translateX(-10px) translateY(20px);
+        -webkit-transform: translateX(-10px) translateY(20px);
+        -moz-transform: translateX(-10px) translateY(20px);
+        -ms-transform: translateX(-10px) translateY(20px);
+        -o-transform: translateX(-10px) translateY(20px);
+    }
+    100% {
+        transform: translateX(0) translateY(0);
+        -webkit-transform: translateX(0) translateY(0);
+        -moz-transform: translateX(0) translateY(0);
+        -ms-transform: translateX(0) translateY(0);
+        -o-transform: translateX(0) translateY(0);
+    }
+}
+
+.selfAnimate_float_strong {
+    animation: selfFloat_strong 3s ease infinite;
+    -webkit-animation: selfFloat_strong 3s ease infinite;
+    background-size: 100% 100% !important;
+}
+
+@keyframes selfFloat_strong {
+    0% {
+        transform: translateX(0) translateY(0);
+        -webkit-transform: translateX(0) translateY(0);
+        -moz-transform: translateX(0) translateY(0);
+        -ms-transform: translateX(0) translateY(0);
+        -o-transform: translateX(0) translateY(0);
+    }
+    50% {
+        transform: translateX(-20px) translateY(40px);
+        -webkit-transform: translateX(-20px) translateY(40px);
+        -moz-transform: translateX(-20px) translateY(40px);
+        -ms-transform: translateX(-20px) translateY(40px);
+        -o-transform: translateX(-20px) translateY(40px);
+    }
+    100% {
+        transform: translateX(0) translateY(0);
+        -webkit-transform: translateX(0) translateY(0);
+        -moz-transform: translateX(0) translateY(0);
+        -ms-transform: translateX(0) translateY(0);
+        -o-transform: translateX(0) translateY(0);
+    }
+}

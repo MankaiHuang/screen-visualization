@@ -1,0 +1,84 @@
+.bubbleList {
+  width: 100%;
+  height: 100%;
+
+}
+.bubbleListSingle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  animation: star 15s ease infinite;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  width: 250px;
+  height: 250px;
+}
+.bubbleListSingle> p:nth-of-type(1) {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 30px;
+}
+
+.bubbleListSingle> p:nth-of-type(2) {
+  color: #fff;
+  font-size: 40px;
+}
+.bubbleListSingle:nth-of-type(1){
+  left: 10px;
+    top: 100px;
+}
+.bubbleListSingle:nth-of-type(2){
+  left: 325px;
+  top: 160px;
+}
+.bubbleListSingle:nth-of-type(3){
+  left: 420px;
+  top: 0px;
+}
+.bubbleListSingle:nth-of-type(4){
+  right: 610px;
+  top: 190px;
+}
+.bubbleListSingle:nth-of-type(5){
+  right: 620px;
+  top: 0px;
+}
+.bubbleListSingle:nth-of-type(6){
+  right: 80px;
+  top: 140px;
+}
+.bubbleListSingle:nth-of-type(7){
+  right: 120px;
+  top: -20px;
+}
+.bubbleListSingle:nth-of-type(8){
+  left: 550px;
+  top: 70px;
+}
+.bubbleListSingle:nth-of-type(9){
+  right: 400px;
+  top: 80px;
+}
+.bubbleListSingle:nth-of-type(10){
+ left: 1305px;
+ top: -10px;
+}
+.bubbleListSingle:nth-of-type(11){
+  right: 290px;
+  top: -60px;
+}
+@keyframes star {
+  0% {
+    transform: translate(-10px, -10px);
+  }
+
+  50% {
+    transform: translate(10px, 10px);
+  }
+
+  100% {
+    transform: translate(-10px, -10px);
+  }
+}

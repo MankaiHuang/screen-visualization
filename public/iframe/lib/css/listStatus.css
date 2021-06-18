@@ -1,0 +1,124 @@
+.listStatus>li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 14%;
+    margin-bottom: 2%;
+    padding-left: 3%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.listStatus>li h3 {
+    margin: 10px 0;
+}
+
+.listStatus .listStatus-details {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.blackListStaus .yellow {
+    background-image: url('../../../iframe/image/yellow_black.png') !important;
+}
+
+.blackListStaus .red {
+    background-image: url('../../../iframe/image/red_black.png') !important;
+}
+
+.blackListStaus .green {
+    background-image: url('../../../iframe/image/green_black.png') !important;
+}
+
+.blackListStaus .blue {
+    background-image: url('../../../iframe/image/blue_black.png') !important;
+}
+
+.listStatus .yellow {
+    background-image: url('../../../iframe/image/yellow.png');
+}
+
+.listStatus .red {
+    background-image: url('../../../iframe/image/red.png');
+}
+
+.listStatus .green {
+    background-image: url('../../../iframe/image/green.png');
+}
+
+.listStatus .blue {
+    background-image: url('../../../iframe/image/blue.png');
+}
+
+.listStatus .blueFont {
+    color: #27f7ff !important;
+}
+
+.listStatus .redFont {
+    color: #ff304d !important;
+}
+
+.listStatus .yellowFont {
+    color: #ffba01 !important;
+}
+
+.listStatus .greenFont {
+    color: #37df03 !important;
+}
+
+.listStatus .listStatus-details p>i {
+    margin-right: 3%;
+}
+
+.listStatus .listStatus-details p:nth-of-type(1) {
+    flex: 1;
+}
+
+.listStatus .listStatus-details p:nth-of-type(2) {
+    flex: 1;
+}
+
+.listStatus .listStatus-details p:nth-of-type(3) {
+    flex: 2;
+}
+
+.listStatus .ani2:nth-child(1) {
+    animation: rotateX2 0.7s linear 1.1s;
+}
+
+.listStatus .ani2:nth-child(2) {
+    animation: rotateX2 0.7s linear 1s;
+}
+
+.listStatus .ani2:nth-child(3) {
+    animation: rotateX2 0.7s linear 0.9s;
+}
+
+.listStatus .ani2:nth-child(4) {
+    animation: rotateX2 0.7s linear 0.8s;
+}
+
+.listStatus .ani2:nth-child(5) {
+    animation: rotateX2 0.7s linear 0.7s;
+}
+
+.listStatus .ani2:nth-child(6) {
+    animation: rotateX2 0.7s linear 0.5s;
+}
+
+.mocListStaus .yellow {
+    background-image: url('../../../iframe/image/yellow_moc.png') !important;
+}
+
+.mocListStaus .red {
+    background-image: url('../../../iframe/image/red_moc.png') !important;
+}
+
+.mocListStaus .green {
+    background-image: url('../../../iframe/image/green_moc.png') !important;
+}
+
+.mocListStaus .blue {
+    background-image: url('../../../iframe/image/blue_moc.png') !important;
+}

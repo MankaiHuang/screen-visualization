@@ -1,0 +1,71 @@
+ /*选择按钮样式start*/
+ #menu3DQueue {
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  bottom: 50px;
+  text-align: center;
+  font-size: 32px
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  color: rgba(127, 255, 255, 0.75);
+  padding: 12px 24px;
+  cursor: pointer;
+  outline: 1px solid rgba(127, 255, 255, 0.75);
+}
+
+button:hover {
+  background-color: rgba(127, 255, 255, 0.5)
+}
+
+button:active {
+  background-color: rgba(127, 255, 255, 0.75)
+}
+
+/*end*/
+
+/*元素样式start*/
+.element {
+  width: 120px;
+  height: 160px;
+  cursor: default;
+  text-align: center;
+  border: 1px solid rgba(127, 255, 255, 0.25);
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.5);
+}
+
+.element:hover {
+  border: 1px solid rgba(127, 255, 255, 0.75);
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.75);
+}
+
+.element .number {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 12px;
+  color: rgba(127, 255, 255, 0.75);
+}
+
+.element .symbol {
+  position: absolute;
+  top: 40px;
+  left: 0px;
+  right: 0;
+  font-size: 60px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.75);
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.95);
+}
+
+.element .detail {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 15px;
+  font-size: 12px;
+  color: rgba(127, 255, 255, 0.75);
+}

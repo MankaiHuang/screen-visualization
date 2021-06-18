@@ -1,0 +1,64 @@
+.rotateEarth {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rotateEarth .map1,
+.rotateEarth .map2,
+.rotateEarth .map3 {
+  position: absolute;
+}
+
+.rotateEarth .map1 {
+  z-index: 2;
+  width: 50%;
+  height: 100%;
+  background: url(../../../iframe/image/rotateEarth/lbx.png);
+  background-repeat: no-repeat;
+  background-position-y: 50%;
+  background-size: contain;
+  animation: myfirst2 15s infinite linear;
+}
+
+.rotateEarth .map2 {
+  z-index: 2;
+  width: 50%;
+  height: 100%;
+  background: url(../../../iframe/image/rotateEarth/jt.png);
+  background-repeat: no-repeat;
+  background-position-y: 50%;
+  background-size: contain;
+  opacity: 0.2;
+  animation: myfirst 10s infinite linear;
+}
+
+.rotateEarth .map3 {
+  z-index: 1;
+  width: 44%;
+  height: 100%;
+  background: url(../../../iframe/image/rotateEarth/map.png);
+  background-repeat: no-repeat;
+  background-position-y: 50%;
+  background-size: contain;
+}
+
+@keyframes myfirst2 {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes myfirst {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(-359deg);
+  }
+}

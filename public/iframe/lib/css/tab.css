@@ -1,0 +1,108 @@
+.tab {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.tab p {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 0 20px;
+  /* color: #00C2EC; */
+  font-size: 26px;
+  line-height: 220%;
+  border-radius: 10px;
+  cursor: pointer;
+  /* background: rgba(0, 181, 255, 0.3); */
+  /* border: 1px solid #007DBD; */
+  transition: 0.5s ease;
+}
+.tab p.active {
+  color: #fff;
+  /* background: rgba(0, 146, 200, 1); */
+  /* border: 1px solid #00EAFF; */
+}
+.tab-anji p.active {
+  background: url(../../../iframe/image/anjiTab.png);
+  background-size: 100% 100%;
+}
+.tab-data p {
+  background: url(../../../iframe/image/tab/bg.png) no-repeat;
+  background-size: 100% 100%;
+}
+.tab-data p.active {
+  padding: 20px 40px;
+  background: url(../../../iframe/image/tab/activeBg.png) no-repeat;
+  background-size: 100% 100%;
+}
+.tab1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 110px;
+  overflow: hidden;
+  transition: 1s ease 0s;
+}
+.tab1 p {
+  /* flex:1; */
+  width: 213px;
+  min-width: 213px;
+  margin-right: 40px;
+  font-weight: 400;
+  line-height: 73px;
+  text-align: center;
+  cursor: pointer;
+}
+.tabVer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.tabVer p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  height: 100px;
+  margin-bottom: 30px;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  cursor: pointer;
+}
+.tabVer p.active {
+  width: 100%;
+}
+
+.tabVerImg {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.tabVerImg p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 83%;
+  height: 100px;
+  margin-bottom: 30px;
+  background-image: url(../../../iframe/image/btn.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  cursor: pointer;
+}
+.tabVerImg p:not(.active) {
+  margin-left: 5%;
+}
+.tabVerImg p.active {
+  width: 100%;
+  height: 140px;
+  background-image: url(../../../iframe/image/selected.png) !important;
+}
+/* 暗黑 */
+.blackTabVerImg p {
+  background-image: url(../../../iframe/image/btn_black.png) !important;
+}
+.blackTabVerImg p.active {
+  background-image: url(../../../iframe/image/selected_black.png) !important;
+}

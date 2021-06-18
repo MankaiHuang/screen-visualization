@@ -1,0 +1,48 @@
+:global{
+  .colorPicker{
+    height: 100%;
+    .color-show{
+      display: flex;
+      flex-direction: row;
+      justify-content:flex-end;
+      align-items: center;
+      .color {
+        width: 40px !important;
+        height: 24px !important;
+        border-radius: 4px;
+        margin-right: 40px;
+        cursor: pointer;
+      }
+      input{
+        width: 100px;
+        cursor: pointer;
+      }
+    }
+   
+    .popover {
+      position: absolute;
+      z-index: 1000;
+      left: 70px;
+      width: 100%;
+      height: 100%;
+      .sketch-picker {
+        position: relative;
+        top: 40px;
+      }
+    }
+    .cover {
+      position: fixed;
+      top: 0;
+      bottom: 0px;
+      right: 0;
+      left: 0;
+    }
+    .mask{
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0
+    }
+  }
+}

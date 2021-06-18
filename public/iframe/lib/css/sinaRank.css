@@ -1,0 +1,655 @@
+.sinaRank-container .pd-main {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.sinaRank-container .pd-main [class^='chart'] {
+  position: absolute;
+  -webkit-transform-origin: left top;
+  -moz-transform-origin: left top;
+  -ms-transform-origin: left top;
+  -o-transform-origin: left top;
+  transform-origin: left top;
+}
+.sinaRank-container .pd-main .chart-1 {
+  top: 55%;
+  left: 50%;
+  width: 500px;
+  height: 410px;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.sinaRank-container .pd-main .compass {
+  width: 100%;
+  height: 100%;
+  -webkit-transform: scale(0.9);
+  -moz-transform: scale(0.9);
+  -ms-transform: scale(0.9);
+  -o-transform: scale(0.9);
+  transform: scale(0.9);
+}
+.sinaRank-container .pd-main .compass [class^='compass-bg-'] {
+  position: absolute;
+  bottom: 0;
+}
+.sinaRank-container .pd-main .compass .compass-bg-7,
+.sinaRank-container .pd-main .compass .compass-bg-6,
+.sinaRank-container .pd-main .compass .compass-bg-5,
+.sinaRank-container .pd-main .compass .compass-bg-4,
+.sinaRank-container .pd-main .compass .compass-bg-3,
+.sinaRank-container .pd-main .compass .compass-bg-2,
+.sinaRank-container .pd-main .compass .compass-bg-1 {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  -webkit-transform: rotateX(-80deg) rotateZ(45deg) rotateY(0deg);
+  -moz-transform: rotateX(-80deg) rotateZ(45deg) rotateY(0deg);
+  transform: rotateX(-80deg) rotateZ(45deg) rotateY(0deg);
+}
+.sinaRank-container .pd-main .compass .compass-bg-1 {
+  bottom: -200px;
+  display: none;
+  width: 500px;
+  height: 500px;
+  margin-left: -250px;
+  background: -webkit-repeating-radial-gradient(transparent, rgba(0, 138, 174, 0.2));
+  background: -moz-repeating-radial-gradient(transparent, rgba(0, 138, 174, 0.2));
+  background: -o-repeating-radial-gradient(transparent, rgba(0, 138, 174, 0.2));
+  background: repeating-radial-gradient(transparent, rgba(0, 138, 174, 0.2));
+}
+.sinaRank-container .pd-main .compass .compass-bg-2 {
+  bottom: -170px;
+  display: none;
+  width: 440px;
+  height: 440px;
+  margin-left: -220px;
+  background: -webkit-repeating-radial-gradient(transparent, rgba(250, 118, 159, 0.2));
+  background: -moz-repeating-radial-gradient(transparent, rgba(250, 118, 159, 0.2));
+  background: -o-repeating-radial-gradient(transparent, rgba(250, 118, 159, 0.2));
+  background: repeating-radial-gradient(transparent, rgba(250, 118, 159, 0.2));
+}
+.sinaRank-container .pd-main .compass .compass-bg-3 {
+  bottom: -140px;
+  width: 380px;
+  height: 380px;
+  margin-left: -190px;
+  background: -webkit-repeating-radial-gradient(transparent, rgba(10, 58, 103, 0.2));
+  background: -moz-repeating-radial-gradient(transparent, rgba(10, 58, 103, 0.2));
+  background: -o-repeating-radial-gradient(transparent, rgba(10, 58, 103, 0.2));
+  background: repeating-radial-gradient(transparent, rgba(10, 58, 103, 0.2));
+}
+.sinaRank-container .pd-main .compass .compass-bg-4 {
+  bottom: -110px;
+  width: 320px;
+  height: 320px;
+  margin-left: -160px;
+  background: -webkit-repeating-radial-gradient(transparent, rgba(112, 67, 103, 0.2));
+  background: -moz-repeating-radial-gradient(transparent, rgba(112, 67, 103, 0.2));
+  background: -o-repeating-radial-gradient(transparent, rgba(112, 67, 103, 0.2));
+  background: repeating-radial-gradient(transparent, rgba(112, 67, 103, 0.2));
+}
+.sinaRank-container .pd-main .compass .compass-bg-5 {
+  bottom: -80px;
+  width: 260px;
+  height: 260px;
+  margin-left: -130px;
+  -webkit-box-shadow: inset 0 0 10px 10px rgba(44, 183, 190, 0.8);
+  -moz-box-shadow: inset 0 0 10px 10px rgba(44, 183, 190, 0.8);
+  box-shadow: inset 0 0 10px 10px rgba(44, 183, 190, 0.8);
+}
+.sinaRank-container .pd-main .compass .compass-bg-6 {
+  bottom: -50px;
+  display: none;
+  width: 200px;
+  height: 200px;
+  margin-left: -100px;
+  background: -webkit-repeating-radial-gradient(transparent, rgba(246, 116, 160, 0.2));
+  background: -moz-repeating-radial-gradient(transparent, rgba(246, 116, 160, 0.2));
+  background: -o-repeating-radial-gradient(transparent, rgba(246, 116, 160, 0.2));
+  background: repeating-radial-gradient(transparent, rgba(246, 116, 160, 0.2));
+}
+.sinaRank-container .pd-main .compass .compass-bg-7 {
+  bottom: -20px;
+  width: 140px;
+  height: 140px;
+  margin-left: -70px;
+  background: -webkit-repeating-radial-gradient(transparent, rgba(102, 97, 70, 0.2));
+  background: -moz-repeating-radial-gradient(transparent, rgba(102, 97, 70, 0.2));
+  background: -o-repeating-radial-gradient(transparent, rgba(102, 97, 70, 0.2));
+  background: repeating-radial-gradient(transparent, rgba(102, 97, 70, 0.2));
+  -webkit-animation: bgshadow 3s linear infinite;
+  -moz-animation: bgshadow 3s linear infinite;
+  -o-animation: bgshadow 3s linear infinite;
+  animation: bgshadow 3s linear infinite;
+}
+.sinaRank-container .pd-main .compass .compass-bg-c-1 {
+  width: 100%;
+  height: 100%;
+  background: url(../../../iframe/image/sinaRank/compass-bg-1.png) no-repeat 50% 345px;
+}
+.sinaRank-container .pd-main .compass .compass-bg-c-2 {
+  width: 100%;
+  height: 100%;
+  background: url(../../../iframe/image/sinaRank/compass-bg-2.png) no-repeat 65% 146px;
+  opacity: 0.8;
+  -webkit-animation: fadebg 3s linear infinite;
+  -moz-animation: fadebg 3s linear infinite;
+  -o-animation: fadebg 3s linear infinite;
+  animation: fadebg 3s linear infinite;
+}
+.sinaRank-container .pd-main .compass .compass-bg-c-3 {
+  width: 100%;
+  height: 100%;
+  background: url(../../../iframe/image/sinaRank/compass-bg-3.png) no-repeat 50% 227px;
+}
+.sinaRank-container .pd-main .compass .compass-bg-c-4 {
+  width: 100%;
+  height: 100%;
+  background: url(../../../iframe/image/sinaRank/compass-bg-4.png) no-repeat 50% 63px;
+  -webkit-animation: numberfade 5s linear infinite;
+  -moz-animation: numberfade 5s linear infinite;
+  -o-animation: numberfade 5s linear infinite;
+  animation: numberfade 5s linear infinite;
+}
+.sinaRank-container .pd-main .compass .compass-text {
+  position: absolute;
+  left: 50%;
+  /*-webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  -o-transform: scale(0.8);
+  transform: scale(0.8);*/
+  display: none;
+  margin-left: -60px;
+  padding: 5px 10px;
+  overflow: hidden;
+  color: #00c2ff;
+  font-size: 12px;
+  line-height: 1.5;
+  background-color: rgba(0, 71, 157, 0.4);
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+.sinaRank-container .pd-main .compass .compass-text.compass-text-0 {
+  top: -77px;
+  left: 48px;
+}
+.sinaRank-container .pd-main .compass .compass-text.compass-text-1 {
+  top: -35px;
+  left: 152px;
+}
+.sinaRank-container .pd-main .compass .compass-text.compass-text-2 {
+  top: 5px;
+  left: 250px;
+}
+.sinaRank-container .pd-main .compass .compass-text.compass-text-3 {
+  top: 49px;
+  left: 350px;
+}
+.sinaRank-container .pd-main .compass .compass-text.compass-text-4 {
+  top: 88px;
+  left: 450px;
+}
+.sinaRank-container .pd-main .compass .compass-text.compass-text-5 {
+  bottom: -945px;
+  color: #d57a31;
+  -webkit-animation-delay: 25s;
+  -moz-animation-delay: 25s;
+  -o-animation-delay: 25s;
+  animation-delay: 25s;
+}
+.sinaRank-container .pd-main .compass .compass-text.compass-text-6 {
+  bottom: -1150px;
+  color: #d57a31;
+  -webkit-animation-delay: 30s;
+  -moz-animation-delay: 30s;
+  -o-animation-delay: 30s;
+  animation-delay: 30s;
+}
+.sinaRank-container .pd-main .compass .compass-text span:nth-child(3),
+.sinaRank-container .pd-main .compass .compass-text span:nth-child(2),
+.sinaRank-container .pd-main .compass .compass-text span:nth-child(1) {
+  margin-top: 0px;
+}
+.sinaRank-container .pd-main .compass .compass-text span {
+  display: block;
+}
+.sinaRank-container .pd-main .compass .compass-text.show {
+  display: block;
+}
+.sinaRank-container .pd-main .compass .compass-number {
+  position: absolute;
+  bottom: 50px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.sinaRank-container .pd-main .compass .compass-number > .szscale {
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  transform: scale(1.2);
+  -webkit-transform-origin: center bottom;
+  -moz-transform-origin: center bottom;
+  -ms-transform-origin: center bottom;
+  -o-transform-origin: center bottom;
+  transform-origin: center bottom;
+}
+.sinaRank-container .pd-main .compass .compass-number > div {
+  position: absolute;
+  bottom: 0;
+  width: 55px;
+  height: 0;
+  -webkit-transition: 1s;
+  -o-transition: 1s;
+  -moz-transition: 1s;
+  transition: 1s;
+  -webkit-animation: sz 1s linear;
+  -moz-animation: sz 1s linear;
+  -o-animation: sz 1s linear;
+  animation: sz 1s linear;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  -o-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+.sinaRank-container .pd-main .compass .compass-number > div:nth-child(1) {
+  left: 5%;
+  color: #ff9232;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+.sinaRank-container .pd-main .compass .compass-number > div:nth-child(1):after {
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+.sinaRank-container .pd-main .compass .compass-number > div:nth-child(2) {
+  bottom: -10%;
+  left: 25%;
+  color: #d5c245;
+  -webkit-animation-delay: 0.2s;
+  -moz-animation-delay: 0.2s;
+  -o-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+.sinaRank-container .pd-main .compass .compass-number > div:nth-child(2):after {
+  -webkit-animation-delay: 2.85s;
+  -moz-animation-delay: 2.85s;
+  -o-animation-delay: 2.85s;
+  animation-delay: 2.85s;
+}
+.sinaRank-container .pd-main .compass .compass-number > div:nth-child(3) {
+  bottom: -20%;
+  left: 45%;
+  color: #01a455;
+  -webkit-animation-delay: 0.4s;
+  -moz-animation-delay: 0.4s;
+  -o-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+.sinaRank-container .pd-main .compass .compass-number > div:nth-child(3):after {
+  -webkit-animation-delay: 5.7s;
+  -moz-animation-delay: 5.7s;
+  -o-animation-delay: 5.7s;
+  animation-delay: 5.7s;
+}
+.sinaRank-container .pd-main .compass .compass-number > div:nth-child(4) {
+  bottom: -30%;
+  left: 65%;
+  color: #85adfb;
+  -webkit-animation-delay: 0.6s;
+  -moz-animation-delay: 0.6s;
+  -o-animation-delay: 0.6s;
+  animation-delay: 0.6s;
+}
+.sinaRank-container .pd-main .compass .compass-number > div:nth-child(4):after {
+  -webkit-animation-delay: 8.55s;
+  -moz-animation-delay: 8.55s;
+  -o-animation-delay: 8.55s;
+  animation-delay: 8.55s;
+}
+.sinaRank-container .pd-main .compass .compass-number > div:nth-child(5) {
+  bottom: -40%;
+  left: 85%;
+  color: #c36885;
+  -webkit-animation-delay: 0.8s;
+  -moz-animation-delay: 0.8s;
+  -o-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+}
+.sinaRank-container .pd-main .compass .compass-number > div:nth-child(5):after {
+  -webkit-animation-delay: 11.4s;
+  -moz-animation-delay: 11.4s;
+  -o-animation-delay: 11.4s;
+  animation-delay: 11.4s;
+}
+.sinaRank-container .pd-main .compass .compass-number > div:nth-child(6) {
+  bottom: -50%;
+  left: 75%;
+  color: #f674a0;
+  -webkit-animation-delay: 1s;
+  -moz-animation-delay: 1s;
+  -o-animation-delay: 1s;
+  animation-delay: 1s;
+}
+.sinaRank-container .pd-main .compass .compass-number > div:nth-child(6):after {
+  -webkit-animation-delay: 14.25s;
+  -moz-animation-delay: 14.25s;
+  -o-animation-delay: 14.25s;
+  animation-delay: 14.25s;
+}
+.sinaRank-container .pd-main .compass .compass-number > div:nth-child(7) {
+  bottom: -60%;
+  left: 87.5%;
+  color: #275fcc;
+  -webkit-animation-delay: 1.2s;
+  -moz-animation-delay: 1.2s;
+  -o-animation-delay: 1.2s;
+  animation-delay: 1.2s;
+}
+.sinaRank-container .pd-main .compass .compass-number > div:nth-child(7):after {
+  -webkit-animation-delay: 17.1s;
+  -moz-animation-delay: 17.1s;
+  -o-animation-delay: 17.1s;
+  animation-delay: 17.1s;
+}
+.sinaRank-container .pd-main .compass .compass-number > div span {
+  display: block;
+  width: 55px;
+  height: 55px;
+  line-height: 55px;
+  text-align: center;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+  /*padding-bottom: 55px;*/
+  -webkit-box-shadow: inset 0 0 15px currentColor;
+  -moz-box-shadow: inset 0 0 15px currentColor;
+  box-shadow: inset 0 0 15px currentColor;
+}
+.sinaRank-container .pd-main .compass .compass-number > div:before {
+  position: absolute;
+  top: 55px;
+  left: 50%;
+  height: 100%;
+  height: 500px;
+  margin-left: -1px;
+  border-left: 1px dashed currentColor;
+  content: '';
+}
+.sinaRank-container .pd-main .compass .compass-number > div:after {
+  position: absolute;
+  top: -20px;
+  display: inline-block;
+  width: 100%;
+  font-family: 'DIGITALDREAMFAT';
+  text-align: center;
+  content: 'NO.' attr(title);
+}
+.sinaRank-container .pd-main .compass .line-sx > div:nth-child(2) {
+  bottom: 0;
+  left: 51px;
+  height: 90%;
+  -webkit-animation-duration: 2s;
+  -moz-animation-duration: 2s;
+  -o-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-delay: 1.5s;
+  -moz-animation-delay: 1.5s;
+  -o-animation-delay: 1.5s;
+  animation-delay: 1.5s;
+}
+.sinaRank-container .pd-main .compass .line-sx > div:nth-child(3) {
+  bottom: 32px;
+  left: 89px;
+  height: 100%;
+  -webkit-animation-duration: 3s;
+  -moz-animation-duration: 3s;
+  -o-animation-duration: 3s;
+  animation-duration: 3s;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+.sinaRank-container .pd-main .compass .line-sx > div:nth-child(4) {
+  bottom: 3px;
+  left: 179px;
+  height: 100%;
+  -webkit-filter: hue-rotate(180deg);
+  filter: hue-rotate(180deg);
+  -webkit-animation-duration: 2.5s;
+  -moz-animation-duration: 2.5s;
+  -o-animation-duration: 2.5s;
+  animation-duration: 2.5s;
+  -webkit-animation-delay: 1s;
+  -moz-animation-delay: 1s;
+  -o-animation-delay: 1s;
+  animation-delay: 1s;
+}
+.sinaRank-container .pd-main .compass .line-sx > div:nth-child(5) {
+  bottom: 42px;
+  left: 229px;
+  height: 90%;
+  -webkit-animation-duration: 2s;
+  -moz-animation-duration: 2s;
+  -o-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-delay: 2s;
+  -moz-animation-delay: 2s;
+  -o-animation-delay: 2s;
+  animation-delay: 2s;
+}
+.sinaRank-container .pd-main .compass .line-sx > div:nth-child(6) {
+  right: 48px;
+  bottom: 11px;
+  height: 100%;
+  -webkit-animation-duration: 2.5s;
+  -moz-animation-duration: 2.5s;
+  -o-animation-duration: 2.5s;
+  animation-duration: 2.5s;
+  -webkit-animation-delay: 0.5s;
+  -moz-animation-delay: 0.5s;
+  -o-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+}
+.sinaRank-container .pd-main .compass .line-sx > div:nth-child(7) {
+  right: 174px;
+  bottom: -22px;
+  height: 90%;
+  -webkit-filter: hue-rotate(180deg);
+  filter: hue-rotate(180deg);
+  -webkit-animation-duration: 3s;
+  -moz-animation-duration: 3s;
+  -o-animation-duration: 3s;
+  animation-duration: 3s;
+  -webkit-animation-delay: 2.5s;
+  -moz-animation-delay: 2.5s;
+  -o-animation-delay: 2.5s;
+  animation-delay: 2.5s;
+}
+.sinaRank-container .pd-main .compass .line-sx > div:nth-child(8) {
+  right: 100px;
+  bottom: -22px;
+  height: 90%;
+  -webkit-animation-duration: 3s;
+  -moz-animation-duration: 3s;
+  -o-animation-duration: 3s;
+  animation-duration: 3s;
+  -webkit-animation-delay: 1.5s;
+  -moz-animation-delay: 1.5s;
+  -o-animation-delay: 1.5s;
+  animation-delay: 1.5s;
+}
+.sinaRank-container .pd-main .compass .line-sx > div:nth-child(9) {
+  right: 220px;
+  bottom: -10px;
+  height: 100%;
+  -webkit-animation-duration: 2.5s;
+  -moz-animation-duration: 2.5s;
+  -o-animation-duration: 2.5s;
+  animation-duration: 2.5s;
+  -webkit-animation-delay: 2s;
+  -moz-animation-delay: 2s;
+  -o-animation-delay: 2s;
+  animation-delay: 2s;
+}
+.sinaRank-container .pd-main .compass .line-sx > div:nth-child(10) {
+  right: 182px;
+  bottom: -41px;
+  height: 95%;
+  -webkit-animation-duration: 2s;
+  -moz-animation-duration: 2s;
+  -o-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-delay: 1s;
+  -moz-animation-delay: 1s;
+  -o-animation-delay: 1s;
+  animation-delay: 1s;
+}
+.sinaRank-container .pd-main .compass .line-sx .line-fs {
+  position: absolute;
+  z-index: -1;
+  width: 14px;
+  height: 100%;
+  background: url(../../../iframe/image/sinaRank/line-fs.png) no-repeat;
+  background-position: 50% 150%;
+  -webkit-animation: fs 3s cubic-bezier(1, 0, 0.6, 0.6) infinite;
+  -moz-animation: fs 3s cubic-bezier(1, 0, 0.6, 0.6) infinite;
+  -o-animation: fs 3s cubic-bezier(1, 0, 0.6, 0.6) infinite;
+  animation: fs 3s cubic-bezier(1, 0, 0.6, 0.6) infinite;
+}
+
+@-webkit-keyframes fs {
+  0% {
+    background-position: 50% 150%;
+  }
+  50% {
+    background-position: 50% -132%;
+  }
+  100% {
+    background-position: 50% -264%;
+    opacity: 0;
+  }
+}
+@-moz-keyframes fs {
+  0% {
+    background-position: 50% 150%;
+  }
+  50% {
+    background-position: 50% -132%;
+  }
+  100% {
+    background-position: 50% -264%;
+    opacity: 0;
+  }
+}
+@-o-keyframes fs {
+  0% {
+    background-position: 50% 150%;
+  }
+  50% {
+    background-position: 50% -132%;
+  }
+  100% {
+    background-position: 50% -264%;
+    opacity: 0;
+  }
+}
+@keyframes fs {
+  0% {
+    background-position: 50% 150%;
+  }
+  50% {
+    background-position: 50% -132%;
+  }
+  100% {
+    background-position: 50% -264%;
+    opacity: 0;
+  }
+}
+@-webkit-keyframes bgshadow {
+  0%,
+  100% {
+    -webkit-box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+  }
+  50% {
+    -webkit-box-shadow: 0 0 30em white;
+    box-shadow: 0 0 30em white;
+  }
+}
+@-moz-keyframes bgshadow {
+  0%,
+  100% {
+    -moz-box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+  }
+  50% {
+    -moz-box-shadow: 0 0 30em white;
+    box-shadow: 0 0 30em white;
+  }
+}
+@-o-keyframes bgshadow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+  }
+  50% {
+    box-shadow: 0 0 30em white;
+  }
+}
+@keyframes bgshadow {
+  0%,
+  100% {
+    -webkit-box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+    -moz-box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+  }
+  50% {
+    -webkit-box-shadow: 0 0 30em white;
+    -moz-box-shadow: 0 0 30em white;
+    box-shadow: 0 0 30em white;
+  }
+}
+@-webkit-keyframes sz {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 70%;
+  }
+}
+@-moz-keyframes sz {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 70%;
+  }
+}
+@-o-keyframes sz {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 70%;
+  }
+}
+@keyframes sz {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 70%;
+  }
+}

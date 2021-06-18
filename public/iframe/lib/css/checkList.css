@@ -1,0 +1,40 @@
+.checkList{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.checkList li{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px;
+  flex:1;
+}
+.checkList li div:nth-of-type(1){
+  display: flex;
+  flex-direction: row;
+}
+.checkList li div:nth-of-type(1) p:nth-of-type(1){
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space:nowrap; 
+  flex: 4;
+}
+.checkList li div:nth-of-type(1) p:nth-of-type(2){
+  flex: 1;
+  border-radius: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkList li div:nth-of-type(2){
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10px ;
+}
+.checkList li div:nth-of-type(2) p i{
+  margin-right: 5px;
+}

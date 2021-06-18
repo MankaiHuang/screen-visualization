@@ -1,0 +1,182 @@
+:global {
+  .ant-modal-header,
+  .ant-modal-body,
+  .ant-modal-footer {
+    background-color: rgba(29, 48, 71, 1);
+    border: 1px solid rgba(39, 63, 85, 1);
+    overflow: auto;
+    .ant-modal-title {
+      color: rgba(194, 215, 235, 1);
+    }
+  }
+  .ant-pagination-prev > button,
+  .ant-pagination-next > button,
+  .ant-pagination-item > a,
+  .ant-pagination-item,
+  .antd-pro-components-modal-template-details-templateDetails li,
+  .ant-form-item-label > label,
+  .ant-popover-message-title,
+  .ant-modal-confirm-title {
+    background-color: transparent !important;
+    color: #c2d7eb !important;
+  }
+  .bottomPagination {
+    // float: right;
+    // margin-right: 20px;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+  }
+  .ant-pro-global-header-trigger {
+    color: #c2d7eb;
+    &:hover {
+      background: #0e4e75;
+    }
+  }
+  .ant-pro-global-header {
+    border-bottom: 1px solid #c2d7eb35;
+  }
+  .ant-pro-sider-menu-sider {
+    box-shadow: none;
+  }
+  .ant-pro-global-header,
+  .ant-layout,
+  .ant-layout-footer,
+  .ant-card-body,
+  .ant-pro-basicLayout .ant-layout-header:not(.ant-pro-top-menu) {
+    background-color: #171b22;
+  }
+  .CodeMirror-gutters,
+  .CodeMirror-lines {
+    background: rgba(29, 48, 71, 1) !important;
+  }
+  .CodeMirror-linenumber,
+  .ant-select-arrow {
+    color: rgba(194, 215, 235, 1) !important;
+  }
+  .cm-s-ayu-dark span.cm-property {
+    color: #1890ff !important;
+  }
+  .ant-card-body {
+    padding: 0px;
+    .ant-card-meta-title {
+      text-align: center;
+      color: #c2d7eb;
+      line-height: 250%;
+    }
+    &::after {
+      content: none;
+    }
+  }
+  .ant-select-dropdown {
+    background: rgba(29, 48, 71, 1);
+    border-radius: 4px;
+    border: 1px solid rgba(74, 88, 101, 1);
+    .ant-select-item {
+      color: rgba(190, 211, 231, 1);
+    }
+    .ant-select-item-option-active,
+    .ant-select-item-option-selected,
+    .ant-select-tree-node-content-wrapper:hover,
+    .ant-select-tree-node-selected {
+      background-color: #2d3742 !important;
+      color: #fff !important;
+    }
+  }
+  .ant-select-item-option {
+    border: none !important;
+  }
+  .ant-input,
+  .ant-input-affix-wrapper,
+  .ant-input-number,
+  .ant-input-number-handler,
+  .ant-input-number-focused,
+  .ant-input-number-handler-wrap,
+  .ant-input-number-handler-up-inner,
+  .ant-input-number-handler-down-inner,
+  .ant-input-number-handler-up,
+  .ant-input-number-handler-down,
+  .ant-input-number-handler-up:active,
+  .ant-input-number-handler-down:active,
+  .ant-select,
+  .ant-select-single:not(.ant-select-customize-input) .ant-select-selector,
+  .ant-select-item,
+  .ant-select-multiple .ant-select-selector,
+  .ant-select-tree,
+  .ant-table,
+  .ant-table-thead > tr > th,
+  .ant-input-group-addon,
+  .ant-popover-inner {
+    background: rgba(29, 48, 71, 1);
+    color: rgba(190, 211, 231, 1);
+    border-radius: 4px;
+    border: 1px solid rgba(74, 88, 101, 1);
+  }
+  .box {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    overflow: hidden;
+    background: #3085a3;
+    text-align: center;
+    cursor: pointer;
+  }
+  .box img {
+    height: 157.5px;
+    opacity: 1;
+    transition: opacity 0.35s, transform 0.35s;
+  }
+  .box:hover img {
+    opacity: 0.5;
+  }
+  .box h3 {
+    margin-top: 20%;
+    transition: transform 0.35s;
+    transform: translate3d(0, 20px, 0);
+    opacity: 0;
+    color: #c2d7eb;
+    font-size: 18px;
+  }
+  .box p {
+    margin: 10px 0 0;
+    padding: 15px;
+    border: 1px solid #c2d7eb;
+    opacity: 0;
+    transition: opacity 0.35s, transform 0.35s;
+    transform: translate3d(0, 20px, 0) scale(1.1);
+    color: #c2d7eb;
+  }
+  .box:hover h3 {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+  .box:hover p {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  .box2 {
+    height: 200px;
+    padding: 15px;
+    position: absolute;
+    box-sizing: border-box;
+    top: 0;
+  }
+  .top-tools {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+    .screen-search {
+      width: 300px;
+      position: relative;
+      top: 0;
+      z-index: 99;
+      margin-right: 20px;
+    }
+    .screen-select {
+      width: 200px;
+      position: relative;
+      top: 0;
+      z-index: 99;
+    }
+  }
+}

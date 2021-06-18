@@ -1,0 +1,34 @@
+.listAndDetails{
+  display: flex;
+  flex-direction: column;
+}
+.listAndDetails li{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+.listAndDetails li>*{
+  margin-bottom: 20px;
+}
+.listAndDetails li>div>span>i{
+  margin-right: 5px;
+}
+.listAndDetails li>span:nth-of-type(1){
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.listAndDetails li>span:nth-of-type(2){
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.listAndDetails>li>div{
+  display: flex;
+  flex-direction: row;
+}
+.listAndDetails>li>div>span{
+  margin-right: 10%;
+}

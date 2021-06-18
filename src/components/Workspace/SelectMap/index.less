@@ -1,0 +1,44 @@
+.tipInput {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  > input {
+    width: 220px;
+  }
+  .icon-groups {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    .drewRectIcon {
+      font-size: 25px;
+      color: #bed3e7;
+      cursor: pointer;
+      background: #1d3047;
+      top: 10px;
+      position: relative;
+      padding: 7px 5px;
+      &.active {
+        color: #1890ff;
+      }
+    }
+  }
+}
+
+:global {
+  .mapSpin {
+    min-height: 600px !important;
+    max-height: 600px !important;
+    > .ant-spin-text {
+      color: #bed3e7;
+      font-size: 18px;
+      font-weight: 500;
+      text-shadow: none !important;
+    }
+    .ant-spin-dot-item {
+      background-color: #bed3e7;
+    }
+  }
+  .basic-property .ant-spin-nested-loading {
+    min-height: 600px !important;
+  }
+}

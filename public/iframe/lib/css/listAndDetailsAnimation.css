@@ -1,0 +1,173 @@
+.listAndDetailsAnimation {
+  display: flex;
+  justify-content: space-between;
+}
+.listAndDetailsAnimationUl {
+  width: 40%;
+  margin-right: 5%;
+}
+
+.listAndDetailsAnimationUl li {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+.listAndDetailsAnimationUl li .listAndDetailsAnimationMenu {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 2%;
+  padding: 3% 6%;
+  line-height: 300%;
+  background: none;
+}
+.listAndDetailsAnimationUl li .listAndDetailsAnimationMenu.active {
+  background: url('../../../iframe/image/listAndDetailsAnimationActive.png') no-repeat;
+  background-size: contain;
+}
+.listAndDetailsAnimationUl li .listAndDetailsAnimationMenu.active * {
+  color: #fff !important;
+}
+.listAndDetailsAnimation .listAndDetailsAnimationContent {
+  display: flex;
+  flex-direction: column;
+}
+.listAndDetailsAnimation .listAndDetailsAnimationContent .fromAndTime {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin-bottom: 4%;
+}
+.listAndDetailsAnimationContent {
+  width: 53%;
+  padding: 1%;
+}
+
+.listAndDetailsAnimationMenu > p:nth-of-type(1) {
+  width: 95%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/*风格2*/
+.listAndDetailsAnimation1 {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+.listAndDetailsAnimationUl1 {
+  width: 40%;
+  height: 100%;
+  padding: 0 2%;
+}
+
+.listAndDetailsAnimationUl1 li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: calc(100% / 6.5);
+  /* padding: 50px 0 20px 160px; */
+  padding: 1% 0 0px 160px;
+  background: url(../../../iframe/image/li_bg.png) 50px 24px no-repeat;
+  background-size: 100% contain;
+  cursor: pointer;
+  transition: all 0.8s ease;
+}
+.listAndDetailsAnimationUl1 li.active1 > span {
+  left: 6%;
+  margin-top: 0;
+}
+.listAndDetailsAnimationUl1 li > span {
+  position: absolute;
+  left: 7%;
+  margin-top: -0.3%;
+  color: #fff;
+  font-size: 30px;
+}
+.listAndDetailsAnimationUl1 li.active1 > p {
+  width: 85%;
+}
+
+.listAndDetailsAnimationUl1 li > p {
+  width: 68%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.listAndDetailsAnimationUl1 li > div {
+  margin-top: 1%;
+}
+.listAndDetailsAnimationUl1 li > div > p {
+  width: 35%;
+}
+.listAndDetailsAnimationUl1 li > div > p > svg {
+  margin-right: 5%;
+}
+.listAndDetailsAnimationUl1 li > div,
+.listAndDetailsAnimationUl1 li > div > p {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.listAndDetailsAnimationUl1 li.active1 {
+  /* padding: 0% 10%; */
+  padding: 0 0 0px 140px;
+  background: url(../../../iframe/image/li_bg_a.png) center no-repeat;
+  background-size: 100% auto;
+  /* padding: 45px 0 20px 140px; */
+}
+.listAndDetailsAnimationUl1 li.active1 * {
+  color: #fff !important;
+}
+.listAndDetailsAnimationContent1 {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.listAndDetailsAnimationContent1 > p:nth-of-type(1) {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: center;
+  text-overflow: ellipsis;
+}
+.listAndDetailsAnimationContent1 .fromAndTime1 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  margin: 3% 0;
+}
+.listAndDetailsAnimationContent1 .fromAndTime1 > * {
+  display: flex;
+  align-items: center;
+}
+.listAndDetailsAnimationContent1 .fromAndTime1 svg,
+.listAndDetailsAnimationContent1 .fromAndTime1 i {
+  margin-right: 10px;
+}
+.listAndDetailsAnimationContent1 {
+  width: 47%;
+  padding: 1%;
+  background: url(../../../iframe/image/con_bg.png) no-repeat;
+  background-size: 100% 100%;
+}
+.listAndDetailsAnimationContent1 > .details {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  margin: 20px auto;
+  overflow: hidden;
+  overflow-y: auto;
+  /* color: #fff; */
+  font-size: 22px;
+  line-height: 36px;
+  text-indent: 2em;
+}

@@ -1,0 +1,21 @@
+.el-input__inner{
+  border:1px solid #009DC0 ;
+  background-color: rgba(0, 0, 0, 0);
+}
+input {
+  background-color: rgba(0, 0, 0, 0);
+}
+.el-date-editor .el-range-input,
+.el-date-editor .el-range__icon{
+  color: #84D9F3;
+  font-size: 22px;
+}
+.el-input__inner:hover{
+  border:1px solid #009DC0 ;
+}
+.datePicker .el-range-separator{
+  color: #84D9F3;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+}

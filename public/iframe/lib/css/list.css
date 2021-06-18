@@ -1,0 +1,85 @@
+.listContent {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.borderBottom {
+  border-bottom: 1px solid #00ffff;
+}
+
+.myListBaseCss {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  transition: 1s;
+}
+
+.myListBaseCss li {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 20px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.myListBaseCss li .style1 {
+  border-radius: 50%;
+}
+
+.myListBaseCss li div:nth-of-type(1) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.myListBaseCss li div:nth-of-type(2) {
+  width: 100%;
+}
+
+.myListBaseCss li div:nth-of-type(2) > p:nth-of-type(1) {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.list-index {
+  background: url('../../../iframe/image/icon1.png') no-repeat;
+}
+
+.list-from {
+  display: flex;
+  flex: flex-start;
+  line-height: 400%;
+}
+
+.list-from span:nth-of-type(2) {
+  margin-left: 10%;
+}
+
+.listTop1 {
+  background: url('../../../iframe/image/icon1.png') no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.listTop2 {
+  background: url('../../../iframe/image/icon2.png') no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.listTop3 {
+  background: url(../../../iframe/image/icon3.png) no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.listTop4 {
+  background: url('../../../iframe/image/icon.png') no-repeat;
+  background-position: center;
+  background-size: contain;
+}

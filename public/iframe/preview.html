@@ -1,0 +1,3164 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="never" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.bootcss.com/element-ui/2.13.1/theme-chalk/index.css" rel="stylesheet">
+    <link href="./lib/css/vue-resize.css" rel="stylesheet">
+    <link href="./lib/css/bubble.css" rel="stylesheet">
+    <link href="./lib/css/bubbleList.css" rel="stylesheet">
+    <link href="./lib/css/leftRightCarousel.css" rel="stylesheet">
+    <link href="./lib/css/text.css" rel="stylesheet">
+    <link href="./lib/css/image.css" rel="stylesheet">
+    <link href="./lib/css/list.css" rel="stylesheet">
+    <link href="./lib/css/listStatus.css" rel="stylesheet">
+    <link href="./lib/css/steps.css" rel="stylesheet">
+    <link href="./lib/css/noIndexList.css" rel="stylesheet">
+    <link href="./lib/css/noAnimation.css" rel="stylesheet">
+    <link href="./lib/css/sigleList.css" rel="stylesheet">
+    <link href="./lib/css/listAnimation.css" rel="stylesheet">
+    <link href="./lib/css/tab.css" rel="stylesheet">
+    <link href="./lib/css/number.css" rel="stylesheet">
+    <link href="./lib/css/listNoHeader.css" rel="stylesheet">
+    <link href="./lib/css/capsuleList.css" rel="stylesheet">
+    <link href="./lib/css/pagination.css" rel="stylesheet">
+    <link href="./lib/css/topList.css" rel="stylesheet">
+    <link href="./lib/css/checkList.css" rel="stylesheet">
+    <link href="./lib/css/cardList.css" rel="stylesheet">
+    <link href="./lib/css/dataContainer.css" rel="stylesheet">
+    <link href="./lib/css/funnelTop.css" rel="stylesheet">
+    <link href="./lib/css/listAndDetails.css" rel="stylesheet">
+    <link href="./lib/css/listAndDetailsAnimation.css" rel="stylesheet">
+    <link href="./lib/css/progress.css" rel="stylesheet">
+    <link href="./lib/css/table.css" rel="stylesheet">
+    <link href="./lib/css/three.css" rel="stylesheet">
+    <link href="./lib/css/queue.css" rel="stylesheet">
+    <link href="./lib/css/datePicker.css" rel="stylesheet">
+    <link href="./lib/css/dashBoardImg.css" rel="stylesheet">
+    <link href="./lib/css/rotateEarth.css" rel="stylesheet">
+    <link href="./lib/css/listAndImg.css" rel="stylesheet">
+    <link href="./lib/css/dropDown.css" rel="stylesheet">
+    <link href="./lib/css/video-js.min.css" rel="stylesheet">
+    <link href="./lib/css/staffMix.css" rel="stylesheet">
+    <link href="./lib/css/flashCloud.css" rel="stylesheet">
+    <link href="./lib/css/rotateColorful.css" rel="stylesheet">
+    <link href="./lib/css/sinaRank.css" rel="stylesheet">
+    <link href="./lib/css/dynamicList.css" rel="stylesheet">
+    <link href="./lib/css/pyramid.css" rel="stylesheet">
+    <link href="./lib/css/weather.css" rel="stylesheet">
+    <link href="./lib/css/smartCity.css" rel="stylesheet">
+    <link href="./lib/Cesium/Widgets/widgets.css" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/animate.css/4.1.0/animate.min.css" rel="stylesheet">
+    <link href="./lib/css/common.css" rel="stylesheet">
+    <title>大屏预览</title>
+    <style>
+        html,
+        body,
+        p {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        @font-face {
+            font-family: "FZHZGBJW";
+            src: url('./lib/font/FZHZGBJW.TTF');
+        }
+
+        @font-face {
+            font-family: "DIGITALDREAMFAT";
+            src: url('./lib/font/DIGITALDREAMFAT.woff2') format('woff2'), url('./lib/font/DIGITALDREAMFAT.woff') format('woff'), url('./lib/font/DIGITALDREAMFAT.ttf') format('truetype');
+        }
+
+        [v-cloak] {
+            display: none;
+        }
+
+        ::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+            background-color: aliceblue;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(50, 50, 50, 0.01);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: rgba(50, 50, 50, 0.6);
+        }
+
+        #body {
+            width: 100%;
+            height: 100%;
+            transform-origin: 0 0;
+            transition: all .2s linear;
+            user-select: none;
+            /* background-color: rgb(41, 40, 50); */
+            /* background-image: linear-gradient(rgb(41, 40, 50) 13px, transparent 0),
+        linear-gradient(90deg, rgba(146, 134, 134, 0.623) 2px, transparent 0);
+      background-size: 15px 15px, 15px 15px; */
+        }
+
+        .chart-item {
+            width: 600px;
+            height: 400px;
+            cursor: move;
+            position: absolute;
+            background-repeat: no-repeat !important;
+            background-size: 100% 100% !important;
+        }
+
+        .background-item {
+            width: 100%;
+            height: 100%;
+            cursor: move;
+            position: absolute;
+        }
+
+        .activeItem,
+        .isMultipyMove {
+            border: 1px solid #CCCCCC;
+            -webkit-box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.5);
+            -moz-box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.5);
+            box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.5);
+            z-index: 1999 !important;
+        }
+
+        .chart-item .chart-box {
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            /* overflow: hidden; */
+            /* pointer-events: none !important; */
+        }
+
+        .notClickable {
+            pointer-events: none;
+            background-color: rgba(23, 151, 191, 0.2);
+        }
+
+        .main,
+        .templateListUl,
+        .carousel {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            /*防止用户多选 导致内容被选中*/
+        }
+
+        .handle {
+            position: absolute;
+            background: transparent;
+            border: 5px solid #59c7f9;
+            border-radius: 50%;
+            z-index: 2000;
+        }
+
+        .handle-top {
+            width: 10px;
+            height: 10px;
+            cursor: n-resize;
+            top: -9px;
+            left: 50%;
+        }
+
+        .handle-right {
+            width: 10px;
+            height: 10px;
+            cursor: e-resize;
+            top: 50%;
+            right: -9;
+        }
+
+        .handle-bottom {
+            width: 10px;
+            height: 10px;
+            cursor: n-resize;
+            bottom: -9;
+            left: 50%;
+        }
+
+        .handle-left {
+            width: 10px;
+            height: 10px;
+            cursor: e-resize;
+            top: 50%;
+            left: -9;
+        }
+
+        .coor {
+            width: 10px;
+            height: 10px;
+            cursor: se-resize;
+            right: -10px;
+            bottom: -10px;
+        }
+
+        .widthLine,
+        .widthLine1,
+        .widthLine2,
+        .widthLine3 {
+            position: absolute;
+            border-top: 1px dashed #09f;
+            width: 10000px;
+            height: 0;
+        }
+
+        .widthLine {
+            top: 0;
+            transform: translateX(-100%);
+        }
+
+        .widthLine1 {
+            top: 0;
+            right: 0;
+            transform: translateX(100%);
+        }
+
+        .widthLine2 {
+            bottom: 0;
+            transform: translateX(-100%);
+        }
+
+        .widthLine3 {
+            bottom: 0;
+            right: 0;
+            transform: translateX(100%);
+        }
+
+        .heightLine,
+        .heightLine1,
+        .heightLine2,
+        .heightLine3 {
+            position: absolute;
+            border-left: 1px dashed #09f;
+            width: 0;
+            height: 10000px;
+        }
+
+        .heightLine {
+            top: 0;
+            transform: translateY(-100%);
+        }
+
+        .heightLine1 {
+            top: 0;
+            right: 0;
+            transform: translateY(-100%);
+        }
+
+        .heightLine2 {
+            bottom: 0;
+            transform: translateY(100%);
+        }
+
+        .heightLine3 {
+            bottom: 0;
+            right: 0;
+            transform: translateY(100%);
+        }
+
+        .coordinate {
+            position: absolute;
+            padding: 5px;
+            transform: translate(-100%, -100%);
+            color: #09f;
+            white-space: nowrap;
+            left: 0;
+            top: 0;
+            font-size: 22px;
+        }
+
+        /* 右键菜单 */
+
+        .menu {
+            width: 200px;
+            height: auto;
+            position: fixed;
+            list-style: none;
+            border: 1px solid #ccc;
+            border-radius: 2px;
+            /* box-shadow: 0 2px 6px rgba(0, 0, 0, .1); */
+            padding: 0;
+            background-color: #fff;
+            color: #58666e;
+            font-size: 13px;
+            z-index: 1999;
+        }
+
+        .sub_menu {
+            margin-left: 200px;
+            margin-top: -34px;
+        }
+
+        .menu_item {
+            list-style: none;
+            padding: 7px 12px;
+            cursor: pointer;
+            position: relative
+        }
+
+        .menu_item>i {
+            padding-right: 10px;
+            width: 22px;
+        }
+
+        .menu_item>span {
+            float: right;
+        }
+
+        .menu>li:hover {
+            background-color: rgba(0, 192, 222, .1);
+        }
+
+        li {
+            font-size: 15px;
+            list-style: none;
+        }
+
+        ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        /* 右键菜单 */
+
+        #background {
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+            position: absolute;
+        }
+
+        .mask {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            z-index: 2000;
+            background-color: hsla(0, 0%, 100%, .9);
+            margin: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            transition: opacity .3s;
+        }
+
+        .spinner {
+            top: 50%;
+            margin-top: -21px;
+            width: 100%;
+            text-align: center;
+            position: absolute;
+        }
+
+        .loadingText {
+            color: #409eff;
+            margin: 3px 0;
+            font-size: 18px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .full {
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        .quickOperate {
+            display: flex;
+            flex-direction: row;
+            position: absolute;
+            top: 0;
+            right: 0;
+            flex-flow: row-reverse;
+            background-color: #0099cc91;
+            z-index: 1999;
+        }
+
+        .quickOperate>div {
+            width: 20px;
+            height: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            padding: 10;
+        }
+
+        .quickOperate>div>i {
+            font-size: 20px;
+            color: #fff;
+        }
+
+        .heighLight {
+            background-color: rgba(15, 60, 187, 0.1);
+            border: 1px solid #CCCCCC;
+            -webkit-box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.5);
+            -moz-box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.5);
+            box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .border-box-content {
+            color: rgb(66, 185, 131);
+            font-size: 40px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .isMove {
+            opacity: 0.75;
+        }
+
+        .el-dialog {
+            z-index: 9999 !important;
+            background-color: rgba(0, 0, 0, .85);
+            border: 0;
+        }
+
+        .el-dialog__headerbtn {
+            font-size: 40px;
+        }
+
+        .hidden {
+            opacity: 0.1;
+        }
+
+        .slide-fade-enter-active {
+            transition: all .3s ease;
+        }
+
+        .slide-fade-leave-active {
+            transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+        }
+
+        .slide-fade-enter,
+        .slide-fade-leave-to {
+            transform: translateX(20px);
+            opacity: 0;
+        }
+
+        .cesium-viewer-bottom {
+            display: none;
+        }
+
+        .el-menu--inline {
+            position: absolute;
+            left: 200px;
+        }
+
+        .l7-left {
+            display: none;
+        }
+
+        .multi-select-overlay {
+            position: absolute;
+            border: 1px solid rgba(87, 156, 219, 1);
+            width: 0px;
+            height: 0px;
+            left: 0px;
+            top: 0px;
+            overflow: hidden;
+        }
+
+        .background {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-size: 100% 100% !important;
+            top: 0;
+            z-index: -99999;
+        }
+
+        .el-carousel__container {
+            height: 100% !important;
+        }
+
+        .groupOutLayer {
+            position: absolute;
+        }
+
+        .activeOutLayer {
+            border: 1px solid rgb(255, 255, 255);
+            cursor: move;
+            box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .moveActive {
+            border: 2px solid rgb(55 220 209);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="contain">
+        <div v-show="menuVisible" v-cloak>
+            <ul id="menu" class="menu">
+                <li class="menu_item" @mousedown.stop="deleteTemplate"><i class="el-icon-delete"></i>删除<span>Del</span>
+                </li>
+                <li class="menu_item" @mousedown.stop="copyTemplate"><i
+                        class="el-icon-copy-document"></i>复制<span>Ctrl+C</span>
+                </li>
+                <li class="menu_item" v-show="multiplyStatus" @mousedown.stop="group(multiplyMoveList)"><i
+                        class="el-icon-folder-opened"></i>成组<span></span>
+                </li>
+                <li class="menu_item" v-show="!multiplyStatus" @mouseenter="showSubMenu = true"
+                    @mouseleave="showSubMenu = false"><i class="el-icon-s-unfold"></i>图层操作<span><i
+                            class="el-icon-arrow-right"></i></span></li>
+                <ul class="menu sub_menu" v-show="showSubMenu" @mouseenter="showSubMenu = true"
+                    @mouseleave="showSubMenu = false">
+                    <li class="menu_item" v-show="nowTemplate&& !nowTemplate.property.isHidden"
+                        @mousedown.stop="hiddenTemplate">
+                        <i class="el-icon-circle-close"></i>隐藏
+                    </li>
+                    <li class="menu_item" v-show="nowTemplate&& nowTemplate.property.isHidden"
+                        @mousedown.stop="hiddenTemplate">
+                        <i class="el-icon-view"></i>显示
+                    </li>
+                    <li v-show="nowTemplate && !nowTemplate.isLock" class="menu_item" @mousedown.stop="lockTemplate">
+                        <i class="el-icon-lock"></i>锁定
+                    </li>
+                    <li v-show="nowTemplate &&  nowTemplate.isLock" class="menu_item" @mousedown.stop="lockTemplate">
+                        <i class="el-icon-unlock"></i>解锁
+                    </li>
+                    <li class="menu_item" @mousedown.stop="sticky"><i class="el-icon-upload2"></i> 置顶</li>
+                    <li class="menu_item" @mousedown.stop="setLow"><i class="el-icon-download"></i> 置低</li>
+                    <li class="menu_item" @mousedown.stop="moveUp"><i class="el-icon-top"></i>上移一层</li>
+                    <li class="menu_item" @mousedown.stop="moveDown"><i class="el-icon-bottom"></i>下移一层</li>
+                </ul>
+                <li class="menu_item" @mousedown.stop="closeMenu({ target: { id: 'body' } })"><i
+                        class="el-icon-ice-cream-square"></i>取消选中</li>
+                <li class="menu_item" @mousedown.stop="exportBluePrint()"><i class="el-icon-connection"></i>导出到蓝图编辑器
+                </li>
+                <li class="menu_item" v-show=" isExportedBluePrint(nowTemplate&&nowTemplate.property.elementId)"
+                    @mousedown.stop="cannelExportBluePrint(nowTemplate&&nowTemplate.property.elementId)"><i
+                        class="el-icon-scissors"></i>取消导出蓝图编辑器</li>
+                <li class="menu_item" v-show="!multiplyStatus" @mousedown.stop="fullScreen()"><i
+                        class="el-icon-full-screen"></i>铺满屏幕</li>
+
+                <li class="menu_item" v-show="nowTemplate&&nowTemplate.property.componentsType === 'charts'"
+                    @mousedown.stop="downloadTemplate"><i class="el-icon-picture-outline"></i>下载图片</li>
+            </ul>
+        </div>
+        <div v-show="isGroupMenu" v-cloak>
+            <ul id="menuGroup" class="menu">
+                <li class="menu_item" @mousedown.stop="cannelGroup"><i
+                        class="el-icon-folder-delete"></i>取消成组<span></span>
+                </li>
+            </ul>
+        </div>
+        <div id="body" ref="body" @contextmenu.prevent="showMenu">
+            <div class="echartsList" id="echartsList" ref="echartsList">
+                <el-carousel class="carousel" ref="carousel" :autoplay="false" @change="windowChange" trigger="click">
+                    <el-carousel-item v-for="(basicWindow,index) in basicConfig.window" :key="basicWindow">
+                        <ul class="templateListUl">
+                            <li v-for="(item,index) in allTemplateList[index]" :key="item.property.elementId"
+                                @move.stop="">
+                                <x-grouplist :item="item"></x-grouplist>
+                            </li>
+                        </ul>
+                    </el-carousel-item>
+                </el-carousel>
+                <div ref="background" class="background"
+                    :style="{background:(basicConfig.background&&basicConfig.background.substr(0,1)==='#' || basicConfig.background&&basicConfig.background.substr(0,1)==='r' )?basicConfig.background: 'url('+basicConfig.background+')' }">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.0.1/echarts.min.js" defer></script>
+<script src="./lib/js/echarts-gl.min.js" defer></script>
+<script src="./lib/js/echarts-wordcloud.min.js" defer></script>
+<script src="./lib/js/china.js" defer></script>
+<script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script>
+<script src="./lib/js/vue-resize.min.js" defer></script>
+<script src="https://cdn.bootcss.com/element-ui/2.13.1/index.js" defer></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.19.2/axios.min.js" defer></script>
+<script src="./lib/js/common.js"></script>
+<script src="./lib/js/commonFun.js"></script>
+<script src="./lib/js/mixinsComponents.js"></script>
+<script src="./lib/js/mixinsThree.js"></script>
+<script src="./lib/js/mixinsGroup.js"></script>
+<script src="./lib/js/mixinsDecoration.js"></script>
+<script src="./lib/js/mixinsEarth.js"></script>
+<script src="./lib/js/mixinsCesiumEarth.js"></script>
+<script src="./lib/js/mixinsMap.js"></script>
+<script src="./lib/js/dataV.js" defer></script>
+<script src="./lib/js/video.min.js" defer></script>
+<!-- <script src="./lib/js/AVA.js"></script> -->
+<script src='./lib/js/dom-to-image.min.js' defer></script>
+<script src='./lib/js/L7-min.js' defer></script>
+<script src="./lib/js/three.min.js" defer></script>
+<!-- 轻量级动画库补间 -->
+<!-- <script src="https://cdn.bootcdn.net/ajax/libs/tween.js/0.11.0/Tween.min.js" defer></script> -->
+<!-- 轨迹球控制器库 -->
+<!-- <script src="./lib/js/TrackballControls.js" defer></script> -->
+<!-- css3D渲染器 -->
+<!-- <script src="./lib/js/CSS3DRenderer.js" defer></script> -->
+<script src="./lib/js/vue-count-to.min.js" defer></script>
+<!-- <script src="./lib/Cesium/Cesium.js" defer></script> -->
+<!-- <script src="http://earthsdk.com/v/last/XbsjEarth/XbsjEarth.js" defer></script> -->
+
+<script>
+    var vm = new Vue({
+        el: "#contain",
+        mixins: [mixinsComponents],
+        data() {
+            return {
+                origin: 'preview', // mixins 判断来源
+                chartDrager: new MHQDrager(),
+                command: '',
+                data: '',
+                menuVisible: false,
+                isGroupMenu: false,
+                showSubMenu: false,
+                maxZindex: 999,
+                nowId: null, //当前元素
+                nowGroupId: '', // 当前选中的组
+                previewTemplateList: [], // 预览或者下载使用的templateList
+                basicConfig: {
+                    width: 1920,
+                    height: 1080
+                }, // 大屏基础设置
+                isEditing: false, // 是否处于正在编辑的状态
+                zoom: 0.75,
+                isMove: false, // 是否有组件再移动
+                previewImage: '', // 预览缩略图
+                willCopy: '', // 即将copy的组件 即按了ctrl + c 之后的组件
+                isShowResize: false, // 放大图表的modal
+                mouseenterTemplate: null, // 鼠标移入高亮的图表
+                mouseenterGroup: null, // 鼠标移入group高亮
+                historyCommand: [], // 操作历史
+                historyCommandBak: [], // 操作历史备份 用于redo操作
+                undoCommand: [],
+                redoCommand: [],
+                debounceTimer: null, // 防抖定时器
+                nowHistory: 0, // 现在处于的历史记录的位置
+                borderType: 11,
+                isCtrl: false, // 是否按下ctrl
+                isShift: false, // 是否按下shift
+                multiplyMoveList: [], // 多选移动
+                multiplyStatus: false, // 是否进入多选状态
+                selectBoxPosition: {}, // 选择框的位置信息
+                cssMerge: '', // 预览下载的时候动态获取的css样式
+                shareData: {}, // 分享的外网地址
+                EventSource: null, // 全局SSE source时间
+                allTemplateList: [
+                    []
+                ], // 多桌面 所有桌面的数据合集 必须初始化为数组嵌套数组 否则会导致没有内容的组件初始化失败
+                nowWindowIndex: -1, // 多桌面模式, 现在处于的桌面序号 初始化不能为0 因为如果初始化为0  进入页面在第一页会导致computed不进行计算而执行缓存导致templateList没有值
+                loadingText: '拼命加载中', // loading的文案
+                isMoveGroup: false, // 是否移动组
+                staticUrl: './', // 静态资源地址
+            }
+        },
+        created() {
+            this.initComponent()
+            this.initMap()
+            this.initThree()
+            this.initDecoration()
+            this.initEarth()
+            this.initCesiumEarth()
+            this.selectBox()
+        },
+        mounted() {
+            window.parent.postMessage({
+                command: 'ready'
+            }, '*')
+            window.parent.postMessage({
+                command: 'blur'
+            }, '*')
+            window.addEventListener('mousewheel', this.scrollFunc, {
+                passive: false
+            });
+            window.addEventListener('keydown', this.keyDown, false);
+            window.addEventListener('keyup', this.keyUp, false);
+            window.addEventListener("message", this.receiveMessage, false);
+            window.addEventListener("blur", this.blur, false);
+            this.$refs.body.style.width = this.basicConfig.width
+            this.$refs.body.style.height = this.basicConfig.height
+            this.$refs.echartsList.style.height = this.basicConfig.height
+        },
+        beforeDestroy() {
+            // 移除监听
+            window.removeEventListener('mousewheel', this.scrollFunc, {
+                passive: false
+            });
+            window.removeEventListener('keydown', this.keyDown, false);
+            window.removeEventListener('keyup', this.keyUp, false);
+            window.removeEventListener("message", this.receiveMessage, false);
+            window.removeEventListener("blur", this.blur, false);
+            clearTimeout(this.debounceTimer)
+            clearInterval(this.timer)
+        },
+        computed: {
+            templateList() {
+                return this.allTemplateList[this.nowWindowIndex] || []
+            },
+            nowTemplate() {
+                return this.findTemplateForId(this.nowId)
+            },
+            nowGroupTemplate() {
+                return this.findGroupForId(this.nowGroupId)
+            }
+        },
+        watch: {
+            nowId: {
+                handler(newVal, oldVal) {
+                    if (newVal === null) {
+                        // 监听currentIndex 如果没有任何一个组件被选中则发送blur指令取消右侧菜单栏的显示
+                        this.menuVisible = false;
+                        this.mouseenterTemplate = null
+                        this.mouseenterGroup = null
+                        this.templateList.map(item => {
+                            item.isHorCenter = false
+                            item.isHorizontal = false
+                            item.isVerCenter = false
+                            item.isVertical = false
+                        })
+                    }
+                }
+            },
+            'multiplyMoveList.length': {
+                handler(newVal) {
+                    if (newVal > 0) {
+                        this.multiplyStatus = true
+                        this.sendMsg('multiplyMove', null, null)
+                    } else {
+                        this.multiplyStatus = false
+                    }
+                }
+            },
+            'historyCommand.length': {
+                handler(newVal, oldVal) {
+                    if (newVal - oldVal > 0 && newVal > this.historyCommandBak.length) {
+                        // 只有新增命令的时候更新备份
+                        this.historyCommandBak = JSON.parse(JSON.stringify(this.historyCommand))
+                    }
+                }
+            },
+            'basicConfig.width': {
+                handler(newVal) {
+                    this.$refs.echartsList.style.width = newVal
+                }
+            },
+            'basicConfig.height': {
+                handler(newVal) {
+                    this.$refs.echartsList.style.height = newVal
+                }
+            },
+        },
+        methods: {
+
+            blur() {
+                // iframe 失去焦点
+                this.isCtrl = false
+                this.iisShift = false
+                this.isMove = false
+                this.isGroupMenu = false
+                this.menuVisible = false
+            },
+            deleteTemplateFroId(id, isRefreshGroup = true) {
+                const find = (node) => {
+                    node.some((item, index) => {
+                        if (item.property.type === 'group') {
+                            find(item.property.children)
+                        } else if (item.property.elementId === id) {
+                            node.splice(index, 1)
+                            // 判断组内是否还有组件
+                            this.isHaveChildren(item.property.groupId, isRefreshGroup)
+                            return true
+                        }
+                    })
+                }
+                find(this.templateList)
+            },
+            isHaveChildren(id, isRefreshGroup = false) {
+                // isRefreshGroup 是否刷新组边框
+                // 判断是否还有children 如果没有则删除
+                const find = (node) => {
+                    node.some((item, index) => {
+                        const {
+                            type,
+                            elementId,
+                            children
+                        } = item.property
+                        if (type === 'group') {
+                            if (elementId === id) {
+                                isRefreshGroup && this.refreshGroup(item) // 组内删除了组件 要刷新当前组的边框
+                                if (children.length === 0) {
+                                    node.splice(index, 1) // 如果组内没有组件了删除当前组
+                                }
+                                return true;
+                            } else {
+                                find(children)
+                            }
+                        }
+                    })
+                }
+                find(this.templateList)
+            },
+            windowChange(e) {
+                // 改变窗口
+                this.nowWindowIndex = e
+                this.$nextTick(() => {
+                    this.initPage(); // 首次加载初始化模板
+                    this.sendMsg('group', 'group', this.templateList)
+                    // 判断页面是否存在tab组件 若存在tab组件则获取其绑定的值
+                    this.isHavetab()
+                })
+            },
+            findArrayIndex(arr, data) {
+                // 查找二维数组中某个元素的索引
+                return arr.findIndex(item => {
+                    return item.includes(data)
+                })
+            },
+            keyDown(e) {
+                let key = window.event.keyCode;
+                this.isShift = event.shiftKey
+                this.isCtrl = event.ctrlKey
+                if (this.isCtrl && this.isShift) {
+                    this.ctrlShiftFunction(key);
+                    return
+                }
+                if (this.isCtrl) {
+                    window.event.preventDefault() //关闭浏览器快捷键
+                    this.ctrlkeyForFunciton(key)
+                } else {
+                    this.keyForFunciton(key)
+                }
+            },
+            keyUp(e) {
+                if (document.activeElement.dataset.type === 'text') { // text可以直接编辑
+                    this.nowTemplate.property.option.data = e.target.innerText
+                }
+                let key = window.event.keyCode;
+                if (key === 17) {
+                    this.isCtrl = false
+                }
+            },
+            scrollFunc(e) {
+                if (e.ctrlKey) {
+                    if (e.wheelDelta > 0) {
+                        this.zoom += 86 / this.basicConfig.width // 86是放大速度
+                    } else {
+                        this.zoom -= 86 / this.basicConfig.width
+                    }
+                    this.debounce(this.zoomChange, 100)
+                    this.sendMsg('ctrlChangeZoom', null, this.zoom)
+                } else {
+                    if (e.wheelDelta > 0) {
+                        this.$refs.carousel.setActiveItem(this.nowWindowIndex + 1)
+                    } else {
+                        this.$refs.carousel.setActiveItem(this.nowWindowIndex - 1)
+                    }
+                }
+                e.preventDefault()
+            },
+            selectBox() {
+                var startX = 0,
+                    startY = 0;
+                var retcLeft = 0,
+                    retcTop = 0,
+                    retcHeight = 0,
+                    retcWidth = 0;
+                document.onmousedown = e => {
+                    try {
+                        var evt = window.event || e;
+                        var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+                        var scrollLeft = document.body.scrollLeft || document.documentElement.scrollLeft;
+                        retcLeft = -999 // 点击的时候 退出多选 让参数变为负值防止二次选中
+                        retcTop = -999
+                        retcHeight = -999
+                        retcWidth = -999
+                        startX = evt.clientX + scrollLeft;
+                        startY = evt.clientY + scrollTop;
+                        var div = document.createElement("div");
+                        div.id = 'selectBox'
+                        div.className = "multi-select-overlay";
+                        div.style.marginLeft = startX + "px";
+                        div.style.marginTop = startY + "px";
+                        div.width = 0
+                        document.getElementById('body').appendChild(div);
+                    } catch (e) { }
+                }
+                document.onmouseup = (event) => {
+                    try {
+                        document.getElementById('body').removeChild($('selectBox'));
+                        this.selectBoxPosition.width = retcWidth
+                        this.selectBoxPosition.height = retcHeight
+                        this.selectBoxPosition.left = retcLeft
+                        this.selectBoxPosition.top = retcTop
+                        this.judgeInBox()
+                        return true
+                    } catch (e) { }
+                }
+                document.onmousemove = e => {
+                    try {
+                        var evt = window.event || e;
+                        var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+                        var scrollLeft = document.body.scrollLeft || document.documentElement.scrollLeft;
+                        retcLeft = (startX - evt.clientX - scrollLeft > 0 ? evt.clientX + scrollLeft : startX)
+                        retcTop = (startY - evt.clientY - scrollTop > 0 ? evt.clientY + scrollTop : startY)
+                        retcHeight = Math.abs(startY - evt.clientY - scrollTop)
+                        retcWidth = Math.abs(startX - evt.clientX - scrollLeft)
+                        $('selectBox').style.marginLeft = (retcLeft) / this.zoom; // 根据缩放比例显示真实数据
+                        $('selectBox').style.marginTop = (retcTop) / this.zoom;
+                        $('selectBox').style.width = (retcWidth) / this.zoom;
+                        $('selectBox').style.height = (retcHeight) / this.zoom;
+                    } catch (e) { }
+                }
+                var $ = function (id) {
+                    return document.getElementById(id);
+                }
+            },
+            judgeInBox() {
+                // 判断组件是否在选择框内
+                this.multiplyMoveList = []
+                let isHaveSelect = false
+                const find = (node) => {
+                    node.map(item => {
+                        if (item.property.type === 'group') {
+                            find(item.property.children)
+                        } else {
+                            const {
+                                width,
+                                height,
+                                left,
+                                top,
+                                elementId,
+                            } = item.property
+                            const outLayerProperty = this.getParentGroupProperty(item) // 获取父组的属性
+                            const b = {
+                                width: width * this.zoom,
+                                height: height * this.zoom,
+                                left: (left + outLayerProperty.left) * this.zoom,
+                                top: (top + outLayerProperty.top) * this.zoom
+                            }
+                            if (this.rectRect(this.selectBoxPosition, b)) {
+                                isHaveSelect = true
+                                if (!item.isLock) {
+                                    this.multiplyMoveList.push(elementId)
+                                }
+                            }
+                        }
+                    })
+
+                }
+                find(this.templateList)
+                if (!isHaveSelect) {
+                    const e = {
+                        target: {
+                            id: 'body'
+                        }
+                    }
+                    this.closeMenu(e);
+                    return
+                }
+                if (this.nowId == null) {
+                    this.nowId = this.multiplyMoveList[0]
+                }
+            },
+            rectRect(a, b) {
+                // 判断两个组件是否重叠
+                var a_min_x = a.left;
+                var a_min_y = a.top;
+                var a_max_x = a.left + a.width;
+                var a_max_y = a.top + a.height;
+
+                var b_min_x = b.left;
+                var b_min_y = b.top;
+                var b_max_x = b.left + b.width;
+                var b_max_y = b.top + b.height;
+
+                return a_min_x <= b_max_x &&
+                    a_max_x >= b_min_x &&
+                    a_min_y <= b_max_y &&
+                    a_max_y >= b_min_y;
+            },
+            mouseenterGroupTemplate(e, isEnter) {
+                // 鼠标移过group高亮
+                const id = e && e.toElement && e.toElement.id && e.toElement.id.replace('groupOutLayer', '')
+                if (id !== "body" && id !== '') {
+                    this.mouseenterGroup = id
+                    const nowGroupTemplate = this.findGroupForId(id)
+                    nowGroupTemplate && this.setGroupOutLayerProperty(nowGroupTemplate) // 刷新边框
+                } else {
+                    this.mouseenterGroup = null
+                }
+            },
+            mouseenter(e, isEnter = true) {
+                // 鼠标移过高亮
+                const id = e && e.toElement && e.toElement.id && e.toElement.id.replace('chart-item', '')
+                if (id !== "body" && id !== '') {
+                    if (!this.mouseenterGroup) { // 组高亮取消组件高亮
+                        this.mouseenterTemplate = id
+                    }
+                } else {
+                    this.mouseenterTemplate = null
+                }
+            },
+            hiddenTemplate() {
+                // 隐藏组件
+                this.$set(this.nowTemplate.property, 'isHidden', !this.nowTemplate.property.isHidden) // $set 防止页面不刷新
+                this.menuVisible = false
+            },
+            selectAll() {
+                // 全选
+                const find = (node) => { // 匿名函数防止this指向错误
+                    node.map(item => {
+                        if (item.property.type === 'group') {
+                            find(item.property.children)
+                        } else {
+                            this.multiplyMoveList.push(item.property.elementId)
+                        }
+                    })
+                }
+                find(this.templateList)
+            },
+            ctrlShiftFunction(key) {
+                // ctrl + shift + key
+                switch (key) {
+                    case 90:
+                        this.redo();
+                        break; // 重做 z
+                }
+            },
+            ctrlkeyForFunciton(key) {
+                // ctrl +key
+                switch (key) {
+                    case 83:
+                        this.saveTemplate('save');
+                        break; // 保存 s
+                    case 67:
+                        if (this.nowId) {
+                            this.willCopy = this.nowId;
+                            break; // 复制 c
+                        } else {
+                            this.Toast('请先选中要复制的组件', 'warn')
+                        }
+                    case 86:
+                        if (this.multiplyStatus) {
+                            this.onMultiplyOperate('copy') // 多选复制 v
+                        } else {
+                            this.nowId = this.willCopy
+                            this.copyTemplate()
+                        }
+                        break;
+                    case 74:
+                        if (this.multiplyStatus) {
+                            this.onMultiplyOperate('copy') // 直接复制 j
+                        } else {
+                            this.copyTemplate()
+                        }
+                        break;
+                    case 90:
+                        this.undo();
+                        break; // 撤销 z
+                    case 71:
+                        this.group(this.multiplyMoveList); // 成组 g
+                        this.multiplyMoveList = [];
+                        break;
+                    case 65:
+                        this.selectAll();
+                        break; // 全选 a
+                }
+            },
+            keyForFunciton(key) {
+                switch (key) {
+                    case 46:
+                        if (this.multiplyStatus) {
+                            this.onMultiplyOperate('delete')
+                        } else {
+                            this.deleteTemplate();
+                        }
+                        break;
+                }
+            },
+            undo() {
+                // 撤销
+                let nowHistory = this.historyCommand.length - 1 // 现在处于的位置
+                if (nowHistory >= 0) {
+                    const nowCommand = this.historyCommand[nowHistory] // 现在要执行撤回的命令
+                    this.undoOrRedoFun(nowCommand, nowCommand.id, 'undo')
+                    this.historyCommand = this.historyCommand.slice(0, -1)
+                }
+            },
+            redo() {
+                // 重做
+                if (this.historyCommand.length == this.historyCommandBak.length) {
+                    return; // 重做到头了 则return
+                }
+                let nowHistory = this.historyCommand.length // 现在处于的位置
+                const nowCommand = this.historyCommandBak[nowHistory] // 新增要重做的命令
+                if (nowCommand) {
+                    const redoNowCommand = JSON.parse(JSON.stringify(nowCommand))
+                    redoNowCommand.originParams = redoNowCommand.nowParams
+                    this.undoOrRedoFun(redoNowCommand, nowCommand.id, 'redo')
+                    this.historyCommand.push(nowCommand) // 重做了要把重做的指令添加进去
+                }
+            },
+            undoOrRedoFun({
+                id,
+                name,
+                originParams
+            }, elementid, command) {
+                // 撤销或者重做的相关公用代码
+                switch (name) {
+                    case 'move':
+                        {
+                            const nowTemplate = this.findTemplateForId(elementid)
+                            nowTemplate.property = {
+                                ...nowTemplate.property,
+                                ...originParams
+                            }
+                            this.setProperty(nowTemplate)
+                        };
+                        break;
+                    case 'append':
+                        {
+                            if (command === 'undo') {
+                                // 撤销 如果是新增 则撤回是删除
+                                this.confirmDelete(id, true)
+                            } else {
+                                this.templateList.push(originParams)
+                                this.$nextTick(() => {
+                                    this.enableDrag(originParams, true); // 新增非echarts 让元素可拖拽
+                                });
+                            }
+                            this.sendMsg('group', 'group', this.templateList)
+                        };
+                        break;
+                    case 'delete':
+                        {
+                            if (command === 'undo') {
+                                // 如果是删除 则撤回是新增
+                                // 如果有groupId 则新增到groupId上  如果根据groupId 找不到group了 因为组被删了 这时候新增到根
+                                const {
+                                    type,
+                                    groupId
+                                } = originParams.property
+                                if (groupId) {
+                                    const nowGroup = this.findGroupForId(groupId)
+                                    if (nowGroup) {
+                                        nowGroup.property.children.push(originParams)
+                                    } else {
+                                        this.templateList.push(originParams)
+                                    }
+                                } else {
+                                    this.templateList.push(originParams)
+                                }
+                                this.$nextTick(() => {
+                                    this.enableDrag(originParams, true); // 新增非echarts 让元素可拖拽
+                                    this.refreshGroup(originParams) // 属性组边框
+                                });
+                            } else {
+                                this.confirmDelete(id, true)
+                            }
+                            this.sendMsg('group', 'group', this.templateList)
+
+                        };
+                        break;
+                    case 'changeColor':
+                        {
+                            this.templateList.map(item => {
+                                const {
+                                    elementId,
+                                    type,
+                                    option,
+                                    componentsType
+                                } = item.property
+                                if (componentsType === 'border') return; // boder不换肤
+                                if (elementId !== id) return; // id不匹配不撤回
+                                if (type === 'area') {
+                                    option.visualMap.inRange.color = originParams
+                                } else {
+                                    if (option.color) {
+                                        option.color = originParams
+                                    } else {
+                                        // 没有color属性的组件 则遍历属性结尾为color的属性 并依次赋值???
+                                        let index = 0 // 颜色序号
+                                        Object.keys(option).map(props => {
+                                            if (props.substring(props.length - 5).toLowerCase() === 'color') {
+                                                option[props] = originParams[index]
+                                                index++
+                                            }
+                                        })
+                                    }
+                                    if (option.series) {
+                                        option.series.forEach(ser => {
+                                            ser.itemStyle.normal.color && ser.itemStyle.normal.color.colorStops.map((itemcolorStop, index) => {
+                                                itemcolorStop.color = originParams[index]
+
+                                            })
+                                        })
+                                    }
+                                }
+                                this.$nextTick(() => {
+                                    item.isLoading = this.guid()
+                                    this.$forceUpdate()
+                                })
+                            })
+                        };
+                        break;
+                }
+            },
+            async screenShot(id) {
+                // 截图 dom-to-image
+                const data = await domtoimage.toPng(document.getElementById(id), {
+                    cacheBust: true
+                })
+                return data
+            },
+
+            async initRecursionTemplate(item) {
+                // 递归初始化组件
+                if (item.property.type === 'group') {
+                    this.chartDrager.newInstance(`#groupOutLayer${item.property.elementId}`, $element => {
+                        // 拖拽成组生成的group组件不进行后续操作
+                        this.setGroupProperty($element)
+                    })
+                    this.setOutLayerProperty(item, item.property.width, item.property.height, item.property.left, item.property.top) // 初始化组属性
+                    this.refreshGroup(item) // 初始化成组
+                    item.property.children.forEach(child => {
+                        this.initRecursionTemplate(child)
+                    })
+                } else {
+                    this.nowId = item.property.elementId // 因为appendChart要用到nowTemplate 所有这里设置nowId为要添加的id
+                    this.enableDrag(item, true)
+                    switch (item.property.dataBindType.default) {
+                        case 'api':
+                            {
+                                await this.initApi(item)
+                            };
+                            break;
+                        case 'SSE':
+                            {
+                                this.clearData(item.property)
+                                await this.SSEBind()
+                            }
+                    }
+                }
+            },
+
+            async initPage() {
+                // 根据模板传来的参数 初始化模板数据
+                this.sendMsg('loading', null, {
+                    loading: true,
+                    loadingText: '正在初始化模板请稍等...'
+                })
+                this.templateList.sort((a, b) => {
+                    return a.property.shareApiId ? 1 : -1
+                })
+                for (let item of this.templateList) {
+                    await this.initRecursionTemplate(item)
+                }
+                this.nowId = null // 组件添加完成之后将选择的置为null
+                // 需通知react当前没有选中的组件
+                this.sendMsg('setLayerNowId', null, {
+                    elementId: null
+                })
+                this.sendMsg('loading', null, {
+                    loading: false,
+                    loadingText: '正在初始化模板请稍等...'
+                })
+            },
+            savePreviewTemplate() {
+                // 保存当前页面的templateList用于预览和下载
+                this.previewTemplateList = this.allTemplate2NotGroupAllTemplate(this.allTemplateList)
+            },
+            save() {
+                this.sendMsg('loading', null, {
+                    loading: true,
+                    loadingText: '正在保存中...'
+                })
+                this.readHTML(true) // 用下载的方式预览文件, 解决localStorage大小限制的问题
+                this.sendMsg('loading', null, {
+                    loading: false,
+                    loadingText: '正在保存中...'
+                })
+
+            },
+            loadCss(templateList, cssList) {
+                //动态加载css使用到的css文件 并合并
+                const find = (node) => { // 匿名函数防止this指向错误
+                    node.map(item => {
+                        let {
+                            type,
+                            componentsType
+                        } = item.property
+                        if (type == 'group') {
+                            find(item.property.children)
+                        } else {
+                            if (!cssList.includes(item.type) && componentsType !== 'charts') {
+                                if (componentsType === 'private') {
+                                    // 页面组件 在进行细分
+                                    this.loadCss(item.property.option.templateList, cssList)
+                                } else {
+                                    // 防止重复加载
+                                    cssList.push(type)
+                                    if (type.slice(0, 3) === 'tab') {
+                                        type = 'tab' // tab1 tab2 用的都是tab.css文件
+                                    }
+                                    $.ajax({
+                                        async: false,
+                                        url: `./lib/css/${type}.css`,
+                                        success: data => {
+                                            this.cssMerge += data
+                                        }
+                                    })
+                                }
+                            }
+                        }
+                    })
+                }
+                find(templateList)
+            },
+            async readHTML(isPreview) {
+                // 读取本地的预览文件，替换data中定义的templateList数据
+                this.savePreviewTemplate()
+                const cssList = []
+                this.cssMerge = '' // 每次都清空
+                this.allTemplateList.map(item => {
+                    this.loadCss(item, cssList)
+                })
+                $.ajax({
+                    async: false,
+                    url: "productPreview.html",
+                    success: result => {
+                        var subTemplate = new RegExp('allTemplateList: null', 'g'); //创建正则表达式对象,,全局查找
+                        var operate = new RegExp('basicConfig: null', 'g');
+                        var style = new RegExp('.sobeyBaseCss {}', 'g');
+                        var staticUrl = new RegExp('../iframe/', 'g');
+                        var title = new RegExp('我是大屏预览的标题', 'g');
+                        // 把templateList：null替换成准备好的模拟数据替换到vue中data定义templateList的位置
+
+                        var result = result.replace(subTemplate, `allTemplateList: ${JSON.stringify(this.previewTemplateList)}`);
+                        result = result.replace(operate, `basicConfig: ${JSON.stringify(this.basicConfig)}`); // 替换大屏基础配置
+                        result = result.replace(style, this.cssMerge.replaceAll('../../../iframe/', '../iframe/')); // 替换css文件
+                        if (this.shareData.url) {
+                            result = result.replace(staticUrl, this.shareData.url + '/screen/iframe/')
+                        }
+                        result = result.replace(title, this.shareData.title || '大屏预览'); // 替换自定义标题
+                        if (isPreview) {
+                            // 预览则打开
+                            var win = window.open('', this.guid());
+                            win.document.open();
+                            win.document.write(result);
+                            win.document.close();
+                        } else {
+                            // 下载模板文件
+                            this.downloadHTML(result, `${this.basicConfig.title}.html`)
+                        }
+                    }
+                });
+            },
+            downloadHTML(content, filename) {
+                //模拟a标签下载文件
+                let linkNode = document.createElement('a');
+                linkNode.download = filename;
+                linkNode.style.display = 'none';
+                // 利用Blob对象将字符内容转变成二进制数据
+                let blob = new Blob([content]);
+                linkNode.href = URL.createObjectURL(blob);
+                // 点击
+                document.body.appendChild(linkNode);
+                linkNode.click();
+                // 移除
+                document.body.removeChild(linkNode);
+            },
+            async saveTemplate(type) {
+                // 保存模板
+                this.sendMsg('loading', null, {
+                    loading: true,
+                    loadingText: '正在读取模板'
+                })
+                let result = {
+                    componentList: []
+                }
+                // 因需求将name description background waterMask等字段拆出来 其余字段放在extend中
+                const {
+                    width,
+                    height,
+                    title,
+                    description,
+                    blur,
+                    waterMask,
+                    background
+                } = this.basicConfig
+                this.allTemplateList.map((all, index) => {
+                    all.map(item => {
+                        let a = {}
+                        for (const [key, value] of Object.entries(item)) {
+                            let result = JSON.parse(JSON.stringify(value))
+                            a[key] = result
+                        }
+                        if (Object.prototype.toString.call(a.property.responseData) === '[object Objec]') {
+                            a.property.responseData = JSON.stringify(a.property.responseData)
+                        }
+                        if (Object.prototype.toString.call(a.property.SSEResponseData) === '[object Objec]') {
+                            a.property.responseData = JSON.stringify(a.property.SSEResponseData)
+                        }
+                        a.upIndex = index
+                        const backgroundId = a.backgroundId
+                        delete a.background
+                        result.componentList.push({
+                            extend: a,
+                            backgroundId: backgroundId
+                        })
+                    })
+                })
+
+                result.name = title
+                const backgroundId = this.basicConfig.backgroundId
+                const previewId = this.basicConfig.previewId
+                delete this.basicConfig.backgroundId
+                delete this.basicConfig.previewId
+                result.extend = this.basicConfig
+                result.backgroundId = backgroundId
+                result.preview = this.basicConfig.preview
+                delete this.basicConfig.preview
+                result.previewId = previewId
+                result.extend.data = []
+                // 将获取的base64缩略图转换成文件保存到服务器
+                // this.loadingText = '正在进行屏幕截图'
+                this.sendMsg('loading', null, {
+                    loading: true,
+                    loadingText: '正在进行屏幕截图'
+                })
+
+                try {
+                    result.preview = await this.screenShot('echartsList') // 因截图不全 替换为手动上传
+                } catch (err) {
+                    console.log(err)
+                }
+                this.sendMsg('loading', null, {
+                    loading: true,
+                    loadingText: '正在保存模板'
+                })
+
+                if (type === 'savePrivate') {
+                    // 如果为私有组件 则将组件内的data数据合并在一起
+                    const tempData = {}
+                    const find = (node) => { // 匿名函数防止this指向错误
+                        node.map((item, index) => {
+                            if (item.property.type === 'group') {
+                                find(item.property.children)
+                            } else {
+                                tempData[item.property.elementId] = item.property.option.data
+                            }
+                        })
+                    }
+                    find(this.templateList)
+                    result.extend.data.push(tempData)
+                }
+                // 给react发送模板消息让react保存此模板数据
+                this.sendMsg(type, null, result)
+            },
+
+            isExportedBluePrint(elementId) {
+                // 根据elementId判断是否已经导出到蓝图编辑器
+                if (!this.basicConfig.bluePrintConfig) return false;
+                return this.basicConfig.bluePrintConfig.exportIdList.some(item => {
+                    if (item.elementId === elementId) {
+                        return true
+                    }
+                })
+            },
+            cannelExportBluePrint(id) {
+                // 取消导出到蓝图编辑器
+                this.basicConfig.bluePrintConfig.exportIdList = this.basicConfig.bluePrintConfig.exportIdList.filter(item => {
+                    return item.elementId !== id
+                })
+                this.Toast('取消成功', 'success')
+                this.menuVisible = false
+            },
+            exportBluePrint() {
+                // 选择组件导出到蓝图编辑器
+                let exportComponent = []
+                if (this.multiplyMoveList.length == 0) {
+                    exportComponent.push(this.nowId)
+                } else {
+                    exportComponent = this.multiplyMoveList
+                }
+                exportComponent.forEach(item => {
+                    const nowTemplate = this.findTemplateForId(item)
+                    const {
+                        title,
+                        elementId,
+                        type,
+                        componentsType,
+                        typeName
+                    } = nowTemplate.property
+                    let singleResult = {
+                        title,
+                        elementId,
+                        type,
+                        typeName,
+                        componentsType
+                    }
+                    this.basicConfig.bluePrintConfig.exportIdList.push(singleResult)
+                })
+                // 去重
+                this.basicConfig.bluePrintConfig.exportIdList = this.uniqueArray(this.basicConfig.bluePrintConfig.exportIdList, 'elementId')
+                this.sendMsg('exportBluePrint', 'bluePrint', this.basicConfig.bluePrintConfig)
+            },
+            dblclickTemplate(id) {
+                // 双击组件 让组件内部不接受任何事件 防止拖拽移动时内部阻止冒泡导致无法移动
+                if (this.nowId !== id) {
+                    this.clickTemplate(id)
+                }
+                this.$set(this.nowTemplate, 'isClickable', !this.nowTemplate.isClickable)
+            },
+            clickTemplate(id) {
+                // 点击模板
+                if (!this.isEditing && this.nowId !== id) {
+                    // 处于正再编辑状态不进行替换当前选中组件
+                    if (this.isCtrl) {
+                        if (this.multiplyMoveList.includes(id)) {
+                            // 存在则删除
+                            this.multiplyMoveList.splice(this.multiplyMoveList.findIndex(item => item === id), 1)
+                        } else {
+                            this.multiplyMoveList.push(id)
+                        }
+                        this.sendMsg('layerClickMulity', 'layerClickMulity', this.multiplyMoveList) // 点击组件让菜单跟组件匹配 只有点击的不是成组组件才执行此命令 
+                    } else {
+                        if (!this.multiplyMoveList.includes(id) && this.multiplyStatus) {
+                            // 多选状态下没按ctrl选中了不在多选列表的组件
+                            const e = {
+                                target: {
+                                    id: 'body'
+                                }
+                            }
+                            this.isCtrl = false
+                            this.multiplyMoveList = []
+                            this.multiplyStatus = false
+                        }
+                    }
+                    this.isMoveGroup = false
+                    this.nowId = id
+                    if (this.nowTemplate && this.nowTemplate.isLock) {
+                        this.nowId = null;
+                        return;
+                    }
+                    // !this.multiplyStatus && this.sendMsg('layerClick', this.nowTemplate.property.type, this.nowTemplate.property) // 不是多选状态下 
+                    this.mouseenterGroup = null
+                    const {
+                        groupId
+                    } = this.nowTemplate.property
+                    if (groupId) {
+                        const nowGroup = this.findGroupForId(groupId)
+                        this.nowGroupId = nowGroup && nowGroup.property.elementId
+                    } else {
+                        this.nowGroupId = null
+                    }
+                    this.sendMsg('updateNowGroupId', 'groupId', this.nowGroupId)
+                }
+
+            },
+            fullScreen() {
+                // 如果在组内则铺满组
+                let width = 0
+                let height = 0
+                if (this.nowGroupId) {
+                    const nowGroupTemplate = this.findGroupForId(this.nowGroupId)
+                    width = nowGroupTemplate.property.width
+                    height = nowGroupTemplate.property.height
+                } else {
+                    width = this.basicConfig.width
+                    height = this.basicConfig.height
+                }
+                this.setValue(this.nowTemplate.property, 'width', width)
+                this.setValue(this.nowTemplate.property, 'height', height)
+                this.setValue(this.nowTemplate.property, 'left', 0)
+                this.setValue(this.nowTemplate.property, 'top', 0)
+                this.menuVisible = false
+                this.Toast('铺满成功', 'success')
+            },
+            async downloadTemplate() {
+                const fileName = this.nowTemplate.property.title || this.nowTemplate.property.type
+                const image = await this.screenShot(`${this.nowTemplate.property.elementId}`)
+                let aLink = document.createElement('a');
+                let blob = this.base64ToBlob(image); // new Blob([content]);
+                let evt = document.createEvent('HTMLEvents');
+                evt.initEvent('click', true, true); // initEvent 不加后两个参数在FF下会报错  事件类型，是否冒泡，是否阻止浏览器的默认行为
+                aLink.download = fileName;
+                aLink.href = URL.createObjectURL(blob);
+                aLink.dispatchEvent(new MouseEvent('click', {
+                    bubbles: true,
+                    cancelable: true,
+                    view: window
+                })); // 兼容火狐
+            },
+            // base64转blob
+            base64ToBlob(code) {
+                let parts = code.split(';base64,');
+                let contentType = parts[0].split(':')[1];
+                let raw = window.atob(parts[1]);
+                let rawLength = raw.length;
+
+                let uInt8Array = new Uint8Array(rawLength);
+
+                for (let i = 0; i < rawLength; ++i) {
+                    uInt8Array[i] = raw.charCodeAt(i);
+                }
+                return new Blob([uInt8Array], {
+                    type: contentType
+                });
+            },
+            setzIndex(zIndex) {
+                // 设置zIndex的值并发送属性更改的消息
+                this.$set(this.nowTemplate.property, 'zIndex', this.nowTemplate.property.zIndex)
+                this.nowTemplate.property.zIndex = zIndex
+            },
+            sticky() {
+                // 置顶
+                if (!this.nowTemplateIsLock('当前图层被锁定无法置顶')) {
+                    this.nowTemplate.property.zIndex = this.maxZindex++ // 用在最大的层级上加一级 避免置顶不是真正的置顶
+                    this.setzIndex(this.nowTemplate.property.zIndex)
+                    this.menuVisible = false
+                    this.Toast('置顶成功', 'success')
+                }
+            },
+            setLow() {
+                // 置底
+                if (!this.nowTemplateIsLock('当前图层被锁定无法置底')) {
+                    this.nowTemplate.property.zIndex = 1
+                    this.setzIndex(1)
+                    this.menuVisible = false
+                    this.Toast('置底成功', 'success')
+                }
+            },
+            moveUp() {
+                // 上移一层
+                if (!this.nowTemplateIsLock('当前图层被锁定无法上移一层')) {
+                    this.nowTemplate.property.zIndex += 1
+                    if (this.maxZindex < this.nowTemplate.property.zIndex) {
+                        this.maxZindex = this.nowTemplate.property.zIndex + 1 // 如果点了上移一层导致比最大层级还要大 则把当前层级赋给最大层级
+                    }
+                    this.setzIndex(this.nowTemplate.property.zIndex)
+                    this.menuVisible = false
+                    this.Toast('上移成功！', 'success')
+                }
+            },
+            moveDown() {
+                // 下移一层
+                if (!this.nowTemplateIsLock('当前图层被锁定无法删除下移一层')) {
+                    this.nowTemplate.property.zIndex -= 1
+                    this.setzIndex(this.nowTemplate.property.zIndex)
+                    this.menuVisible = false
+                    this.Toast('下移成功！', 'success')
+                }
+            },
+            lockTemplate(e, id, status) {
+                let nowTemplate = null
+                nowTemplate = this.nowTemplate
+                if (id) {
+                    nowTemplate = this.findTemplateForId(id)
+                }
+                nowTemplate.isLock ? this.Toast('图层已解锁！', 'success') : this.Toast('图层已锁定！', 'success')
+                this.menuVisible = false
+                nowTemplate.isLock = status !== undefined ? status : !nowTemplate.isLock
+            },
+            copy(property) {
+                // property 待copy的组件属性
+                const {
+                    componentsType,
+                    type,
+                    groupId
+                } = property
+                const id = this.guid()
+                let copyTemplate = {}
+                copyTemplate.property = JSON.parse(JSON.stringify(property))
+                copyTemplate.property.elementId = id
+                copyTemplate.property.left += 50
+                copyTemplate.property.top += 50 // 让复制的元素在右下角50px的位置生成
+                copyTemplate.isLock = false // 复制的元素不设置锁定
+                copyTemplate.componentsType = componentsType // 复制的元素类型用于复制时新增图层
+                copyTemplate.property.type = type // 复制的元素类型用于复制时新增图层
+                copyTemplate.type = type // 复制的元素类型用于复制时新增图层
+                if (copyTemplate.componentsType === 'private') {
+                    copyTemplate.command = 'append'
+                    copyTemplate.componentsType = 'private'
+                    copyTemplate.property.option.templateList.map(item => {
+                        item.property.elementId = this.guid()
+                    })
+                    this.receiveMessage({
+                        data: copyTemplate
+                    })
+                } else {
+                    // 将copy的组件加到带copy的组件所属的组
+                    if (groupId) {
+                        const willCopyGroup = this.findGroupForId(groupId)
+                        willCopyGroup.property.children.push(copyTemplate)
+                    } else {
+                        this.templateList.push(copyTemplate)
+                        this.$forceUpdate()
+                    }
+                    this.$nextTick(() => {
+                        this.enableDrag(copyTemplate)
+                    })
+                }
+            },
+            copyTemplate() {
+                // 复制选中的模板
+                if (this.multiplyStatus) {
+                    // 多选的复制 
+                    this.onMultiplyOperate('copy')
+                } else {
+                    this.copy(this.nowTemplate.property)
+                    this.Toast('复制成功!', 'success')
+                }
+                this.sendMsg('group', 'group', this.templateList)
+                this.menuVisible = false
+            },
+            closeMenu(e) {
+                //背景点击事件
+                if (e.target.id === 'body' || e.target.id === 'background') {
+                    //焦点失去,触发背景设置
+                    // if (this.multiplyStatus) {
+                    this.isCtrl = false
+                    this.multiplyMoveList = []
+                    window.parent.postMessage({
+                        command: 'blur'
+                    }, '*')
+                    // }
+                    this.nowId = null;
+                }
+                // 点击任意位置关闭菜单
+                this.menuVisible = false;
+            },
+            showMenu(MouseEvent) {
+                if (this.nowId || this.nowGroupId) {
+                    this.isGroupMenu = false
+                    this.menuVisible = false // 先把右键窗口false,防止 第二次或者第n次右键鼠标的时候 它默认的是true
+                    var menu = null
+                    if (this.nowGroupId && !this.nowId) {
+                        this.isGroupMenu = true
+                        menu = document.querySelector('#menuGroup')
+                    } else {
+                        this.menuVisible = true // 显示右键窗口，跳出自定义菜单栏
+                        menu = document.querySelector('#menu')
+                    }
+
+                    menu.style.display = 'block'
+                    this.$nextTick(() => {
+                        // 菜单栏超出边界则修改left top
+                        // nextTick防止页面没渲染获取不到clientHeight
+                        if ((menu.clientWidth + MouseEvent.clientX) / this.zoom > this.basicConfig.width) {
+                            menu.style.left = (this.basicConfig.width - menu.clientWidth - 120) * this.zoom + 'px'
+                        } else {
+                            menu.style.left = MouseEvent.clientX + 'px'
+                        }
+                        if ((menu.clientHeight + MouseEvent.clientY) / this.zoom > this.basicConfig.height) {
+                            menu.style.top = (this.basicConfig.height - menu.clientHeight - 120) * this.zoom + 'px'
+                        } else {
+                            menu.style.top = MouseEvent.clientY + 'px'
+                        }
+                    })
+                } else {
+                    return false;
+                }
+                console.log(this.allTemplateList)
+            },
+            sendMsg(command = "", type = "", data = "") {
+                // 发送更新消息
+                let params = {
+                    command,
+                    type,
+                    data
+                }
+                window.parent.postMessage(params, '*')
+            },
+            setProperty(nowTemplate) {
+                // nowTemplate.isLoading = this.guid()
+                const {
+                    property
+                } = nowTemplate
+                const {
+                    elementId,
+                    componentsType
+                } = property
+                if (property) {
+                    for (let p in property) {
+                        switch (p) {
+                            case 'title':
+                                property.title = property[p];
+                                break;
+                            case 'responseData':
+                                {
+                                    try {
+                                        this.$set(property, p, JSON.parse(property[p])) // 因为保存的时候转换成stringify了 因此初始化的时候要parse下
+                                    } catch (err) { }
+                                };
+                                break;
+                            case 'SSEResponseData':
+                                {
+                                    try {
+                                        this.$set(property, p, JSON.parse(property[p])) // 因为保存的时候转换成stringify了 因此初始化的时候要parse下
+                                    } catch (err) { }
+                                };
+                                break;
+                            case 'rotate':
+                                {
+                                    let element = document.getElementById(`${elementId}rotate`)
+                                    element && (element.style.transform = `rotate(${property[p]}deg)`)
+                                };
+                                break;
+                            case 'width':
+                            case 'height':
+                            case 'left':
+                            case 'top':
+                            case 'zIndex':
+                            case 'backgroundColor':
+                                {
+                                    this.setValue(property, p, property[p])
+                                };
+                                break;
+                            default:
+                                this.$set(property, p, property[p])
+                        }
+                    }
+                    nowTemplate.property.option = {
+                        ...nowTemplate.property.option
+                    }
+                }
+            },
+            templateMove($element) {
+                // 组件移动函数提取, 用于给react发生改变的属性
+                // 操作加入历史记录
+                const {
+                    left,
+                    top,
+                    width,
+                    height,
+                    rotate,
+                    elementId,
+                    staticJson,
+                    option
+                } = JSON.parse(JSON.stringify(this.nowTemplate.property))
+                let nowRotate = $element[0].children[0].style.transform
+                const outLayerProperty = this.getParentGroupProperty(this.nowTemplate)
+                nowRotate = nowRotate ? nowRotate.split('(')[1].replace('deg)', '') : 0
+                let nowLeft = Math.round(($element.offset().left) / this.zoom) // 与实际保持一致
+                let nowTop = Math.round(($element.offset().top) / this.zoom)
+
+                this.historyCommand.push({
+                    name: 'move',
+                    id: elementId,
+                    originParams: {
+                        width,
+                        height,
+                        left,
+                        top,
+                        rotate
+                    },
+                    nowParams: {
+                        width: $element.width(),
+                        height: $element.height(),
+                        left: nowLeft,
+                        top: nowTop,
+                        rotate: nowRotate
+                    }
+                })
+                this.nowTemplate.property.width = $element.width()
+                this.nowTemplate.property.height = $element.height()
+                this.nowTemplate.property.left = nowLeft - outLayerProperty.left
+                this.nowTemplate.property.top = nowTop - outLayerProperty.top
+                this.nowTemplate.property.rotate = nowRotate
+                this.nowTemplate.property.staticJson = option.data // 静态json与data或者series数据保持一致
+                const tempData = {
+                    ...this.nowTemplate.property
+                }
+                this.sendMsg('move', tempData.type, tempData)
+                // this.sendMsg('group', 'g roup', this.templateList) // 让图层实时更新
+            },
+            enableDrag(nowTemplate, isInit = false) {
+                // 通过此方法让元素可拖拽 并处理拖拽之后的事件
+                const {
+                    componentsType,
+                    type,
+                    elementId,
+                    title,
+                    description,
+                    zIndex,
+                    groupName
+                } = nowTemplate.property
+                if (!isInit) {
+                    // 初始化的操作不参与撤销
+                    this.historyCommand.push({
+                        name: 'append',
+                        id: elementId,
+                        originParams: [],
+                        nowParams: nowTemplate
+                    })
+                }
+                this.sendMsg('append', type, {
+                    elementId,
+                    title,
+                    description,
+                    type,
+                    componentsType,
+                    zIndex,
+                    groupName,
+                    upIndex: this.nowWindowIndex // 当前所处的桌面
+                })
+                this.setProperty(nowTemplate)
+                this.chartDrager.newInstance(`#${elementId}chart-item`, $element => {
+                    this.templateMove($element)
+                    this.setGroupOutLayerProperty(nowTemplate)
+                })
+            },
+
+            async updateApiBind() {
+                // 更改了数据和api接口的key的绑定
+                const {
+                    property,
+                    type
+                } = this.nowTemplate
+                switch (property.dataBindType.default) {
+                    case 'api':
+                        {
+                            await this.initApi(this.nowTemplate)
+                        };
+                        break;
+                    case 'SSE':
+                        {
+                            this.clearData(property)
+                            await this.SSEBind()
+                        }
+                }
+                this.sendMsg('update', type, {
+                    ...property
+                })
+                this.$nextTick(() => {
+                    this.nowTemplate.isLoading = this.guid()
+                })
+
+            },
+            updateTemplate() {
+                const changeData = this.data.property
+                const {
+                    property
+                } = this.nowTemplate
+                switch (changeData.path) {
+                    case 'title':
+                        {
+                            this.$set(property, 'title', changeData.value)
+                        };
+                        break;
+                    case 'staticJson':
+                        {
+                            // 静态json数据赋给data属性
+                            if (property.componentsType === 'charts') {
+                                this.$set(property.option, 'series', changeData.value)
+                            } else {
+                                this.$set(property.option, 'data', changeData.value)
+                            }
+                        };
+                        break;
+                    case 'rotate':
+                        {
+                            let element = document.getElementById(`${property.elementId}rotate`)
+                            element.style.transform = `rotate(${changeData.value}deg)`
+                        };
+                        break;
+                    case 'width':
+                    case 'height':
+                    case 'left':
+                    case 'top':
+                    case 'zIndex':
+                    case 'backgroundColor':
+                        {
+                            this.setValue(property, changeData.path, changeData.value)
+                        };
+                        break;
+                    case 'option.data':
+                        {
+                            if (changeData.type === 'excel') {
+                                this.objectUrlEval(property, 'excelData', true, changeData.value)
+                            }
+                            this.objectUrlEval(property, changeData.path, true, changeData.value)
+                        };
+                        break;
+                    case 'shareList':
+                        {
+                            // 触发共享接口
+                            changeData.value.forEach(item => {
+                                const nowTemplate = this.findTemplateForId(item)
+                                if (this.nowTemplate.property.dataBindType.default === 'api') {
+                                    this.$set(nowTemplate.property, 'url', this.nowTemplate.property.url)
+                                    this.$set(nowTemplate.property, 'method', this.nowTemplate.property.method)
+                                    this.$set(nowTemplate.property, 'params', this.nowTemplate.property.params)
+                                    this.$set(nowTemplate.property, 'responseData', this.nowTemplate.property.responseData)
+                                } 
+                                this.$set(nowTemplate.property, 'shareApiId', this.nowTemplate.property.elementId)
+
+                            })
+                            this.objectUrlEval(property, changeData.path, true, changeData.value)
+                        };
+                        break;
+                    default:
+                        {
+                            this.objectUrlEval(property, changeData.path, true, changeData.value)
+                        }
+                }
+                if (property.componentsType === 'charts' || property.secondType === 'earth') {
+                    property.option = {
+                        ...property.option
+                    } // echarts图表没有使用deep watch 因为会导致无限watch造成卡顿 因此这里重新赋值option 触发watch
+                }
+                this.isEditing = false
+            },
+            changeBasic() {
+                const changeData = this.data.property
+                this.objectUrlEval(this.basicConfig, changeData.path, true, changeData.value)
+                switch (changeData.path) {
+                    case 'width':
+                        {
+                            this.$refs.body.style.width = changeData.value || 1920
+                        };
+                        break;
+                    case 'height':
+                        {
+                            this.$refs.body.style.height = changeData.value || 1080
+                        };
+                        break;
+                    case 'blur':
+                        {
+                            this.$refs.background.style.filter = `blur(${changeData.value}px)`
+                        };
+                        break;
+                    case 'waterMask':
+                        {
+                            this.addWaterMask('preview', changeData.value, document.body)
+                        };
+                        break;
+                    case 'SSEServer':
+                        {
+                            this.basicConfig.SSEServer = changeData.value
+                            this.sendMsg('update', 'basic', {
+                                SSEServer: changeData.value
+                            })
+                        };
+                        break;
+                }
+                // this.sendMsg('update', 'basic', { ...this.basicConfig })
+            },
+            updateBasic(data = {}) {
+                // 修改基础数据
+                let property = null
+                if (JSON.stringify(data) === '{}') {
+                    property = this.data && this.data.property || this.data.templateList
+                } else {
+                    property = data
+                }
+                if (property) {
+                    for (let p in property) {
+                        this.basicConfig[p] = property[p]
+                    }
+                }
+                const {
+                    width,
+                    height,
+                    blur,
+                    waterMask
+                } = this.basicConfig
+                this.$refs.body.style.width = width || 1920
+                this.$refs.body.style.height = height || 1080
+                if (blur) {
+                    this.$refs.background.style.filter = `blur(${blur}px)`
+                }
+                if (!this.basicConfig.bluePrintConfig) { // 初始化设置蓝图编辑器数据
+                    this.basicConfig.bluePrintConfig = {
+                        exportIdList: [],
+                        nodeData: {
+                            nodes: [],
+                            edges: []
+                        },
+                        allNodeConfig: {
+                            judge: [],
+                            interActive: [],
+                            component: [],
+                            dataHandler: [],
+                        }
+                    }
+                }
+                this.sendMsg('update', 'basic', {
+                    ...this.basicConfig
+                })
+                this.addWaterMask('preview', waterMask, document.body)
+                this.isEditing = false
+            },
+            nowTemplateIsLock(msg) {
+                // 判断当前选中的模板是否锁定
+                if (this.nowTemplate.isLock) {
+                    this.Toast(msg, 'warning')
+                    return true
+                } else {
+                    return false
+                }
+            },
+            deleteTemplate() {
+                // 弹出是否删除对话框
+                if (this.multiplyStatus) {
+                    this.onMultiplyOperate('delete')
+                } else {
+                    this.Toast('此操作将永久删除该组件, 是否继续？', 'willDelete')
+                }
+            },
+            confirmDelete(elementId, isUndo) {
+                // 删除了组件要给react发送删除的id 用于和图层对应
+                this.sendMsg('delete', null, {
+                    elementId
+                })
+                if (!isUndo) {
+                    // 撤回的命令就要不要保持在历史记录里了
+                    this.historyCommand.push({
+                        name: 'delete',
+                        id: elementId,
+                        originParams: JSON.parse(JSON.stringify(this.findTemplateForId(elementId)))
+                    })
+                }
+                this.deleteTemplateFroId(elementId)
+
+                let templateListLength = this.templateList.length
+                if (templateListLength > 0) {
+                    // 删除了组件要把当前的id换成上一个id避免id丢失导致页面没有选中的情况
+                    this.nowId = this.templateList[templateListLength - 1].property.elementId
+                } else {
+                    this.nowId = null // 全部删除 当前id置为null
+                }
+                // 删除了组件要把组件的蓝图编辑配置删除
+                const {
+                    nodeData,
+                    exportIdList,
+                    allNodeConfig
+                } = this.basicConfig.bluePrintConfig
+                const {
+                    nodes,
+                    edges
+                } = nodeData
+                this.basicConfig.bluePrintConfig.nodeData.nodes = nodes.filter(item => {
+                    return item.id !== elementId
+                })
+                this.basicConfig.bluePrintConfig.nodeData.edges = edges.filter(item => {
+                    return item.source !== elementId
+                }).filter(item => {
+                    return item.target !== elementId
+                })
+                this.basicConfig.bluePrintConfig.exportIdList = exportIdList.filter(item => {
+                    return item.elementId !== elementId
+                })
+                for (let key in allNodeConfig) {
+                    this.basicConfig.bluePrintConfig.allNodeConfig[key] = allNodeConfig[key].filter(item => {
+                        return item.id !== elementId
+                    })
+                }
+                this.menuVisible = false
+                this.sendMsg('group', 'group', this.templateList)
+            },
+            zoomChange() {
+                // 改变缩放
+                this.$refs.body.style.willChange = 'transform'; // 优化动画 开启GPU加速
+                this.menuVisible = false
+                this.$refs.body.style.transform = `perspective(1px) scale(${this.zoom}) translatez(0)`
+                this.$refs.body.style.willChange = 'auto'; // 释放
+                this.addWaterMask(this.basicConfig.waterMask, '', document.body)
+            },
+            selectLnglat(data) {
+                this.nowTemplate.property.option.gltf && this.nowTemplate.property.option.gltf.push(data)
+            },
+            changeColor(data) {
+                // 图表一键换肤
+                const dataLength = data.length - 1
+                const find = (node) => {
+                    node.forEach(item => {
+                        if (item.property.type === 'group') {
+                            find(item.property.children)
+                        } else {
+                            const {
+                                elementId,
+                                type,
+                                option,
+                                componentsType
+                            } = item.property
+                            if (componentsType === 'border') return; // boder不换肤
+                            let originParams = []
+                            let nowParams = []
+                            if (type === 'area') {
+                                originParams = option.visualMap.inRange.color
+                                option.visualMap.inRange.color = data
+                                nowParams = data
+                            } else {
+                                if (option.color) {
+                                    originParams = option.color
+                                    option.color = data
+                                    nowParams = data
+                                } else {
+                                    // 没有color属性的组件 则遍历属性结尾为color的属性 并依次赋值???
+                                    let index = 0 // 颜色序号
+                                    Object.keys(option).map(props => {
+                                        if (props.substring(props.length - 5).toLowerCase() === 'color') {
+                                            originParams.push(option[props])
+                                            option[props] = data[index]
+                                            nowParams.push(data[index])
+                                            index++
+                                        }
+                                    })
+                                }
+                                if (option.series) {
+                                    option.series.forEach((ser, index) => {
+                                        ser.itemStyle.normal.color && ser.itemStyle.normal.color.colorStops.map((itemcolorStop, indexInner) => {
+                                            itemcolorStop.color = originParams[(index * 2) + indexInner] // 包含渐变色echarts
+                                        })
+                                    })
+                                }
+                            }
+                            this.historyCommand.push({
+                                name: 'changeColor',
+                                id: elementId,
+                                originParams,
+                                nowParams
+                            })
+                            item.isLoading = this.guid()
+                            // this.$forceUpdate()
+                        }
+
+                    })
+
+                }
+                find(this.templateList)
+            },
+            autoLayout(value) {
+                // 根据选择的布局对组件自动布局 
+                const data = value.value
+                value.templateListIndex.map(item => {
+                    const index = this.findIndexForId(item.elementId)
+                    const nowTemplate = this.templateList[index]
+                    const {
+                        width,
+                        height,
+                        left,
+                        top
+                    } = nowTemplate.property
+                    this.setValue(nowTemplate.property, 'width', data[item.index].width)
+                    this.setValue(nowTemplate.property, 'height', data[item.index].height)
+                    this.setValue(nowTemplate.property, 'top', data[item.index].top)
+                    this.setValue(nowTemplate.property, 'left', data[item.index].left)
+                    nowTemplate.isLoading = this.guid()
+                    // 记录下来
+                    this.historyCommand.push({
+                        name: 'move',
+                        id: item.elementId,
+                        originParams: {
+                            width,
+                            height,
+                            left,
+                            top
+                        },
+                        nowParams: {
+                            width: data[item.index].width,
+                            height: data[item.index].height,
+                            left: data[item.index].left,
+                            top: data[item.index].top
+                        }
+                    })
+                })
+            },
+            async deleteMultiple() {
+                await Promise.all(this.multiplyMoveList.map(async (item, index) => {
+                    const {
+                        property
+                    } = this.findTemplateForId(item)
+                    await this.confirmDelete(property.elementId);
+                }))
+                this.onMultiplyOperate('exit')
+            },
+            splitFunc(multiplyMoveList, type, type1) {
+                // multiplyMoveList为所有待操作的id数组 type 为宽高 type1 为上左
+                // 水平均分 取最小的left和最大的left减去最小left的宽度得到centerStepSize
+                // 求中间所有元素的宽度相加得到元素宽度之和 用centerStepSize减去宽度和除去中间元素的个数得到每个元素的间距
+                const leftList = []
+                const willMoveTemplateList = [] // 所有待移动的组件
+                multiplyMoveList.map(item => {
+                    willMoveTemplateList.push(this.findTemplateForId(item))
+                })
+                let centerTemplateWidth = 0 // 中间元素的宽度和
+                willMoveTemplateList.sort((a, b) => {
+                    return a.property[type1] - b.property[type1] // 待移动组件根据left排序
+                })
+                willMoveTemplateList.map((item, index) => {
+                    if (!(index == 0 || index == willMoveTemplateList.length - 1)) {
+                        centerTemplateWidth += item.property[type]
+                    }
+                    leftList.push(item.property[type1])
+                })
+
+                const minLeft = Math.min(...leftList)
+                const maxLeft = Math.max(...leftList)
+                let centerStepSize = 0
+                centerStepSize = maxLeft - minLeft - willMoveTemplateList[0].property[type] // 中间元素的step长度
+                const step = (centerStepSize - centerTemplateWidth) / (willMoveTemplateList.length - 1)
+                willMoveTemplateList.map((item, index) => {
+                    if (!(index == 0 || index == willMoveTemplateList.length - 1)) {
+                        this.setValue(item.property, type1, willMoveTemplateList[index - 1].property[type1] + willMoveTemplateList[index - 1].property[type] + step);
+                        setTimeout(() => {
+                            document.getElementById(`${item.property.elementId}chart-item`) && (document.getElementById(`${item.property.elementId}chart-item`).style.transition = 'none')
+                        }, 500);
+                    }
+                })
+            },
+            onMultiplyOperate(value) {
+                // 多选移动菜单栏选择的对齐方式
+                let isDelete = false
+                switch (value) {
+                    case 'exit':
+                        {
+                            // 退出多选
+                            this.nowId = null
+                            this.isCtrl = false
+                            window.parent.postMessage({
+                                command: 'blur'
+                            }, '*')
+                            this.multiplyMoveList = [];
+                            return;
+                        };
+                        break;
+                    case 'delete':
+                        {
+                            this.Toast('此操作将永久删除该组件, 是否继续？', 'willDeleteMultiple');
+                            return;
+                        };
+                        break;
+                    case 'horSplit':
+                        {
+                            this.splitFunc(this.multiplyMoveList, 'width', 'left')
+                        };
+                        break;
+                    case 'verSplit':
+                        {
+                            this.splitFunc(this.multiplyMoveList, 'height', 'top')
+
+                        };
+                        break;
+                }
+
+                const multiplySum = this.multiplyMoveList.length
+                this.multiplyMoveList.map(async (item, index) => {
+                    const {
+                        property
+                    } = this.findTemplateForId(item)
+                    if (property.elementId === this.nowTemplate.property.elementId && value !== 'horSplit' && value !== 'verSplit' && value !== 'delete' && value !== 'copy') return
+                    document.getElementById(`${property.elementId}chart-item`).style.transition = '0.5s'
+                    switch (value) {
+                        case 'left':
+                            this.setValue(property, 'left', this.nowTemplate.property.left);
+                            break;
+                        case 'top':
+                            this.setValue(property, 'top', this.nowTemplate.property.top);
+                            break;
+                        case 'right':
+                            this.setValue(property, 'left', this.nowTemplate.property.left + this.nowTemplate.property.width - property.width);
+                            break;
+                        case 'bottom':
+                            this.setValue(property, 'top', this.nowTemplate.property.top + this.nowTemplate.property.height - property.height);
+                            break;
+                        case 'hor':
+                            this.setValue(property, 'left', this.nowTemplate.property.left + this.nowTemplate.property.width / 2 - property.width / 2);
+                            break;
+                        case 'ver':
+                            this.setValue(property, 'top', this.nowTemplate.property.top + this.nowTemplate.property.height / 2 - property.height / 2);
+                            break;
+                        case 'copy':
+                            {
+                                this.copy(property)
+                            }
+                            break;
+                    }
+                    setTimeout(() => {
+                        document.getElementById(`${property.elementId}chart-item`) && (document.getElementById(`${property.elementId}chart-item`).style.transition = 'none')
+                    }, 500);
+                })
+                this.sendMsg('group', 'group', this.templateList)
+
+            },
+            htmlReverse(result) {
+                // 逆向工程 根据用户上传的html逆向成可编辑的组件
+                this.sendMsg('loading', null, {
+                    loading: true,
+                    loadingText: '正在加载模板中...'
+                })
+                this.basicConfig = JSON.parse(JSON.stringify(result.basicConfig))
+                this.nowWindowIndex = -1 // 先让桌面为负数 在让桌面为0 否则会因为nowWindowIndex没改变导致templateList的计算属性读缓存
+                const allTemplateList = result.templateList.map(all => {
+                    return all.map((item, index) => {
+                        if (item.property.originUrl) {
+                            item.property.url = item.property.originUrl // 如果下载的时候选择了自动获取 这里要还原为真实url
+                        }
+                        return {
+                            command: "append",
+                            componentsType: item.property.componentsType,
+                            isHorCenter: false,
+                            isHorizontal: false,
+                            isLoading: item.property.elementId,
+                            isVerCenter: false,
+                            isVertical: false,
+                            type: item.property.type,
+                            property: item.property,
+                            upIndex: index // index 即为upIndex
+                        }
+                    })
+                })
+                this.allTemplateList = allTemplateList
+                this.nowWindowIndex = 0
+                this.$nextTick(() => {
+                    this.initPage()
+                    this.updateBasic(this.basicConfig)
+                    // 判断页面是否存在tab组件 若存在tab组件则获取其绑定的值
+                    this.isHavetab()
+                })
+                this.sendMsg('loading', null, {
+                    loading: false,
+                    loadingText: '正在加载模板中...'
+                })
+            },
+            addWindow() {
+                // 新增桌面
+                const nowWindowLength = this.basicConfig.window.length
+                if (!this.allTemplateList[nowWindowLength]) {
+                    this.allTemplateList[nowWindowLength] = []
+                }
+                this.basicConfig.window.push(nowWindowLength)
+                this.nowWindowIndex = nowWindowLength
+                this.$nextTick(() => {
+                    this.$refs.carousel.setActiveItem(nowWindowLength) // 让carousel轮播到指定窗口
+                })
+            },
+            delWindow() {
+                // 删除桌面
+                // 先删除当前桌面的元素 再删除当前桌面
+                const nowWindowIndex = this.nowWindowIndex // 备份序号 因为删除会导致序号变为第零项
+                if (this.nowWindowIndex === 0) {
+                    this.Toast('无法删除第一页', 'warn');
+                    return;
+                }
+                this.templateList.map(item => {
+                    this.sendMsg('delete', null, {
+                        elementId: item.property.elementId
+                    })
+                })
+                this.allTemplateList.splice(this.nowWindowIndex, 1)
+                this.basicConfig.window.splice(this.nowWindowIndex, 1)
+                this.$nextTick(() => {
+                    this.$refs.carousel.setActiveItem(nowWindowIndex - 1) // 让carousel轮播到指定窗口
+                })
+            },
+            async autoBeautify(data) {
+                // 一键美化
+                this.sendMsg('loading', null, {
+                    loading: true,
+                    loadingText: '正在美化中'
+                })
+                let templateList = JSON.parse(JSON.stringify(this.templateList))
+                // 先删除之前的一键美化组件
+                templateList.forEach(item => {
+                    if (item.isAutoBeautify) {
+                        this.confirmDelete(item.property.elementId);
+                    }
+                })
+                const basicConfig = {
+                    "command": "append",
+                    isAutoBeautify: true,
+                    "property": {
+                        "title": "",
+                        "top": 0,
+                        "left": 0,
+                        "rotate": 0,
+                        "zIndex": 2,
+                        "animate": {
+                            "default": "slideInLeft",
+                            "option": [{
+                                "label": "bounce",
+                                "value": "bounce"
+                            }, {
+                                "label": "flash",
+                                "value": "flash"
+                            }, {
+                                "label": "pulse",
+                                "value": "pulse"
+                            }, {
+                                "label": "rubberBand",
+                                "value": "rubberBand"
+                            }, {
+                                "label": "swing",
+                                "value": "swing"
+                            }, {
+                                "label": "tada",
+                                "value": "tada"
+                            }, {
+                                "label": "wobble",
+                                "value": "wobble"
+                            }, {
+                                "label": "bounceIn",
+                                "value": "bounceIn"
+                            }, {
+                                "label": "bounceInDown",
+                                "value": "bounceInDown"
+                            }, {
+                                "label": "bounceInLeft",
+                                "value": "bounceInLeft"
+                            }, {
+                                "label": "bounceInRight",
+                                "value": "bounceInRight"
+                            }, {
+                                "label": "bounceInUp",
+                                "value": "bounceInUp"
+                            }, {
+                                "label": "fadeIn",
+                                "value": "fadeIn"
+                            }, {
+                                "label": "fadeInDown",
+                                "value": "fadeInDown"
+                            }, {
+                                "label": "fadeInDownBig",
+                                "value": "fadeInDownBig"
+                            }, {
+                                "label": "fadeInLeft",
+                                "value": "fadeInLeft"
+                            }, {
+                                "label": "fadeInLeftBig",
+                                "value": "fadeInLeftBig"
+                            }, {
+                                "label": "fadeInRight",
+                                "value": "fadeInRight"
+                            }, {
+                                "label": "fadeInRightBig",
+                                "value": "fadeInRightBig"
+                            }, {
+                                "label": "fadeInUp",
+                                "value": "fadeInUp"
+                            }, {
+                                "label": "fadeInUpBig",
+                                "value": "fadeInUpBig"
+                            }, {
+                                "label": "flip",
+                                "value": "flip"
+                            }, {
+                                "label": "flipInX",
+                                "value": "flipInX"
+                            }, {
+                                "label": "flipInY",
+                                "value": "flipInY"
+                            }, {
+                                "label": "rotateIn",
+                                "value": "rotateIn"
+                            }, {
+                                "label": "rotateInDownLeft",
+                                "value": "rotateInDownLeft"
+                            }, {
+                                "label": "rotateInDownRight",
+                                "value": "rotateInDownRight"
+                            }, {
+                                "label": "rotateInUpLeft",
+                                "value": "rotateInUpLeft"
+                            }, {
+                                "label": "rotateInUpRight",
+                                "value": "rotateInUpRight"
+                            }, {
+                                "label": "slideInDown",
+                                "value": "slideInDown"
+                            }, {
+                                "label": "slideInLeft",
+                                "value": "slideInLeft"
+                            }, {
+                                "label": "slideInRight",
+                                "value": "slideInRight"
+                            }, {
+                                "label": "rollIn",
+                                "value": "rollIn"
+                            }]
+                        },
+                        "backgroundColor": "transparent",
+                        "background": '',
+                        "isOpenAdvanced": false,
+                        "dataBindType": {
+                            "default": "json",
+                            "option": [{
+                                "label": "静态JSON",
+                                "value": "json"
+                            }, {
+                                "label": "API拉取",
+                                "value": "api"
+                            }, {
+                                "label": "SSE拉取",
+                                "value": "SSE"
+                            }]
+                        },
+                        "url": "",
+                        "params": "",
+                        "method": {
+                            "default": "get"
+                        },
+                        "responseData": {
+
+                        },
+                        "dataPath": [
+
+                        ],
+                        "refresh": 10,
+                        "debug": "",
+                        "dataConversionFunction": "",
+                        "staticJson": {
+
+                        },
+                        "SSEResponseData": {
+
+                        },
+                        "SSEDataPath": [
+
+                        ],
+                        "SSEDataConversionFunction": "",
+                        "dataIsAdd": ""
+                    }
+                }
+                this.templateList.forEach(async (item, index) => {
+                    if (item.property.type === 'group') return; // 成组的组件不美化
+                    const {
+                        width,
+                        height,
+                        left,
+                        top,
+                        elementId,
+                        componentsType,
+                        type
+                    } = item.property
+                    if (data.exclude.includes(componentsType) || data.exclude.includes(type)) return; // 排除的元素
+                    const groupList = [] // 成组的列表
+                    if (data.isTitle) {
+                        // 给组件美化加标题
+                        const text = {
+                            data: {
+                                ...JSON.parse(JSON.stringify(basicConfig)),
+                                ... {
+                                    type: "text",
+                                    "componentsType": "element",
+                                }
+                            }
+                        }
+                        text.data.property.width = 150
+                        text.data.property.height = 100
+                        text.data.property.zIndex = 3
+                        text.data.property.type = text.data.type
+                        text.data.property.componentsType = text.data.componentsType
+                        text.data.property.elementId = this.guid()
+                        text.data.property.option = {
+                            selectPosition: {
+                                default: 'center',
+                                option: [{
+                                    label: '靠左',
+                                    value: 'flex-start'
+                                }, {
+                                    label: '居中',
+                                    value: 'center'
+                                }, {
+                                    label: '靠右',
+                                    value: 'flex-end'
+                                }]
+                            },
+                            "data": "标题文本",
+                            "fontStyle": "normal",
+                            "fontSize": data.fontSize,
+                            "fontWeight": 600,
+                            "color": data.fontColor,
+                            "selectFontFamily": {
+                                "default": "Microsoft YaHei",
+                                "option": [{
+                                    "label": "微软雅黑",
+                                    "value": "Microsof tYaHei"
+                                }, {
+                                    "label": "FZHZGBJW",
+                                    "value": "FZHZGBJW"
+                                }, {
+                                    "label": "楷体",
+                                    "value": "楷体"
+                                }, {
+                                    "label": "黑体",
+                                    "value": "黑体"
+                                }]
+                            },
+                            "isHref": false,
+                            "href": "http://",
+                            "target": ""
+                        }
+                        let textLeft = 0
+                        switch (data.titlePosition) {
+                            case 'flex-start':
+                                {
+                                    textLeft = item.property.left
+                                };
+                                break;
+                            case 'flex-end':
+                                {
+                                    textLeft = item.property.left + item.property.width - data.padding * 2 - text.data.property.width / 2
+                                };
+                                break;
+                            case 'center':
+                                {
+                                    textLeft = item.property.left + (item.property.width) / 2 - text.data.property.width / 2
+                                };
+                                break;
+                        }
+                        text.data.property.top = item.property.top
+                        text.data.property.left = textLeft
+                        this.templateList.push(text.data)
+                        groupList.push(text.data.property.elementId)
+                        this.sendMsg('loading', null, {
+                            loading: true,
+                            loadingText: '正在增加标题'
+                        })
+
+                        // 在组件旁边添加的boder和组件成组
+                        this.$nextTick(() => {
+                            this.enableDrag(text.data); // 让元素可拖拽
+                        })
+                    }
+                    if (data.isLine && data.isTitle) {
+                        // 给组件美化加标题下划线
+                        const decoration = {
+                            data: {
+                                ...JSON.parse(JSON.stringify(basicConfig)),
+                                ... {
+                                    type: `decoration${data.decorationType}`,
+                                    "componentsType": "decoration",
+                                }
+                            }
+                        }
+                        decoration.data.property.option = {
+                            "borderColor": data.borderColor,
+                            "border1Color": data.borderColor
+                        }
+                        decoration.data.property.width = item.property.width - data.padding * 2
+                        decoration.data.property.height = data.padding * 2
+                        decoration.data.property.top = item.property.top + data.padding
+                        decoration.data.property.left = item.property.left + data.padding
+                        decoration.data.property.zIndex = 1
+                        decoration.data.property.type = decoration.data.type
+                        decoration.data.property.componentsType = decoration.data.componentsType
+                        decoration.data.property.elementId = this.guid()
+                        this.templateList.push(decoration.data)
+                        groupList.push(decoration.data.property.elementId)
+                        this.sendMsg('loading', null, {
+                            loading: true,
+                            loadingText: '正在增加下划线'
+                        })
+
+                        this.$nextTick(() => {
+                            this.enableDrag(decoration.data);
+                        })
+                    }
+                    // 给组件美化加边框
+                    const border = {
+                        data: {
+                            ...JSON.parse(JSON.stringify(basicConfig)),
+                            ... {
+                                type: `border${data.borderType}`,
+                                "componentsType": "border",
+                            }
+                        }
+                    }
+                    border.data.property.option = {
+                        "borderColor": "",
+                        "title": "边框标题",
+                        "titleWidth": 250,
+                        "border1Color": "",
+                        "backgroundColor": "transparent"
+                    }
+                    if (data.borderType > 14) {
+                        border.data.property.option.borderColor = "#1296db" // 大于14的boder需要手动添加颜色
+                    }
+                    // border.data.property.width = item.property.width + data.padding * 2
+                    // border.data.property.height = item.property.height + data.padding * 2 + (data.isTitle ? 50 : 0) 
+                    border.data.property.width = item.property.width
+                    border.data.property.height = item.property.height
+                    border.data.property.top = item.property.top
+                    border.data.property.left = item.property.left
+                    border.data.property.zIndex = 1
+                    border.data.property.type = border.data.type
+                    border.data.property.componentsType = border.data.componentsType
+                    border.data.property.elementId = this.guid()
+                    this.templateList.push(border.data)
+                    groupList.push(border.data.property.elementId)
+                    groupList.push(elementId)
+                    this.sendMsg('loading', null, {
+                        loading: true,
+                        loadingText: '正在增加边框'
+                    })
+                    this.$nextTick(() => {
+                        this.enableDrag(border.data); // 让元素可拖拽
+                        this.group(groupList, false)
+
+                    })
+                    this.setValue(item.property, 'width', item.property.width - data.padding * 2)
+                    this.setValue(item.property, 'height', item.property.height - data.padding * 2)
+                    this.setValue(item.property, 'left', item.property.left + data.padding)
+                    this.setValue(item.property, 'top', item.property.top + (data.isTitle ? 2 * data.padding : data.padding))
+                    this.sendMsg('loading', null, {
+                        loading: true,
+                        loadingText: '正在更新组件'
+                    })
+                    this.$nextTick(() => {
+                        item.isLoading = this.guid()
+                        this.$forceUpdate()
+                    })
+                })
+                this.sendMsg('loading', null, {
+                    loading: false
+                })
+            },
+            setBluePrintConfig(bluePrintConfig) {
+                // 清空所有导出蓝图组件的bluePrintConfig 
+                this.basicConfig.bluePrintConfig.exportIdList.forEach(item => {
+                    const nowTemplate = this.findTemplateForId(item.elementId)
+                    if (!nowTemplate) return;
+                    nowTemplate.property.bluePrintConfig = {}
+                })
+                bluePrintConfig.forEach(item => {
+                    const nowTemplate = this.findTemplateForId(item.id)
+                    if (!nowTemplate) return;
+                    nowTemplate.property.bluePrintConfig = item
+                })
+
+
+            },
+            receiveMessage(event) {
+                // 我们能相信信息的发送者吗?  (也许这个发送者和我们最初打开的不是同一个页面).
+                // event.source 是我们通过window.open打开的弹出页面 popup
+                // event.data 是 popup发送给当前页面的消息
+                // 接受的主要参数,依次为:指令,类型,数据
+                this.command = event.data.command
+                this.data = event.data
+                const id = this.guid(); // 随机生成组件的id
+                switch (this.command) {
+                    case 'append': //新增元素
+                        if (event.data.property && event.data.property.zIndex === undefined) {
+                            event.data.property.zIndex = this.templateList.length + 2 // 默认为当前组件个数加+2,每次新增组件zIndex都加一 防止新增的在底部选不中
+                        }
+                        event.data.property.elementId = id // 保存id 
+                        if (event.data.componentsType !== 'private') {
+                            event.data.property.background = '' // 初始化组件的背景图片属性
+                        }
+                        event.data.property.type = event.data.type // 保存一份到property 预览时使用
+                        event.data.property.secondType = event.data.secondType // 保存一份到property 预览时使用
+                        event.data.property.typeName = event.data.typeName // 保存一份到property 预览时使用
+                        event.data.property.componentsType = event.data.componentsType // 保存一份到property 预览时使用
+                        this.$set(event.data, 'isLoading', null) // 初始化设置isLoading 使用set 防止属性不是响应式
+                        this.templateList.push(event.data)
+                        this.nowId = id
+                        // this.nowTemplate = this.templateList[this.findIndexForId(id)]
+                        this.$nextTick(() => {
+                            this.enableDrag(this.nowTemplate); // 让元素可拖拽
+                            this.sendMsg('layerClick', event.data.type, event.data.property) // 让菜单栏切换到新增的图表
+                        });
+                        this.sendMsg('group', 'group', this.templateList)
+                        break;
+                    case 'update':
+                        if (event.data.type === 'basic') {
+                            // 大屏基础菜单修改
+                            this.changeBasic()
+                            if (event.data.property.path === 'autoBeautify') {
+                                this.autoBeautify(event.data.property.value)
+                            }
+                        } else {
+                            this.updateTemplate()
+                        }
+                        this.sendMsg('group', 'group', this.templateList)
+                        break;
+                    case 'updateApiBind':
+                      
+                            this.nowTemplate.property.SSEDataPath = event.data.property
+                            this.clearData(this.nowTemplate.property)
+                            this.SSEBind()
+                            this.sendMsg('update', this.nowTemplate.type, {
+                                SSEDataPath: event.data.property
+                            })
+                        break;
+                    case 'preview':
+                        this.save(); // 预览
+                        break;
+                    case 'download':
+                        this.readHTML(false); // 下载
+                        break;
+                    case 'save':
+                        this.saveTemplate('save'); // 保存模板
+                        break;
+                    case 'savePrivate':
+                        this.saveTemplate('savePrivate'); // 保存私有模板
+                        break;
+                    case 'init':
+                        if (event.data && event.data.templateList) {
+                            const templateList = event.data.templateList.templateList.length > 0 ? [...event.data.templateList.templateList] : []
+                            const tempData = []
+                            templateList.map(item => {
+                                item.extend.backgroundId = item.backgroundId; // 保存一份backgroundId 在组件上传背景图后 保存时需要传此id 后端可以让组件id和背景图进行关联
+                                const upIndex = item.extend.upIndex || 0 // 获取保存时的upIndex 即所处的桌面序号
+                                if (!this.allTemplateList[upIndex]) {
+                                    this.allTemplateList[upIndex] = []
+                                }
+                                this.allTemplateList[upIndex].push(item.extend)
+                            })
+                            this.nowWindowIndex = 0
+                            delete event.data.templateList.templateList
+                            this.basicConfig = {
+                                ...event.data.templateList
+                            }
+                            if (!this.basicConfig.window) {
+                                this.basicConfig.window = []
+                            }
+
+                            this.$nextTick(() => {
+                                this.initPage(); // 首次加载初始化模板
+                                this.updateBasic()
+                                this.sendMsg('group', 'group', this.templateList)
+                                // 判断页面是否存在tab组件 若存在tab组件则获取其绑定的值
+                                this.isHavetab()
+                            })
+
+                        }
+                        break;
+                    case 'upload':
+                        this.sendMsg('loading', null, {
+                            loading: true,
+                            loadingText: '正在上传图片'
+                        })
+                        if (this.nowId !== null) {
+                            // 有选中的组件, 则是上传的组件的图片
+                            const nowTemplateId = this.nowTemplate.property.elementId
+                            const nowTemplateBak = this.findTemplateForId(nowTemplateId, this.templateList) // 备份当前换背景的组件 防止nowTemplate切换导致换错组件
+                            if (nowTemplateBak.componentsType !== 'private') {
+                                // 私有组件不参与换背景
+                                this.$set(nowTemplateBak.property, 'background', event.data.property.data.value) // 用set让background可监听改变
+                                nowTemplateBak.backgroundId = event.data.property.data.id
+                                // set也无法渲染数据? 可能是嵌套过深的问题? 用forceUpdate强制刷新重新渲染
+                                this.$forceUpdate()
+                            }
+
+                        } else {
+                            // 上传的全局的背景图片
+                            this.$set(this.basicConfig, 'background', event.data.property.data.value) // 用set让background可监听改变
+                            this.basicConfig.backgroundId = event.data.property.data.id
+                            // this.appendImg() // 上传背景图
+                        }
+                        // 图片上传完成 关闭loading
+                        this.sendMsg('loading', null, {
+                            loading: false,
+                            loadingText: '正在上传图片'
+                        })
+                        break;
+                    case 'layerClickGroup':
+                        {
+                            this.nowGroupId = event.data.property.groupId
+                            this.nowId = null
+                        };
+                        break;
+                    case 'layerClick':
+                        const {
+                            selectKeys
+                        } = event.data.property
+                        // this.nowWindowIndex = this.findWindowIndexForId(elementId) // 如果图层显示所有组件 则放开此注释 看后续需求
+                        // this.$refs.carousel.setActiveItem(this.nowWindowIndex) // 让carousel轮播到指定窗口
+                        if (selectKeys.length > 1) {
+                            this.$set(this, 'multiplyMoveList', selectKeys)
+                        } else if (selectKeys[0]) {
+                            this.clickTemplate(selectKeys[0])
+                            this.sendMsg('layerClick', this.nowTemplate.property.type, this.nowTemplate.property) // 不是多选状态下 
+                        }
+                        break;
+                    case 'zoomChange':
+                        // 改变缩放值
+                        this.zoom = event.data.property / 100
+                        this.zoomChange();
+                        break;
+                    case 'delete':
+                        // 确定删除
+                        this.confirmDelete(this.nowId);
+                        break;
+                    case 'deleteMultiple':
+                        this.deleteMultiple();
+                        break;
+                    case 'undo':
+                        this.undo();
+                        break;
+                    case 'redo':
+                        this.redo();
+                        break;
+                    case 'selectLnglat':
+                        this.selectLnglat(event.data.property);
+                        break;
+                    // case 'link':
+                    //   this.linkTemplate(event.data.property); break;
+                    case 'changeColor':
+                        this.changeColor(event.data.property);
+                        break;
+                    case 'onMenuClick':
+                        const {
+                            type,
+                            selectElementId
+                        } = event.data.property
+                        switch (type) {
+                            case 'lock':
+                                this.lockTemplate(null, typeof selectElementId === 'object' ? selectElementId[0] : selectElementId, true);
+                                break;
+                            case 'unLock':
+                                this.lockTemplate(null, typeof selectElementId === 'object' ? selectElementId[0] : selectElementId, false);
+                                break;
+                            case 'up':
+                                this.moveUp();
+                                break;
+                            case 'down':
+                                this.moveDown();
+                                break;
+                            case 'setLow':
+                                this.setLow();
+                                break;
+                            case 'sticky':
+                                this.sticky();
+                                break;
+                            case 'delete':
+                                {
+                                    if (selectElementId.length > 1) { // 选中的元素
+                                        this.onMultiplyOperate('delete')
+                                    } else {
+                                        this.deleteTemplate();
+                                    }
+                                }
+                                break;
+                            case 'copy':
+                                {
+                                    if (selectElementId.length > 1) {
+                                        this.onMultiplyOperate('copy')
+                                    } else {
+                                        this.copy(this.nowTemplate.property);
+                                    }
+                                }
+                                break;
+                            case 'group':
+                                this.group(this.multiplyMoveList);
+                                break;
+                            case 'cannelGroup':
+                                this.cannelGroup();
+                                break;
+                        };
+                        break;
+                    case 'autoLayout':
+                        this.autoLayout(event.data.property);
+                        break;
+                    case 'multiply':
+                        this.onMultiplyOperate(event.data.property);
+                        break;
+                    case 'conversionFunction':
+                      
+                            this.nowTemplate.property.SSEDataConversionFunction = event.data.property
+                            this.sendMsg('update', this.nowTemplate.type, {
+                                SSEDataConversionFunction: event.data.property
+                            })
+                            this.clearData(this.nowTemplate.property)
+                            this.SSEBind()
+                        break;
+                    case 'share':
+                        this.shareData = event.data.property
+                        this.readHTML(false); // 下载
+                        break;
+                    case 'htmlReverse':
+                        this.htmlReverse(event.data.property); // 下载
+                        break;
+                    case 'addWindow':
+                        this.addWindow() // 新增桌面
+                        break;
+                    case 'delWindow':
+                        this.delWindow() // 删除桌面
+                        break;
+                    case 'updateLayer':
+                        // templateId 待移动的组件id  groupId 要移动到的组id  targetId 拖拽到目标id
+                        const {
+                            templateId,
+                            groupId,
+                            targetId
+                        } = event.data.property
+                        const moveTemplate = this.findTemplateForId(templateId)
+                        const targetTempalte = this.findTemplateForId(targetId)
+                        const nowGroupTemplate = this.findGroupForId(groupId)
+                        moveTemplate.property.zIndex = moveTemplate.property.zIndex > targetTempalte.property.zIndex ? targetTempalte.property.zIndex - 1 : targetTempalte.property.zIndex + 1
+                        if (groupId) {
+                            // 先获取当前组件的真实距离
+                            // 再获取要加入的组的真实距离
+                            // 两者相减得到当前组件在要加入的组的距离
+                            const realProperty = this.getTemplatePropertyInGroup(moveTemplate, nowGroupTemplate) // 获取当前组件基于nowGroupTemplate的相对属性 left top 保证成组之后位置不变
+                            moveTemplate.property.left = realProperty.left
+                            moveTemplate.property.top = realProperty.top
+                            moveTemplate.property.groupId = groupId // 当前组的id
+                            // 如果moveTemplate的zindex 大 将标明下移 否则上移
+                            this.deleteTemplateFroId(moveTemplate.property.elementId, false); // 将旧的组件删除
+                            nowGroupTemplate.property.children.push(moveTemplate) // 添加到要移动的组
+                        } else {
+                            if (moveTemplate.property.groupId) {
+                                // 获取待移动组件所属的组
+                                const movewGroup = this.findGroupForId(moveTemplate.property.groupId)
+                                //  获取带移动组的父组所有属性之和
+                                const realProperty = this.getParentGroupProperty(movewGroup)
+                                moveTemplate.property.left += realProperty.left
+                                moveTemplate.property.top += realProperty.top
+                                moveTemplate.property.groupId = null // 当前组的id
+                            }
+
+                            this.deleteTemplateFroId(moveTemplate.property.elementId, false); // 将旧的组件删除
+                            this.templateList.push(moveTemplate)
+                        }
+
+                        this.$nextTick(() => {
+                            this.enableDrag(moveTemplate) // 让组件可拖拽
+                            groupId && this.refreshGroup(nowGroupTemplate) // 属性
+                            this.sendMsg('group', 'group', this.templateList) // 更新图层
+                        })
+                        break;
+                    case 'bluePrint':
+                        {
+                            // 更新了蓝图配置
+                            const {
+                                analysisData,
+                                nodeData,
+                                allNodeConfig
+                            } = event.data.property.value
+
+                            this.basicConfig.bluePrintConfig.nodeData = nodeData // 全局基础配置保存蓝图nodeData  方便再次进入蓝图直接绘制数据
+                            this.basicConfig.bluePrintConfig.allNodeConfig = allNodeConfig // 全局基础配置保存蓝图nodeData  方便再次进入蓝图直接绘制数据
+                            this.setBluePrintConfig(analysisData)
+                        };
+                        break;
+                    case 'openBluePrint':
+                        {
+                            this.sendMsg('exportBluePrint', 'bluePrint', this.basicConfig.bluePrintConfig)
+                        };
+                        break;
+                    case 'blur':
+                        {
+                            this.nowId = null
+                            this.isCtrl = false
+                            this.multiplyMoveList = []
+                        }
+                }
+            }
+
+        }
+    })
+</script>
+
+</html>

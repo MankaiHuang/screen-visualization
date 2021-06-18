@@ -1,0 +1,57 @@
+.listNoHeader {
+  height: 100%;
+  overflow: hidden;
+}
+.listNoHeader p {
+  position: relative;
+  /* text-align: center; */
+  /* float: left; */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  /* padding: 0 10px; */
+}
+
+.listNoHeader-table-body {
+  transition: 0.5s ease;
+}
+.listNoHeader-table-body li p {
+  line-height: 400%;
+}
+
+.listNoHeader-table-body li i {
+  width: 30px;
+  margin-right: 5px;
+}
+.listNoHeader-table-body li > .p0 {
+  flex: 0.8;
+  color: #3eddff;
+  font-size: 24px;
+  text-align: center;
+}
+.listNoHeader-table-body li > .p1 {
+  flex: 5;
+}
+.listNoHeader-table-body li > .p2 {
+  flex: 1;
+}
+.listNoHeader-table-body li > .p3 {
+  flex: 1;
+}
+.listNoHeader-table-body li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  height: 20%;
+  max-height: 100px;
+  background: url(../../../iframe/image/listNoHeaderBg.png) center no-repeat;
+  background-size: 95% 80%;
+  transition: 0.5s;
+}
+.listNoHeader-table-body li.active {
+  line-height: 100px;
+  background: url(../../../iframe/image/listNoHeaderActive.png) no-repeat;
+  background-position-y: 14px;
+  background-size: 100% 80% !important;
+}

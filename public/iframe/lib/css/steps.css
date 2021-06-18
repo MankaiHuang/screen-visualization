@@ -1,0 +1,17 @@
+.steps{
+  display: flex;
+  flex-wrap: wrap;
+}
+.steps>.el-step {
+  min-height: 100px;
+}
+.el-steps:nth-last-of-type(1) .el-step__description{
+  padding-right: 10%;
+}
+
+.ellipses {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}

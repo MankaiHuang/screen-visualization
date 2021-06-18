@@ -1,0 +1,37 @@
+.funnelTop{
+  display: flex;
+  flex-direction: row;
+}
+.funnelTop img{
+  width: 40%;
+  height: 100%;
+}
+.funnelTopUl{
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  height: 100%;
+}
+.funnelTopUl li{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 33%;
+}
+.funnelTopUl li>p,.funnelTopUl li>div{
+  flex: 1;
+  padding: 20px;
+  /* border-top: ; */
+}
+.funnelTopUl li>div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.funnelTopUl li>div>p:nth-of-type(2){
+  width: 100%;
+}
+.funnelTopUl li>p:nth-of-type(1){
+ margin-top: 30px;
+}

@@ -1,0 +1,39 @@
+.sigleListContent{
+  overflow: hidden;
+}
+.sigleList{
+  transition: 1s;
+ }
+.sigleList>li {
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ padding: 20px;
+}
+.sigleList>li>span{
+  width: 60px;
+  height: 28px;
+  line-height: 28px;
+  border-radius: 2px;
+  text-align: center;
+  background: #E40061;
+  flex:1;
+  max-width: 60px;
+ }
+ .sigleList>li>h3{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  flex:5;
+  margin-left: 10px;
+  margin-right: 10px;
+ }
+ .sigleList>li:nth-of-type(3n+2) span {
+  background: #E19104;
+}
+
+.sigleList>li:nth-of-type(3n) span {
+  background: #1DBF5E;
+}
+

@@ -1,0 +1,364 @@
+.flashCloud-container {
+  width: 100%;
+  height: 100%;
+}
+.flashCloud-container .sn-content {
+  display: flex;
+  justify-content: center;
+}
+.flashCloud-container .cloud {
+  top: 0;
+  left: 55px;
+  width: 80%;
+  height: 100%;
+}
+.flashCloud-container .pd-main-left {
+  position: relative;
+  width: 310px;
+  height: 335px;
+}
+.flashCloud-container .pd-main-left .yun-container {
+  width: 100%;
+  height: 100%;
+  background: url(../../../iframe/image/flashCloud/pd-main-left-bg-2.png) no-repeat 50% 50%;
+}
+.flashCloud-container .pd-main-left .yun-container > div:nth-child(2) {
+  bottom: 0;
+  left: 51px;
+  height: 90%;
+  -webkit-animation-duration: 2s;
+  -moz-animation-duration: 2s;
+  -o-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-delay: 1.5s;
+  -moz-animation-delay: 1.5s;
+  -o-animation-delay: 1.5s;
+  animation-delay: 1.5s;
+}
+.flashCloud-container .pd-main-left .yun-container > div:nth-child(3) {
+  bottom: 32px;
+  left: 89px;
+  height: 100%;
+  -webkit-animation-duration: 3s;
+  -moz-animation-duration: 3s;
+  -o-animation-duration: 3s;
+  animation-duration: 3s;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+.flashCloud-container .pd-main-left .yun-container > div:nth-child(4) {
+  bottom: 3px;
+  left: 179px;
+  height: 100%;
+  -webkit-filter: hue-rotate(180deg);
+  filter: hue-rotate(180deg);
+  -webkit-animation-duration: 2.5s;
+  -moz-animation-duration: 2.5s;
+  -o-animation-duration: 2.5s;
+  animation-duration: 2.5s;
+  -webkit-animation-delay: 1s;
+  -moz-animation-delay: 1s;
+  -o-animation-delay: 1s;
+  animation-delay: 1s;
+}
+.flashCloud-container .pd-main-left .yun-container > div:nth-child(5) {
+  bottom: 42px;
+  left: 229px;
+  height: 90%;
+  -webkit-animation-duration: 2s;
+  -moz-animation-duration: 2s;
+  -o-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-delay: 2s;
+  -moz-animation-delay: 2s;
+  -o-animation-delay: 2s;
+  animation-delay: 2s;
+}
+.flashCloud-container .pd-main-left .yun-container > div:nth-child(6) {
+  right: 48px;
+  bottom: 11px;
+  height: 100%;
+  -webkit-animation-duration: 2.5s;
+  -moz-animation-duration: 2.5s;
+  -o-animation-duration: 2.5s;
+  animation-duration: 2.5s;
+  -webkit-animation-delay: 0.5s;
+  -moz-animation-delay: 0.5s;
+  -o-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+}
+.flashCloud-container .pd-main-left .yun-container > div:nth-child(7) {
+  right: 174px;
+  bottom: -22px;
+  height: 90%;
+  -webkit-filter: hue-rotate(180deg);
+  filter: hue-rotate(180deg);
+  -webkit-animation-duration: 3s;
+  -moz-animation-duration: 3s;
+  -o-animation-duration: 3s;
+  animation-duration: 3s;
+  -webkit-animation-delay: 2.5s;
+  -moz-animation-delay: 2.5s;
+  -o-animation-delay: 2.5s;
+  animation-delay: 2.5s;
+}
+.flashCloud-container .pd-main-left .yun-container > div:nth-child(8) {
+  right: 100px;
+  bottom: -22px;
+  height: 90%;
+  -webkit-animation-duration: 3s;
+  -moz-animation-duration: 3s;
+  -o-animation-duration: 3s;
+  animation-duration: 3s;
+  -webkit-animation-delay: 1.5s;
+  -moz-animation-delay: 1.5s;
+  -o-animation-delay: 1.5s;
+  animation-delay: 1.5s;
+}
+.flashCloud-container .pd-main-left .yun-container > div:nth-child(9) {
+  right: 220px;
+  bottom: -10px;
+  height: 100%;
+  -webkit-animation-duration: 2.5s;
+  -moz-animation-duration: 2.5s;
+  -o-animation-duration: 2.5s;
+  animation-duration: 2.5s;
+  -webkit-animation-delay: 2s;
+  -moz-animation-delay: 2s;
+  -o-animation-delay: 2s;
+  animation-delay: 2s;
+}
+.flashCloud-container .pd-main-left .yun-container > div:nth-child(10) {
+  right: 182px;
+  bottom: -41px;
+  height: 95%;
+  -webkit-animation-duration: 2s;
+  -moz-animation-duration: 2s;
+  -o-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-delay: 1s;
+  -moz-animation-delay: 1s;
+  -o-animation-delay: 1s;
+  animation-delay: 1s;
+}
+.flashCloud-container .pd-main-left .yun-container .yun-tree {
+  width: 100%;
+  height: 100%;
+  background: url(../../../iframe/image/flashCloud/pd-main-left-bg-tree.png) no-repeat 50% bottom;
+  mix-blend-mode: screen;
+}
+.flashCloud-container .pd-main-left .yun-container .line-fs {
+  position: absolute;
+  z-index: -1;
+  width: 14px;
+  height: 100%;
+  background-image: url(../../../iframe/image/flashCloud/line-fs.png);
+  background-repeat: no-repeat;
+  background-position: 50% 150%;
+  -webkit-animation: fs 3s cubic-bezier(1, 0, 0.6, 0.6) infinite;
+  -moz-animation: fs 3s cubic-bezier(1, 0, 0.6, 0.6) infinite;
+  -o-animation: fs 3s cubic-bezier(1, 0, 0.6, 0.6) infinite;
+  animation: fs 3s cubic-bezier(1, 0, 0.6, 0.6) infinite;
+}
+.flashCloud-container .pd-main-left .yun-text {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 2;
+  width: 318px;
+  height: 195px;
+  margin-left: -161px;
+}
+.flashCloud-container .pd-main-left .yun-text .span-flash {
+  color: #00f6ff;
+  font-size: 12px;
+  -webkit-animation-name: yun-flash;
+  -moz-animation-name: yun-flash;
+  -o-animation-name: yun-flash;
+  animation-name: yun-flash;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
+.flashCloud-container .pd-main-left .yun-text div {
+  position: absolute;
+  width: 70px;
+  height: 36px;
+  overflow: hidden;
+  color: #00f6ff;
+  line-height: 36px;
+  white-space: nowrap;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  word-break: break-all;
+  opacity: 0.8;
+}
+.flashCloud-container .pd-main-left .yun-text div span {
+  font-size: 12px;
+  cursor: pointer;
+}
+.flashCloud-container .pd-main-left .yun-text div:nth-child(1) {
+  top: 84px;
+  left: 26px;
+}
+.flashCloud-container .pd-main-left .yun-text div:nth-child(2) {
+  top: 13px;
+  left: 157px;
+}
+.flashCloud-container .pd-main-left .yun-text div:nth-child(3) {
+  top: 105px;
+  left: 35px;
+}
+.flashCloud-container .pd-main-left .yun-text div:nth-child(4) {
+  top: 38px;
+  left: 89px;
+}
+.flashCloud-container .pd-main-left .yun-text div:nth-child(5) {
+  top: 43px;
+  left: 178px;
+}
+.flashCloud-container .pd-main-left .yun-text div:nth-child(6) {
+  top: 76px;
+  left: 227px;
+}
+.flashCloud-container .pd-main-left .yun-text div:nth-child(7) {
+  top: 63px;
+  left: 66px;
+}
+.flashCloud-container .pd-main-left .yun-text div:nth-child(8) {
+  top: 156px;
+  left: 43px;
+}
+.flashCloud-container .pd-main-left .yun-text div:nth-child(9) {
+  top: 130px;
+  left: 16px;
+}
+.flashCloud-container .pd-main-left .yun-text div:nth-child(10) {
+  top: 93px;
+  left: 128px;
+}
+.flashCloud-container .pd-main-left .yun-text div:nth-child(11) {
+  top: 106px;
+  left: 241px;
+}
+.flashCloud-container .pd-main-left .yun-text div:nth-child(12) {
+  top: 121px;
+  left: 112px;
+}
+.flashCloud-container .pd-main-left .yun-text div:nth-child(13) {
+  top: 67px;
+  left: 153px;
+}
+.flashCloud-container .pd-main-left .yun-text div:nth-child(14) {
+  top: 157px;
+  left: 207px;
+}
+.flashCloud-container .pd-main-left .yun-text div:nth-child(15) {
+  top: 132px;
+  left: 206px;
+}
+.flashCloud-container .pd-main-left .yun-text div:nth-child(16) {
+  top: 150px;
+  left: 117px;
+}
+
+@-webkit-keyframes fs {
+  0% {
+    background-position: 50% 150%;
+  }
+  50% {
+    background-position: 50% -132%;
+  }
+  100% {
+    background-position: 50% -264%;
+    opacity: 0;
+  }
+}
+@-moz-keyframes fs {
+  0% {
+    background-position: 50% 150%;
+  }
+  50% {
+    background-position: 50% -132%;
+  }
+  100% {
+    background-position: 50% -264%;
+    opacity: 0;
+  }
+}
+@-o-keyframes fs {
+  0% {
+    background-position: 50% 150%;
+  }
+  50% {
+    background-position: 50% -132%;
+  }
+  100% {
+    background-position: 50% -264%;
+    opacity: 0;
+  }
+}
+@keyframes fs {
+  0% {
+    background-position: 50% 150%;
+  }
+  50% {
+    background-position: 50% -132%;
+  }
+  100% {
+    background-position: 50% -264%;
+    opacity: 0;
+  }
+}
+@-webkit-keyframes yun-flash {
+  from,
+  50%,
+  to {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
+@-moz-keyframes yun-flash {
+  from,
+  50%,
+  to {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
+@-o-keyframes yun-flash {
+  from,
+  50%,
+  to {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
+@keyframes yun-flash {
+  from,
+  50%,
+  to {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
