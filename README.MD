@@ -39,10 +39,11 @@
 
 yarn 安装依赖（npm 可能会出现问题）
 yarn dev (npm start) 启动项目
- **！！！注意！！！
- 在 public/iframe/preview.html 开启服务开启的地址并查看地址（建议使用 live server），获取地址后将找到/src/pages/Workspace/index.js 下的 iframeIp和iframeUrl，并修改地址。
- ** 
+
+ **！！！！！注意！！！！！**
+ **在 public/iframe/preview.html 开启服务开启的地址并查看地址（建议使用 live server），获取地址后将找到/src/pages/Workspace/index.js 下的 iframeIp和iframeUrl，并修改地址。**
+ 
 ```javascript
 const iframeIp = process.env.NODE_ENV == 'development' ? 'http://127.0.0.1:5500' : window.location.origin;
-const iframeUrl =process.env.NODE_ENV == 'development'  ? 'http://127.0.0.1:5500/public/iframe/preview.html' : './iframe/preview.html';
+const iframeUrl = process.env.NODE_ENV == 'development' ? 'http://127.0.0.1:5500/public/iframe/preview.html' : './iframe/preview.html';
 ```
